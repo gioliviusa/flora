@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLORA · Italian Restaurants & La Bottega</title>
+
+    <!-- Google Fonts + Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ----- RESET & BASE ----- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --flora-green: #2b5e3b;
+            --flora-green-light: #4a7c5a;
+            --flora-cream: #faf6f0;
+            --flora-warm: #f2ebe1;
+            --flora-terracotta: #d4836b;
+            --flora-gold: #c9a87c;
+            --flora-dark: #1e2a24;
+            --flora-text: #2d2d2d;
+            --flora-white: #ffffff;
+            --flora-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            --flora-radius: 32px;
+            --flora-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--flora-cream);
+            color: var(--flora-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- BUTTONS ----- */
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--flora-green);
+            color: var(--flora-white);
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: var(--flora-transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(43, 94, 59, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--flora-green-light);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(43, 94, 59, 0.35);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--flora-green);
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-size: 1rem;
+            border: 2px solid var(--flora-green);
+            transition: var(--flora-transition);
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background: var(--flora-green);
+            color: var(--flora-white);
+            transform: translateY(-4px);
+        }
+
+        /* ----- HEADER / NAV ----- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--flora-transition);
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            padding: 14px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--flora-white);
+            letter-spacing: -0.02em;
+            transition: var(--flora-transition);
+        }
+
+        header.scrolled .logo {
+            color: var(--flora-green);
+        }
+
+        .logo span {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--flora-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--flora-white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--flora-transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--flora-gold);
+            transition: var(--flora-transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--flora-dark);
+        }
+
+        .nav-cta {
+            background: var(--flora-gold) !important;
+            color: var(--flora-dark) !important;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            transition: var(--flora-transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--flora-white) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* Cart Icon in Header */
+        .cart-icon {
+            position: relative;
+            color: var(--flora-white);
+            font-size: 1.2rem;
+            transition: var(--flora-transition);
+            cursor: pointer;
+        }
+
+        header.scrolled .cart-icon {
+            color: var(--flora-dark);
+        }
+
+        .cart-icon .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -12px;
+            background: var(--flora-terracotta);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 30px;
+            min-width: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--flora-transition);
+        }
+
+        header.scrolled .cart-icon .cart-count {
+            border-color: var(--flora-white);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 2.5px;
+            background: var(--flora-white);
+            border-radius: 4px;
+            transition: var(--flora-transition);
+        }
+
+        header.scrolled .hamburger span {
+            background: var(--flora-dark);
+        }
+
+        /* ----- HERO ----- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(145deg, #1e3a2a 0%, #2b5e3b 100%);
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(201, 168, 124, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(212, 131, 107, 0.10) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            right: -10%;
+            top: 10%;
+            width: 70%;
+            height: 80%;
+            background: radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--flora-white);
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 em {
+            font-style: italic;
+            color: var(--flora-gold);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 480px;
+            margin-bottom: 36px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons .btn-outline {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: var(--flora-white);
+        }
+
+        .hero-buttons .btn-outline:hover {
+            border-color: var(--flora-white);
+            background: var(--flora-white);
+            color: var(--flora-green);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image .placeholder {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+            background: radial-gradient(circle at 30% 30%, rgba(201, 168, 124, 0.3), rgba(43, 94, 59, 0.6));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-image .placeholder i {
+            font-size: 10rem;
+            color: rgba(255, 255, 255, 0.10);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 60px;
+            color: var(--flora-gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* ----- SECTION TITLES ----- */
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--flora-terracotta);
+            margin-bottom: 12px;
+            background: rgba(212, 131, 107, 0.10);
+            padding: 4px 16px;
+            border-radius: 60px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--flora-terracotta);
+        }
+
+        .section-sub {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        /* ----- NEWS / HERO CARDS ----- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .news-card {
+            background: var(--flora-white);
+            border-radius: var(--flora-radius);
+            padding: 36px 32px 40px;
+            box-shadow: var(--flora-shadow);
+            transition: var(--flora-transition);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 72px rgba(0, 0, 0, 0.10);
+        }
+
+        .news-card .icon {
+            font-size: 2.2rem;
+            color: var(--flora-gold);
+            margin-bottom: 16px;
+        }
+
+        .news-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .news-card p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .news-card .card-link {
+            font-weight: 600;
+            color: var(--flora-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--flora-transition);
+        }
+
+        .news-card .card-link i {
+            transition: var(--flora-transition);
+        }
+
+        .news-card .card-link:hover i {
+            transform: translateX(6px);
+        }
+
+        /* ----- E-SHOP / PRODUCT GRID ----- */
+        .eshop {
+            background: var(--flora-warm);
+            padding: 80px 0;
+            margin: 40px 0;
+        }
+
+        .eshop-header {
+            margin-bottom: 48px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .product-card {
+            background: var(--flora-white);
+            border-radius: 24px;
+            padding: 24px 24px 32px;
+            box-shadow: var(--flora-shadow);
+            transition: var(--flora-transition);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            background: #e9e1d7;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .product-image.photo {
+            background: #e9e1d7;
+        }
+
+        .product-image.photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-image.photo::after {
+            content: none;
+        }
+
+        /* Plate Design Gradients */
+        .product-image[data-design="lemon"] {
+            background: radial-gradient(circle at 20% 30%, #fff9c4, #fdd835 60%, #f9a825 90%);
+        }
+        .product-image[data-design="lemon"]::after {
+            content: "🍋";
+            font-size: 4.5rem;
+            opacity: 0.9;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+        }
+
+        .product-image[data-design="olive"] {
+            background: radial-gradient(circle at 70% 40%, #dcedc8, #8bc34a 50%, #558b2f 90%);
+        }
+        .product-image[data-design="olive"]::after {
+            content: "🫒";
+            font-size: 4.5rem;
+            opacity: 0.9;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+        }
+
+        .product-image[data-design="vietri"] {
+            background: conic-gradient(from 0deg, #ffcc80, #4dd0e1, #ffcc80, #4dd0e1, #ffcc80);
+        }
+        .product-image[data-design="vietri"]::after {
+            content: "✦";
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image[data-design="tuscan"] {
+            background: radial-gradient(circle at 40% 60%, #ffccbc, #d84315 70%, #bf360c 95%);
+        }
+        .product-image[data-design="tuscan"]::after {
+            content: "☀️";
+            font-size: 4.5rem;
+            opacity: 0.9;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+        }
+
+        .product-image[data-design="rose"] {
+            background: radial-gradient(circle at 60% 30%, #f8bbd0, #ec407a 60%, #ad1457 90%);
+        }
+        .product-image[data-design="rose"]::after {
+            content: "🌹";
+            font-size: 4.5rem;
+            opacity: 0.9;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+        }
+
+        .product-image[data-design="navy"] {
+            background: radial-gradient(circle at 80% 20%, #bbdefb, #1a237e 70%, #0d0d3b 95%);
+        }
+        .product-image[data-design="navy"]::after {
+            content: "⚜️";
+            font-size: 4.5rem;
+            opacity: 0.9;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--flora-terracotta);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .product-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--flora-dark);
+        }
+
+        .product-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 12px;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--flora-green);
+            margin-bottom: 16px;
+        }
+
+        .btn-add-cart {
+            background: var(--flora-cream);
+            border: 2px solid var(--flora-green);
+            color: var(--flora-green);
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--flora-transition);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--flora-green);
+            color: var(--flora-white);
+            transform: scale(1.02);
+        }
+
+        .btn-add-cart:active {
+            transform: scale(0.95);
+        }
+
+        /* ----- SEASONAL ----- */
+        .seasonal {
+            padding: 80px 0;
+        }
+
+        .seasonal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 48px;
+            align-items: center;
+        }
+
+        .seasonal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .seasonal-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--flora-white);
+            padding: 16px 24px;
+            border-radius: 60px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: var(--flora-transition);
+            border: 1px solid transparent;
+        }
+
+        .seasonal-item:hover {
+            border-color: var(--flora-gold);
+            transform: translateX(8px);
+        }
+
+        .seasonal-item i {
+            font-size: 1.4rem;
+            color: var(--flora-terracotta);
+            width: 32px;
+        }
+
+        .seasonal-item strong {
+            font-weight: 600;
+            color: var(--flora-dark);
+        }
+
+        .seasonal-item span {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .seasonal-image {
+            background: linear-gradient(145deg, #f2ebe1, #e8ddd0);
+            border-radius: var(--flora-radius);
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: var(--flora-shadow);
+        }
+
+        .seasonal-image .placeholder-icon {
+            font-size: 5rem;
+            color: var(--flora-gold);
+            opacity: 0.4;
+        }
+
+        .seasonal-image p {
+            margin-top: 12px;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* ----- BOOKINGS ----- */
+        .bookings {
+            background: var(--flora-green);
+            padding: 80px 0;
+            color: var(--flora-white);
+            text-align: center;
+        }
+
+        .bookings h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .bookings p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+
+        .bookings .btn-primary {
+            background: var(--flora-gold);
+            color: var(--flora-dark);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+        }
+
+        .bookings .btn-primary:hover {
+            background: var(--flora-white);
+            transform: translateY(-4px);
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            background: var(--flora-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo {
+            color: var(--flora-white);
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            max-width: 320px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-col h4 {
+            color: var(--flora-white);
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul a {
+            transition: var(--flora-transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--flora-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.9rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--flora-transition);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-socials a:hover {
+            background: var(--flora-gold);
+            color: var(--flora-dark);
+            border-color: var(--flora-gold);
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image .placeholder {
+                max-width: 380px;
+            }
+
+            .seasonal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--flora-white);
+                flex-direction: column;
+                padding: 80px 32px 32px;
+                gap: 24px;
+                box-shadow: -20px 0 60px rgba(0, 0, 0, 0.10);
+                transition: var(--flora-transition);
+                align-items: flex-start;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links a {
+                color: var(--flora-dark) !important;
+                font-size: 1.1rem;
+            }
+
+            .nav-links a::after {
+                background: var(--flora-gold);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-image .placeholder {
+                max-width: 280px;
+            }
+
+            .hero-image .placeholder i {
+                font-size: 6rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-outline {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container nav-inner">
+            <a href="#" class="logo">FLORA <span>·</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#news">News</a></li>
+                <li><a href="#eshop">Bottega</a></li>
+                <li><a href="#seasonal">Seasonal</a></li>
+                <li><a href="#bookings" class="nav-cta">Book a table</a></li>
+            </ul>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-pattern"></div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-seedling" style="margin-right:8px;"></i> Since 2016
+                </div>
+                <h1>Italian restaurants <br />with <em>tanto amore</em></h1>
+                <p>
+                    FLORA brings the soul of Italy to your table — fresh pasta,
+                    sun‑ripened tomatoes, and the warmth of a family kitchen.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#bookings" class="btn-primary">Book a table</a>
+                    <a href="#seasonal" class="btn-outline">Explore the menu</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder">
+                    <i class="fas fa-leaf"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWS / SQUADRA ===== -->
+    <section class="container" id="news" style="padding: 80px 24px;">
+        <span class="section-label"><i class="fas fa-newspaper" style="margin-right:8px;"></i> News from the Squadra</span>
+        <h2 class="section-title">Fresh stories, <em>fresh pasta</em></h2>
+        <p class="section-sub">
+            From new openings to limited‑edition drops — here’s what’s blooming at FLORA.
+        </p>
+
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="icon"><i class="fas fa-birthday-cake"></i></div>
+                <h3>10 Years of FLORA</h3>
+                <p>
+                    10 years of laughter, first dates, big news shared, and unforgettable
+                    moments. From the whole squadra: <strong>GRAZIE MILLE</strong>.
+                </p>
+                <a href="#" class="card-link">Let's celebrate <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-card">
+                <div class="icon"><i class="fas fa-store"></i></div>
+                <h3>Our E‑shop is Live</h3>
+                <p>
+                    Our limited‑edition crockery finally landed! From Sicily to Umbria,
+                    bring home the ultimate Italian tablescape.
+                </p>
+                <a href="#eshop" class="card-link">Discover now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-card">
+                <div class="icon"><i class="fas fa-utensils"></i></div>
+                <h3>Spring has Sprung</h3>
+                <p>
+                    The sun’s out, and so is the burrata. Fresh antipasti, homemade
+                    pasta, and vanilla rice pudding with salted caramel.
+                </p>
+                <a href="#bookings" class="card-link">Secure your spot <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== E-SHOP / LA BOTTEGA ===== -->
+    <section class="eshop" id="eshop">
+        <div class="container">
+            <div class="eshop-header">
+                <span class="section-label"><i class="fas fa-shopping-bag" style="margin-right:8px;"></i> La Bottega</span>
+                <h2 class="section-title">Hand-painted <em>ceramics</em></h2>
+                <p class="section-sub">Bring the Italian sunshine to your table with our curated collection of artisanal plates. Each piece tells a story of tradition.</p>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image photo">
+                        <img src="fotos/WhatsApp%20Image%202026-06-26%20at%2011.34.32%20AM.jpeg" alt="Sorrento Lemon Plate" />
+                        <span class="product-tag">Best Seller</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Sorrento Lemon Plate</h4>
+                        <p>Majolica ceramic · 28cm</p>
+                        <div class="product-price">€48.00</div>
+                        <button class="btn-add-cart" data-name="Sorrento Lemon Plate" data-price="48.00">Add to cart</button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image" data-design="olive">
+                        <span class="product-tag">New</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Sicilian Olive Plate</h4>
+                        <p>Hand-painted · 32cm</p>
+                        <div class="product-price">€52.00</div>
+                        <button class="btn-add-cart" data-name="Sicilian Olive Plate" data-price="52.00">Add to cart</button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image" data-design="vietri">
+                        <span class="product-tag">Limited</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Vietri Geometric Plate</h4>
+                        <p>Ceramic · 30cm</p>
+                        <div class="product-price">€65.00</div>
+                        <button class="btn-add-cart" data-name="Vietri Geometric Plate" data-price="65.00">Add to cart</button>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image" data-design="tuscan">
+                        <span class="product-tag">Classic</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Tuscan Sun Plate</h4>
+                        <p>Terracotta · 26cm</p>
+                        <div class="product-price">€38.00</div>
+                        <button class="btn-add-cart" data-name="Tuscan Sun Plate" data-price="38.00">Add to cart</button>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image" data-design="rose">
+                        <span class="product-tag">New</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Raphael's Rose Plate</h4>
+                        <p>Fine porcelain · 27cm</p>
+                        <div class="product-price">€55.00</div>
+                        <button class="btn-add-cart" data-name="Raphael's Rose Plate" data-price="55.00">Add to cart</button>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image" data-design="navy">
+                        <span class="product-tag">Exclusive</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Navy & Gold Plate</h4>
+                        <p>Hand-decorated · 31cm</p>
+                        <div class="product-price">€72.00</div>
+                        <button class="btn-add-cart" data-name="Navy & Gold Plate" data-price="72.00">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEASONAL ===== -->
+    <section class="container seasonal" id="seasonal">
+        <span class="section-label"><i class="fas fa-seedling" style="margin-right:8px;"></i> In season</span>
+        <h2 class="section-title">Spring has <em>sprouted</em></h2>
+        <p class="section-sub">
+            Sun‑kissed flavours, made‑to‑order with love. Here’s what’s fresh right now.
+        </p>
+
+        <div class="seasonal-grid">
+            <div class="seasonal-list">
+                <div class="seasonal-item">
+                    <i class="fas fa-cheese"></i>
+                    <div><strong>Piccola Caprese</strong> <span>· mozzarella di bufala, datterini tomatoes, basil pesto</span></div>
+                </div>
+                <div class="seasonal-item">
+                    <i class="fas fa-fish"></i>
+                    <div><strong>Crispy Fried Squid</strong> <span>· tangy lemon yoghurt, fresh herbs</span></div>
+                </div>
+                <div class="seasonal-item">
+                    <i class="fas fa-pasta"></i>
+                    <div><strong>Pasta alla Norma</strong> <span>· San Marzano DOP tomato, Sicilian eggplant</span></div>
+                </div>
+                <div class="seasonal-item">
+                    <i class="fas fa-ice-cream"></i>
+                    <div><strong>Vanilla Rice Pudding</strong> <span>· salted caramel, toasted hazelnuts</span></div>
+                </div>
+            </div>
+            <div class="seasonal-image">
+                <div class="placeholder-icon"><i class="fas fa-leaf"></i></div>
+                <p>Made fresh daily · Sourced from Italy</p>
+                <a href="#" style="display:inline-block;margin-top:20px;font-weight:600;color:var(--flora-green);">
+                    View full menu <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOOKINGS ===== -->
+    <section class="bookings" id="bookings">
+        <div class="container">
+            <h2>We're taking <em style="color:var(--flora-gold);">bookings!</em></h2>
+            <p>
+                Amici belli, all our restaurants are now open for reservations.
+                Whether it’s a big dinner with your crew, a first date, or a family
+                reunion — come and see us.
+            </p>
+            <a href="#" class="btn-primary">Book a table</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">FLORA <span>·</span></a>
+                    <p>
+                        Italian restaurants con tanto amore. Fresh pasta, handmade with
+                        passion, served with a smile.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Restaurants</h4>
+                    <ul>
+                        <li><a href="#">London</a></li>
+                        <li><a href="#">Paris</a></li>
+                        <li><a href="#">Berlin</a></li>
+                        <li><a href="#">Milan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 FLORA · All rights reserved</span>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ----- HEADER SCROLL -----
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                if (currentScroll > 40) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // ----- MOBILE HAMBURGER -----
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+                const expanded = navLinks.classList.contains('open');
+                hamburger.setAttribute('aria-expanded', expanded);
+            });
+
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!header.contains(e.target)) {
+                    navLinks.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // ----- SMOOTH SCROLL FOR ANCHOR LINKS -----
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const top = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ----- INTERSECTION OBSERVER FOR CARDS (subtle reveal) -----
+            const cards = document.querySelectorAll('.news-card, .seasonal-item, .product-card');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, {
+                    threshold: 0.10,
+                    rootMargin: '0px 0px -40px 0px'
+                });
+
+                cards.forEach(function(card) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(24px)';
+                    card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+                    observer.observe(card);
+                });
+            } else {
+                cards.forEach(function(card) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            }
+
+            // ----- SHOPPING CART INTERACTION -----
+            let cartCount = 0;
+            const cartCountElement = document.getElementById('cartCount');
+            const addToCartButtons = document.querySelectorAll('.btn-add-cart');
+
+            function updateCartCount() {
+                cartCountElement.textContent = cartCount;
+                // Simple animation for the cart icon
+                cartCountElement.style.transform = 'scale(1.4)';
+                setTimeout(() => {
+                    cartCountElement.style.transform = 'scale(1)';
+                }, 200);
+            }
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const productName = this.getAttribute('data-name');
+                    const productPrice = this.getAttribute('data-price');
+
+                    // Increase cart count
+                    cartCount++;
+                    updateCartCount();
+
+                    // Feedback: Change button text temporarily
+                    const originalText = this.textContent;
+                    this.textContent = 'Added! ✨';
+                    this.style.background = '#2b5e3b';
+                    this.style.color = '#fff';
+                    this.style.borderColor = '#2b5e3b';
+                    this.disabled = true;
+
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = '';
+                        this.style.color = '';
+                        this.style.borderColor = '';
+                        this.disabled = false;
+                    }, 1500);
+
+                    // Optional: Log to console (can be replaced with a proper cart system)
+                    console.log(`🛒 Added ${productName} (€${productPrice}) to cart. Total items: ${cartCount}`);
+                });
+            });
+
+            // Reset cart count if needed (optional, just for demo)
+            console.log('🛍️ FLORA Bottega is ready!');
+        })();
+    </script>
+
+</body>
+</html>
