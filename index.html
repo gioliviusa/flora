@@ -611,36 +611,40 @@
 
         /* ─── STORY SECTION ─────────────────── */
         #story {
-            background: var(--dark-bg);
+            background: #261418;
             border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            overflow: hidden;
         }
         .story-showcase {
-            max-width: 920px;
-            margin: 0 auto 24px;
-            position: relative;
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            z-index: 0;
         }
         .story-carousel {
-            position: relative;
-            height: 440px;
+            position: absolute;
+            inset: 0;
             overflow: hidden;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-warm);
-            border: 1px solid rgba(201, 169, 110, 0.12);
         }
         .story-slide {
             position: absolute;
             inset: 0;
-            background-size: cover;
-            background-position: center;
             opacity: 0;
             transform: scale(1.05);
             transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .story-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
         .story-slide::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(15, 12, 11, 0.18) 0%, rgba(15, 12, 11, 0.52) 100%);
+            background: linear-gradient(180deg, rgba(23, 10, 13, 0.52) 0%, rgba(23, 10, 13, 0.72) 100%);
         }
         .story-slide.active {
             opacity: 1;
@@ -655,8 +659,19 @@
             margin: 0 auto;
             box-shadow: var(--shadow-warm);
             position: relative;
-            margin-top: -80px;
-            z-index: 1;
+            z-index: 2;
+        }
+        #story > .section-label,
+        #story > .section-title,
+        #story > .section-subtitle {
+            position: relative;
+            z-index: 2;
+        }
+        #story > .section-title {
+            color: #fffaf6;
+        }
+        #story > .section-subtitle {
+            color: rgba(255, 246, 241, 0.9);
         }
         .story-card p {
             font-size: 0.9rem;
@@ -1342,10 +1357,14 @@
         <span class="section-label reveal text-center">✦ Section 2 ✦</span>
         <h2 class="section-title text-center reveal">Our <span class="gold">Story</span></h2>
         <p class="section-subtitle text-center reveal">From a single candle on Las Olas to a family of restaurants — this is La Felicita.</p>
-        <div class="story-showcase reveal">
+        <div class="story-showcase">
             <div class="story-carousel" aria-label="Story gallery">
-                <div class="story-slide active" style="background-image: url('img/WhatsApp Image 2026-08-28 at 3.53.50 PM.jpeg');"></div>
-                <div class="story-slide" style="background-image: url('img/WhatsApp Image 2026-08-28 at 3.53.52 PM.jpeg');"></div>
+                <div class="story-slide active">
+                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.50%20PM.jpeg" alt="La Felicita dining experience" />
+                </div>
+                <div class="story-slide">
+                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="La Felicita dining experience" />
+                </div>
             </div>
         </div>
         <div class="story-card reveal" data-parallax-speed="0.05">
