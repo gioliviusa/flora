@@ -614,14 +614,49 @@
             background: var(--dark-bg);
             border-bottom: 1px solid rgba(201, 169, 110, 0.06);
         }
+        .story-showcase {
+            max-width: 920px;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+        .story-carousel {
+            position: relative;
+            height: 440px;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-warm);
+            border: 1px solid rgba(201, 169, 110, 0.12);
+        }
+        .story-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .story-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 12, 11, 0.18) 0%, rgba(15, 12, 11, 0.52) 100%);
+        }
+        .story-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
         .story-card {
-            background: var(--dark-card);
+            background: rgba(255, 253, 249, 0.94);
             border-radius: var(--radius-lg);
             padding: 32px 24px;
             border: 1px solid rgba(201, 169, 110, 0.08);
             max-width: 520px;
             margin: 0 auto;
             box-shadow: var(--shadow-warm);
+            position: relative;
+            margin-top: -80px;
+            z-index: 1;
         }
         .story-card p {
             font-size: 0.9rem;
@@ -1307,6 +1342,12 @@
         <span class="section-label reveal text-center">✦ Section 2 ✦</span>
         <h2 class="section-title text-center reveal">Our <span class="gold">Story</span></h2>
         <p class="section-subtitle text-center reveal">From a single candle on Las Olas to a family of restaurants — this is La Felicita.</p>
+        <div class="story-showcase reveal">
+            <div class="story-carousel" aria-label="Story gallery">
+                <div class="story-slide active" style="background-image: url('img/WhatsApp Image 2026-08-28 at 3.53.50 PM.jpeg');"></div>
+                <div class="story-slide" style="background-image: url('img/WhatsApp Image 2026-08-28 at 3.53.52 PM.jpeg');"></div>
+            </div>
+        </div>
         <div class="story-card reveal" data-parallax-speed="0.05">
             <p>La Felicità Group began with a simple belief: that the most memorable meals happen when the room is warm, the light is low, and the conversation flows like wine.</p>
             <p>What started as Flora — a small, private dining room on Las Olas Boulevard — grew into a collection of distinct Italian experiences across Fort Lauderdale. Each venue carries the same DNA: hand-pulled pasta, curated Italian wine, and candlelight that makes every guest feel like the only one in the room.</p>
@@ -1576,6 +1617,17 @@
                     heroReveal.classList.add('visible');
                 }
             }, 200);
+
+            // ─── STORY CAROUSEL ────────────────
+            const storySlides = document.querySelectorAll('.story-slide');
+            let storySlideIndex = 0;
+            if (storySlides.length > 1) {
+                setInterval(() => {
+                    storySlides[storySlideIndex].classList.remove('active');
+                    storySlideIndex = (storySlideIndex + 1) % storySlides.length;
+                    storySlides[storySlideIndex].classList.add('active');
+                }, 3500);
+            }
 
             // ─── FAQ ACCORDION ─────────────────
             faqItems.forEach(item => {
