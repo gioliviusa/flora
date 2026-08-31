@@ -3,1411 +3,1692 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FLORA · Italian Restaurants & La Bottega</title>
-
-    <!-- Google Fonts + Font Awesome -->
+    <title>La Felicita Group | Private Italian Dining · Fort Lauderdale</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
     <style>
-        /* ----- RESET & BASE ----- */
-        *,
-        *::before,
-        *::after {
+        :root {
+            --dark-bg: #f5f1ea;
+            --dark-surface: #f0ece5;
+            --dark-card: #fffdf9;
+            --dark-border: #e6dbc7;
+            --warm-gold: #b88a5a;
+            --warm-gold-light: #d8b88d;
+            --warm-gold-glow: #ead6ae;
+            --amber: #a67f4d;
+            --deep-forest: #e8e0d8;
+            --charcoal: #2d2925;
+            --warm-cream: #fffdf9;
+            --candle-glow: #f4d3a1;
+            --shadow-warm: 0 18px 40px rgba(52, 41, 33, 0.08);
+            --shadow-candle: 0 0 60px rgba(184, 138, 90, 0.08);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --flora-green: #2b5e3b;
-            --flora-green-light: #4a7c5a;
-            --flora-cream: #faf6f0;
-            --flora-warm: #f2ebe1;
-            --flora-terracotta: #d4836b;
-            --flora-gold: #c9a87c;
-            --flora-dark: #1e2a24;
-            --flora-text: #2d2d2d;
-            --flora-white: #ffffff;
-            --flora-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            --flora-radius: 32px;
-            --flora-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
         html {
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: #101b14;
-            color: var(--flora-text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--charcoal);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            max-width: 100vw;
         }
 
-        section,
-        footer {
-            position: relative;
-            z-index: 2;
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--dark-surface);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--warm-gold);
+            border-radius: 10px;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ----- BUTTONS ----- */
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--flora-green);
-            color: var(--flora-white);
-            font-weight: 600;
-            padding: 16px 40px;
-            border-radius: 60px;
-            font-size: 1rem;
-            letter-spacing: 0.02em;
-            transition: var(--flora-transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 24px rgba(43, 94, 59, 0.25);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--flora-green-light);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(43, 94, 59, 0.35);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            background: transparent;
-            color: var(--flora-green);
-            font-weight: 600;
-            padding: 14px 36px;
-            border-radius: 60px;
-            font-size: 1rem;
-            border: 2px solid var(--flora-green);
-            transition: var(--flora-transition);
-            cursor: pointer;
-        }
-
-        .btn-outline:hover {
-            background: var(--flora-green);
-            color: var(--flora-white);
-            transform: translateY(-4px);
-        }
-
-        /* ----- HEADER / NAV ----- */
-        header {
+        /* ─── HEADER ─────────────────────────── */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
             z-index: 1000;
-            padding: 20px 0;
-            transition: var(--flora-transition);
-            background: transparent;
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.84);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-            padding: 14px 0;
-        }
-
-        .nav-inner {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(184, 138, 90, 0.18);
+            transition: all var(--transition);
+            padding: 0 20px;
+            height: 68px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 16px;
         }
-
-        .logo {
+        .header.scrolled {
+            box-shadow: 0 10px 30px rgba(52, 41, 33, 0.08);
+            border-bottom-color: rgba(184, 138, 90, 0.3);
+        }
+        .header-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--flora-white);
-            letter-spacing: -0.02em;
-            transition: var(--flora-transition);
-        }
-
-        header.scrolled .logo {
-            color: var(--flora-green);
-        }
-
-        .logo span {
-            font-weight: 400;
-            font-style: italic;
-            color: var(--flora-gold);
-        }
-
-        .nav-links {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            letter-spacing: 0.5px;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 40px;
-            list-style: none;
+            gap: 8px;
+            flex-shrink: 0;
         }
-
-        .nav-links a {
-            color: var(--flora-white);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--flora-transition);
-            position: relative;
+        .header-logo .logo-flower {
+            font-size: 1rem;
+            opacity: 0.8;
         }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--flora-gold);
-            transition: var(--flora-transition);
+        .header-logo .logo-sub {
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--warm-gold);
+            font-family: 'Inter', sans-serif;
+            opacity: 0.7;
+            white-space: nowrap;
         }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        header.scrolled .nav-links a {
-            color: var(--flora-dark);
-        }
-
-        .nav-cta {
-            background: var(--flora-gold) !important;
-            color: var(--flora-dark) !important;
-            padding: 10px 28px;
-            border-radius: 60px;
-            font-weight: 600;
-            transition: var(--flora-transition);
-        }
-
-        .nav-cta:hover {
-            background: var(--flora-white) !important;
-            transform: translateY(-2px);
-        }
-
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        /* Cart Icon in Header */
-        .cart-icon {
-            position: relative;
-            color: var(--flora-white);
-            font-size: 1.2rem;
-            transition: var(--flora-transition);
-            cursor: pointer;
-        }
-
-        header.scrolled .cart-icon {
-            color: var(--flora-dark);
-        }
-
-        .cart-icon .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -12px;
-            background: var(--flora-terracotta);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 30px;
-            min-width: 20px;
-            text-align: center;
-            border: 2px solid transparent;
-            transition: var(--flora-transition);
-        }
-
-        header.scrolled .cart-icon .cart-count {
-            border-color: var(--flora-white);
-        }
-
-        .hamburger {
+        .header-nav-desktop {
             display: none;
-            flex-direction: column;
-            gap: 6px;
+            gap: 20px;
+            align-items: center;
+        }
+        .header-nav-desktop a {
+            color: #534d47;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        .header-nav-desktop a:hover {
+            color: var(--warm-gold);
+        }
+        .header-cta {
+            background: transparent;
+            color: var(--warm-gold);
+            border: 1px solid rgba(201, 169, 110, 0.35);
+            padding: 9px 18px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.65rem;
+            letter-spacing: 1.2px;
             cursor: pointer;
+            transition: all var(--transition);
+            text-decoration: none;
+            white-space: nowrap;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        .header-cta:hover {
+            background: var(--warm-gold);
+            color: var(--dark-bg);
+            border-color: var(--warm-gold);
+        }
+
+        /* ─── HAMBURGER ──────────────────────── */
+        .hamburger {
             background: none;
             border: none;
-            padding: 4px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px;
+            z-index: 1001;
+            position: relative;
+            flex-shrink: 0;
         }
-
         .hamburger span {
             display: block;
-            width: 28px;
-            height: 2.5px;
-            background: var(--flora-white);
-            border-radius: 4px;
-            transition: var(--flora-transition);
+            height: 1.5px;
+            background: var(--charcoal);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger span:nth-child(2) {
+            width: 70%;
+        }
+        .hamburger span:nth-child(3) {
+            width: 50%;
+        }
+        .hamburger:hover span {
+            background: var(--warm-gold);
         }
 
-        header.scrolled .hamburger span {
-            background: var(--flora-dark);
+        /* ─── MOBILE NAV OVERLAY ─────────────── */
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.96);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            padding: 60px 20px;
+            overflow-y: auto;
+        }
+        .nav-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .nav-overlay a {
+            font-family: 'Playfair Display', serif;
+            color: var(--charcoal);
+            font-size: 1.4rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            text-align: center;
+        }
+        .nav-overlay a:hover {
+            color: var(--warm-gold);
+        }
+        .nav-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            font-size: 1.6rem;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .nav-close:hover {
+            background: rgba(255, 255, 255, 0.06);
         }
 
-        /* ----- HERO ----- */
+        /* ─── HERO ──────────────────────────── */
         .hero {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px 50px;
             position: relative;
-            background: transparent;
             overflow: hidden;
-            padding: 120px 0 80px;
-            isolation: isolate;
+            background: linear-gradient(180deg, #f8f4ee 0%, #f3eee7 100%);
         }
-
-        .page-bg-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.40;
-            position: fixed;
+        .hero-bg-image {
+            position: absolute;
             inset: 0;
             z-index: 0;
-            pointer-events: none;
+            background-image: url('https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=1400&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.08);
+            opacity: 0.5;
+            will-change: transform;
         }
-
-        .page-bg-overlay {
-            position: fixed;
-            inset: 0;
-            background:
-                linear-gradient(145deg, rgba(14, 27, 20, 0.04) 0%, rgba(43, 94, 59, 0.025) 45%, rgba(30, 58, 42, 0.03) 100%),
-                radial-gradient(circle at 20% 30%, rgba(201, 168, 124, 0.005) 0%, transparent 60%),
-                radial-gradient(circle at 80% 70%, rgba(212, 131, 107, 0.004) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .hero::before {
+        .hero-bg-image::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(201, 168, 124, 0.01) 0%, transparent 60%),
-                radial-gradient(circle at 80% 70%, rgba(212, 131, 107, 0.0075) 0%, transparent 50%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.3) 28%, rgba(20, 18, 16, 0.42) 72%, rgba(17, 15, 13, 0.62) 100%);
             pointer-events: none;
-            z-index: 1;
         }
-
-        .hero-pattern {
+        .hero-glow {
             position: absolute;
-            right: -10%;
-            top: 10%;
-            width: 70%;
-            height: 80%;
-            background: radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-            border-radius: 50%;
+            inset: 0;
+            z-index: 0;
             pointer-events: none;
-            z-index: 1;
+            background: radial-gradient(ellipse at 30% 60%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 40%, rgba(201, 169, 110, 0.04) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, rgba(201, 169, 110, 0.05) 0%, transparent 45%);
         }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+        .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 520px;
+            will-change: transform, opacity;
         }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.2rem;
-            font-weight: 600;
-            line-height: 1.1;
-            color: var(--flora-white);
-            margin-bottom: 24px;
-        }
-
-        .hero-content h1 em {
-            font-style: italic;
-            color: var(--flora-gold);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 480px;
-            margin-bottom: 36px;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .hero-buttons .btn-outline {
-            border-color: rgba(255, 255, 255, 0.4);
-            color: var(--flora-white);
-        }
-
-        .hero-buttons .btn-outline:hover {
-            border-color: var(--flora-white);
-            background: var(--flora-white);
-            color: var(--flora-green);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image .placeholder {
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 1 / 1;
-            background: radial-gradient(circle at 30% 30%, rgba(201, 168, 124, 0.3), rgba(43, 94, 59, 0.6));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(0.5px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-image .placeholder i {
-            font-size: 10rem;
-            color: rgba(255, 255, 255, 0.10);
-        }
-
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(2px);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--warm-gold);
+            border: 1px solid rgba(201, 169, 110, 0.25);
             padding: 8px 20px;
-            border-radius: 60px;
-            color: var(--flora-gold);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
+            border-radius: 50px;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(15, 14, 10, 0.6);
+            backdrop-filter: blur(8px);
         }
-
-        /* ----- SECTION TITLES ----- */
-        .section-label {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--flora-terracotta);
-            margin-bottom: 12px;
-            background: rgba(212, 131, 107, 0.10);
-            padding: 4px 16px;
-            border-radius: 60px;
-        }
-
-        .section-title {
+        .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            line-height: 1.15;
-            margin-bottom: 16px;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--warm-cream);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
         }
-
-        .section-title em {
+        .hero h1 .gold {
+            color: var(--warm-gold);
             font-style: italic;
-            color: var(--flora-terracotta);
+            font-weight: 500;
         }
-
-        .section-sub {
-            font-size: 1.15rem;
-            color: #1f2b24;
-            max-width: 560px;
-            line-height: 1.7;
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: rgba(212, 205, 192, 0.8);
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
         }
-
-        /* ----- NEWS / HERO CARDS ----- */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
-        }
-
-        .news-card {
-            background: rgba(255, 255, 255, 0.58);
-            border-radius: var(--flora-radius);
-            padding: 36px 32px 40px;
-            box-shadow: var(--flora-shadow);
-            transition: var(--flora-transition);
-            border: 1px solid rgba(0, 0, 0, 0.02);
-            backdrop-filter: blur(0px);
-        }
-
-        .news-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 32px 72px rgba(0, 0, 0, 0.10);
-        }
-
-        .news-card .icon {
-            font-size: 2.2rem;
-            color: var(--flora-gold);
-            margin-bottom: 16px;
-        }
-
-        .news-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-
-        .news-card p {
-            color: #1f2b24;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .news-card .card-link {
+        .hero-cta {
+            display: inline-block;
+            background: var(--warm-gold);
+            color: var(--dark-bg);
+            padding: 14px 32px;
+            border-radius: 50px;
             font-weight: 600;
-            color: var(--flora-green);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--flora-transition);
-        }
-
-        .news-card .card-link i {
-            transition: var(--flora-transition);
-        }
-
-        .news-card .card-link:hover i {
-            transform: translateX(6px);
-        }
-
-        /* ----- E-SHOP / PRODUCT GRID ----- */
-        .eshop {
-            background: rgba(242, 235, 225, 0.04);
-            padding: 80px 0;
-            margin: 40px 0;
-            backdrop-filter: blur(0px);
-        }
-
-        .eshop-header {
-            margin-bottom: 48px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 32px;
-        }
-
-        .product-card {
-            background: rgba(255, 255, 255, 0.62);
-            border-radius: 24px;
-            padding: 24px 24px 32px;
-            box-shadow: var(--flora-shadow);
-            transition: var(--flora-transition);
-            border: 1px solid rgba(0, 0, 0, 0.02);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            backdrop-filter: blur(0px);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.12);
-        }
-
-        .product-image {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 18px;
-            background: #e9e1d7;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.02);
-        }
-
-        .product-image.photo {
-            background: #e9e1d7;
-        }
-
-        .product-image.photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-image.photo::after {
-            content: none;
-        }
-
-        /* Plate Design Gradients */
-        .product-image[data-design="lemon"] {
-            background: radial-gradient(circle at 20% 30%, #fff9c4, #fdd835 60%, #f9a825 90%);
-        }
-        .product-image[data-design="lemon"]::after {
-            content: "🍋";
-            font-size: 4.5rem;
-            opacity: 0.9;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
-        }
-
-        .product-image[data-design="olive"] {
-            background: radial-gradient(circle at 70% 40%, #dcedc8, #8bc34a 50%, #558b2f 90%);
-        }
-        .product-image[data-design="olive"]::after {
-            content: "🫒";
-            font-size: 4.5rem;
-            opacity: 0.9;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
-        }
-
-        .product-image[data-design="vietri"] {
-            background: conic-gradient(from 0deg, #ffcc80, #4dd0e1, #ffcc80, #4dd0e1, #ffcc80);
-        }
-        .product-image[data-design="vietri"]::after {
-            content: "✦";
-            font-size: 5rem;
-            color: #fff;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-image[data-design="tuscan"] {
-            background: radial-gradient(circle at 40% 60%, #ffccbc, #d84315 70%, #bf360c 95%);
-        }
-        .product-image[data-design="tuscan"]::after {
-            content: "☀️";
-            font-size: 4.5rem;
-            opacity: 0.9;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
-        }
-
-        .product-image[data-design="rose"] {
-            background: radial-gradient(circle at 60% 30%, #f8bbd0, #ec407a 60%, #ad1457 90%);
-        }
-        .product-image[data-design="rose"]::after {
-            content: "🌹";
-            font-size: 4.5rem;
-            opacity: 0.9;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
-        }
-
-        .product-image[data-design="navy"] {
-            background: radial-gradient(circle at 80% 20%, #bbdefb, #1a237e 70%, #0d0d3b 95%);
-        }
-        .product-image[data-design="navy"]::after {
-            content: "⚜️";
-            font-size: 4.5rem;
-            opacity: 0.9;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
-        }
-
-        .product-tag {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--flora-terracotta);
-            color: white;
-            padding: 4px 14px;
-            border-radius: 60px;
             font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 8px 40px rgba(201, 169, 110, 0.2);
+        }
+        .hero-cta:hover {
+            background: var(--warm-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(201, 169, 110, 0.35);
         }
 
-        .product-info h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 4px;
-            color: var(--flora-dark);
+        /* ─── CANDLE GLOWS ──────────────────── */
+        .candle-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
-
-        .product-info p {
-            font-size: 0.9rem;
-            color: #1f2b24;
-            margin-bottom: 12px;
+        .candle-glow {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 214, 168, 0.1) 0%, transparent 70%);
+            animation: candleFlicker 3s ease-in-out infinite;
+            will-change: transform, opacity;
         }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--flora-green);
-            margin-bottom: 16px;
+        .candle-glow:nth-child(1) {
+            bottom: 20%;
+            left: 5%;
+            animation-delay: 0s;
+            width: 160px;
+            height: 160px;
         }
-
-        .btn-add-cart {
-            background: var(--flora-cream);
-            border: 2px solid var(--flora-green);
-            color: var(--flora-green);
-            padding: 10px 24px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--flora-transition);
-            width: 100%;
-            text-align: center;
+        .candle-glow:nth-child(2) {
+            bottom: 15%;
+            right: 8%;
+            animation-delay: -1.2s;
+            width: 140px;
+            height: 140px;
         }
-
-        .btn-add-cart:hover {
-            background: var(--flora-green);
-            color: var(--flora-white);
-            transform: scale(1.02);
+        .candle-glow:nth-child(3) {
+            top: 30%;
+            left: 15%;
+            animation-delay: -2s;
+            width: 100px;
+            height: 100px;
+            opacity: 0.5;
         }
-
-        .btn-add-cart:active {
-            transform: scale(0.95);
-        }
-
-        /* ----- SEASONAL ----- */
-        .seasonal {
-            padding: 80px 0;
-        }
-
-        .seasonal-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin-top: 48px;
-            align-items: center;
-        }
-
-        .seasonal-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .seasonal-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            background: rgba(255, 255, 255, 0.56);
-            padding: 16px 24px;
-            border-radius: 60px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-            transition: var(--flora-transition);
-            border: 1px solid transparent;
-            backdrop-filter: blur(0px);
-        }
-
-        .seasonal-item:hover {
-            border-color: var(--flora-gold);
-            transform: translateX(8px);
-        }
-
-        .seasonal-item i {
-            font-size: 1.4rem;
-            color: var(--flora-terracotta);
-            width: 32px;
-        }
-
-        .seasonal-item strong {
-            font-weight: 600;
-            color: var(--flora-dark);
-        }
-
-        .seasonal-item span {
-            color: #1f2b24;
-            font-size: 0.95rem;
-        }
-
-        .seasonal-image {
-            background: rgba(242, 235, 225, 0.08);
-            border-radius: var(--flora-radius);
-            padding: 48px 32px;
-            text-align: center;
-            box-shadow: var(--flora-shadow);
-            backdrop-filter: blur(0px);
-        }
-
-        .seasonal-image .placeholder-icon {
-            font-size: 5rem;
-            color: var(--flora-gold);
+        .candle-glow:nth-child(4) {
+            top: 45%;
+            right: 12%;
+            animation-delay: -0.7s;
+            width: 110px;
+            height: 110px;
             opacity: 0.4;
         }
-
-        .seasonal-image p {
-            margin-top: 12px;
-            color: #1f2b24;
-            font-style: italic;
+        @keyframes candleFlicker {
+            0%,
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 0.6;
+            }
+            25% {
+                transform: scale(1.08) translateY(-6px);
+                opacity: 0.9;
+            }
+            50% {
+                transform: scale(0.92) translateY(4px);
+                opacity: 0.5;
+            }
+            75% {
+                transform: scale(1.04) translateY(-2px);
+                opacity: 0.8;
+            }
         }
 
-        /* ----- BOOKINGS ----- */
-        .bookings {
-            background: rgba(43, 94, 59, 0.52);
-            padding: 80px 0;
-            color: var(--flora-white);
-            text-align: center;
-            backdrop-filter: blur(0px);
+        /* ─── FLOATING PETALS ───────────────── */
+        .hero-floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
-
-        .bookings h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 12px;
+        .petal-wrapper {
+            position: absolute;
+            will-change: transform;
         }
-
-        .bookings p {
-            font-size: 1.15rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto 36px;
-            line-height: 1.7;
+        .floating-petal {
+            display: block;
+            font-size: 1.6rem;
+            opacity: 0.2;
+            animation: floatPetalDark 10s ease-in-out infinite;
+            will-change: transform;
         }
-
-        .bookings .btn-primary {
-            background: var(--flora-gold);
-            color: var(--flora-dark);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+        .petal-wrapper:nth-child(1) {
+            top: 10%;
+            left: 6%;
         }
-
-        .bookings .btn-primary:hover {
-            background: var(--flora-white);
-            transform: translateY(-4px);
-        }
-
-        /* ----- FOOTER ----- */
-        footer {
-            background: rgba(30, 42, 36, 0.92);
-            color: rgba(255, 255, 255, 0.92);
-            padding: 60px 0 32px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-
-        .footer-brand .logo {
-            color: var(--flora-white);
+        .petal-wrapper:nth-child(1) .floating-petal {
             font-size: 2rem;
-            margin-bottom: 12px;
-            display: inline-block;
+            animation-delay: 0s;
+        }
+        .petal-wrapper:nth-child(2) {
+            top: 22%;
+            right: 8%;
+        }
+        .petal-wrapper:nth-child(2) .floating-petal {
+            font-size: 1.3rem;
+            animation-delay: -3.5s;
+        }
+        .petal-wrapper:nth-child(3) {
+            top: 55%;
+            left: 4%;
+        }
+        .petal-wrapper:nth-child(3) .floating-petal {
+            font-size: 1.7rem;
+            animation-delay: -6s;
+        }
+        .petal-wrapper:nth-child(4) {
+            top: 70%;
+            right: 10%;
+        }
+        .petal-wrapper:nth-child(4) .floating-petal {
+            font-size: 1.2rem;
+            animation-delay: -2.5s;
+        }
+        .petal-wrapper:nth-child(5) {
+            top: 38%;
+            left: 50%;
+        }
+        .petal-wrapper:nth-child(5) .floating-petal {
+            font-size: 1.4rem;
+            animation-delay: -8s;
+        }
+        @keyframes floatPetalDark {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.2;
+            }
+            25% {
+                transform: translateY(-20px) rotate(6deg) scale(1.1);
+                opacity: 0.35;
+            }
+            50% {
+                transform: translateY(-6px) rotate(-4deg) scale(0.9);
+                opacity: 0.2;
+            }
+            75% {
+                transform: translateY(-26px) rotate(4deg) scale(1.05);
+                opacity: 0.3;
+            }
         }
 
-        .footer-brand p {
-            max-width: 320px;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.84);
+        /* ─── SECTIONS ──────────────────────── */
+        section {
+            padding: 60px 20px;
+            position: relative;
         }
-
-        .footer-col h4 {
-            color: var(--flora-white);
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
             font-weight: 600;
-            margin-bottom: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--warm-gold);
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.7;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.15;
+            margin-bottom: 14px;
+            letter-spacing: -0.2px;
+        }
+        .section-title .gold {
+            color: var(--warm-gold);
+        }
+        .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
+            font-style: italic;
+            color: rgba(45, 41, 37, 0.72);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .text-center {
+            text-align: center;
         }
 
-        .footer-col ul {
-            list-style: none;
+        /* ─── RESTAURANTS GRID ─────────────── */
+        #restaurants {
+            background: var(--dark-surface);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+        }
+        .restaurant-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .restaurant-card {
+            background: var(--dark-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            transition: all var(--transition);
+            box-shadow: var(--shadow-warm);
+            will-change: transform;
+        }
+        .restaurant-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(201, 169, 110, 0.2);
+        }
+        .restaurant-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .restaurant-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 14, 10, 0.7) 0%, transparent 50%);
+        }
+        .restaurant-img .restaurant-emoji {
+            position: absolute;
+            bottom: 12px;
+            left: 16px;
+            font-size: 1.8rem;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        .restaurant-body {
+            padding: 20px 18px 22px;
+        }
+        .restaurant-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+        .restaurant-body .restaurant-location {
+            font-size: 0.7rem;
+            color: var(--warm-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: 0.7;
+        }
+        .restaurant-body p {
+            font-size: 0.85rem;
+            color: rgba(45, 41, 37, 0.72);
+            line-height: 1.6;
+        }
+
+        /* ─── STORY SECTION ─────────────────── */
+        #story {
+            background: var(--dark-bg);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+        }
+        .story-card {
+            background: var(--dark-card);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            max-width: 520px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-warm);
+        }
+        .story-card p {
+            font-size: 0.9rem;
+            color: rgba(45, 41, 37, 0.78);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        /* ─── EVENTS + SHOP PREVIEW ─────────── */
+        #events {
+            background: var(--dark-surface);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+        }
+        .events-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .event-card {
+            background: var(--dark-card);
+            border-radius: var(--radius-md);
+            padding: 22px 20px;
+            border: 1px solid rgba(201, 169, 110, 0.06);
+            transition: all var(--transition);
+            box-shadow: var(--shadow-warm);
+        }
+        .event-card:hover {
+            border-color: rgba(201, 169, 110, 0.15);
+            transform: translateY(-2px);
+        }
+        .event-card .event-emoji {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+            opacity: 0.8;
+        }
+        .event-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+        .event-card p {
+            font-size: 0.8rem;
+            color: rgba(45, 41, 37, 0.7);
+            line-height: 1.5;
+        }
+
+        /* ─── BOOK A TABLE ──────────────────── */
+        #book {
+            background: var(--dark-bg);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+        }
+        .book-card {
+            background: var(--dark-card);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: var(--shadow-warm);
+        }
+        .book-card .book-icon {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
+        }
+        .book-card p {
+            font-size: 0.85rem;
+            color: rgba(45, 41, 37, 0.75);
+            margin-bottom: 18px;
+        }
+        .book-btn {
+            display: inline-block;
+            background: var(--warm-gold);
+            color: var(--dark-bg);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 8px 32px rgba(201, 169, 110, 0.2);
+        }
+        .book-btn:hover {
+            background: var(--warm-gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* ─── GIFT CARDS ────────────────────── */
+        #giftcards {
+            background: var(--dark-surface);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+        }
+        .gift-card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .gift-card-item {
+            background: var(--dark-card);
+            border-radius: var(--radius-md);
+            padding: 20px 18px;
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            text-align: center;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-warm);
+        }
+        .gift-card-item:hover {
+            border-color: rgba(201, 169, 110, 0.2);
+            transform: translateY(-2px);
+        }
+        .gift-card-item .gift-emoji {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 6px;
+            opacity: 0.8;
+        }
+        .gift-card-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--charcoal);
+            margin-bottom: 2px;
+        }
+        .gift-card-item p {
+            font-size: 0.75rem;
+            color: rgba(45, 41, 37, 0.68);
+        }
+
+        /* ─── VENDORS + SHOP + NEWSLETTER ───── */
+        #vendors {
+            background: var(--dark-bg);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+        }
+        .vendors-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .vendor-item {
+            background: var(--dark-card);
+            border-radius: var(--radius-md);
+            padding: 18px 16px;
+            border: 1px solid rgba(201, 169, 110, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-warm);
+        }
+        .vendor-item:hover {
+            border-color: rgba(201, 169, 110, 0.15);
+        }
+        .vendor-item .vendor-emoji {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            opacity: 0.8;
+        }
+        .vendor-item .vendor-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+        .vendor-item .vendor-info p {
+            font-size: 0.7rem;
+            color: rgba(45, 41, 37, 0.68);
+        }
+        .newsletter-box {
+            background: var(--dark-card);
+            border-radius: var(--radius-lg);
+            padding: 28px 22px;
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            max-width: 520px;
+            margin: 24px auto 0;
+            text-align: center;
+            box-shadow: var(--shadow-warm);
+        }
+        .newsletter-box .newsletter-emoji {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+        .newsletter-box h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+        .newsletter-box p {
+            font-size: 0.75rem;
+            color: rgba(45, 41, 37, 0.72);
+            margin-bottom: 14px;
+        }
+        .newsletter-form {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            max-width: 360px;
+            margin: 0 auto;
+        }
+        .newsletter-form input {
+            background: #fff;
+            border: 1px solid rgba(184, 138, 90, 0.2);
+            border-radius: 50px;
+            padding: 12px 18px;
+            color: var(--charcoal);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            outline: none;
+            transition: all var(--transition);
+            text-align: center;
+        }
+        .newsletter-form input:focus {
+            border-color: var(--warm-gold);
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.1);
+        }
+        .newsletter-form button {
+            background: var(--warm-gold);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 18px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .newsletter-form button:hover {
+            background: var(--warm-gold-light);
         }
 
-        .footer-col ul a {
-            transition: var(--flora-transition);
+        /* ─── CAREERS ───────────────────────── */
+        #careers {
+            background: var(--dark-surface);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+        }
+        .careers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .career-item {
+            background: var(--dark-card);
+            border-radius: var(--radius-md);
+            padding: 18px 16px;
+            border: 1px solid rgba(201, 169, 110, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-warm);
+        }
+        .career-item:hover {
+            border-color: rgba(201, 169, 110, 0.15);
+        }
+        .career-item .career-emoji {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            opacity: 0.8;
+        }
+        .career-item h4 {
+            font-family: 'Playfair Display', serif;
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.84);
+            color: var(--charcoal);
+        }
+        .career-item p {
+            font-size: 0.7rem;
+            color: rgba(45, 41, 37, 0.68);
         }
 
-        .footer-col ul a:hover {
-            color: var(--flora-gold);
+        /* ─── FAQ ───────────────────────────── */
+        #faq {
+            background: var(--dark-bg);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
         }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 24px;
+        .faq-list {
+            max-width: 520px;
+            margin: 0 auto;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.78);
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: var(--dark-card);
+            border-radius: var(--radius-md);
+            padding: 18px 16px;
+            border: 1px solid rgba(201, 169, 110, 0.06);
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-warm);
+        }
+        .faq-item:hover {
+            border-color: rgba(201, 169, 110, 0.15);
+        }
+        .faq-item .faq-question {
+            font-weight: 600;
+            color: var(--charcoal);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-item .faq-question .faq-icon {
+            color: var(--warm-gold);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .faq-item .faq-answer {
+            font-size: 0.75rem;
+            color: rgba(45, 41, 37, 0.72);
+            margin-top: 8px;
+            padding-left: 26px;
+            line-height: 1.6;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
         }
 
-        .footer-socials {
+        /* ─── FOOTER ────────────────────────── */
+        footer {
+            background: #f0e9e1;
+            color: rgba(45, 41, 37, 0.72);
+            text-align: center;
+            padding: 40px 20px 30px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            line-height: 2;
+            border-top: 1px solid rgba(184, 138, 90, 0.12);
+        }
+        footer .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+            display: block;
+            letter-spacing: 1px;
+        }
+        footer .footer-logo .gold {
+            color: var(--warm-gold);
+        }
+        footer a {
+            color: var(--warm-gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: var(--warm-gold-light);
+        }
+        .social-links {
             display: flex;
             gap: 16px;
+            justify-content: center;
+            margin: 14px 0;
         }
-
-        .footer-socials a {
+        .social-links a {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--flora-transition);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 1rem;
+            transition: all var(--transition);
+            color: rgba(45, 41, 37, 0.75);
+            border: 1px solid rgba(184, 138, 90, 0.12);
+        }
+        .social-links a:hover {
+            background: rgba(201, 169, 110, 0.08);
+            color: var(--warm-gold);
+            border-color: rgba(201, 169, 110, 0.15);
+        }
+        footer .footer-candle {
+            font-size: 0.9rem;
+            opacity: 0.2;
+            display: block;
+            margin-top: 12px;
         }
 
-        .footer-socials a:hover {
-            background: var(--flora-gold);
-            color: var(--flora-dark);
-            border-color: var(--flora-gold);
+        /* ─── SCROLL REVEAL ─────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* ----- RESPONSIVE ----- */
-        @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
+        /* ─── FLOATING RESERVE ──────────────── */
+        .floating-reserve {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 998;
+            background: var(--warm-gold);
+            color: var(--dark-bg);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
+            cursor: pointer;
+            transition: all var(--transition);
+            text-decoration: none;
+            animation: gentle-pulse-dark 3s ease-in-out infinite;
+        }
+        @keyframes gentle-pulse-dark {
+            0%,
+            100% {
+                box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
             }
-
-            .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-image .placeholder {
-                max-width: 380px;
-            }
-
-            .seasonal-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+            50% {
+                box-shadow: 0 12px 48px rgba(201, 169, 110, 0.4);
             }
         }
+        .floating-reserve:hover {
+            transform: scale(1.05);
+            background: var(--warm-gold-light);
+        }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                max-width: 320px;
-                height: 100vh;
-                background: var(--flora-white);
-                flex-direction: column;
-                padding: 80px 32px 32px;
-                gap: 24px;
-                box-shadow: -20px 0 60px rgba(0, 0, 0, 0.10);
-                transition: var(--flora-transition);
-                align-items: flex-start;
+        /* ─── ORNAMENTAL DIVIDER ────────────── */
+        .ornamental-divider {
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 10px;
+            color: var(--warm-gold);
+            margin: 0 auto;
+            opacity: 0.2;
+            padding: 4px 0;
+        }
+
+        /* ─── RESPONSIVE ────────────────────── */
+        @media (min-width: 420px) {
+            .hero h1 {
+                font-size: 3rem;
             }
-
-            .nav-links.open {
-                right: 0;
-            }
-
-            .nav-links a {
-                color: var(--flora-dark) !important;
-                font-size: 1.1rem;
-            }
-
-            .nav-links a::after {
-                background: var(--flora-gold);
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-
             .section-title {
                 font-size: 2.2rem;
             }
-
-            .product-grid {
-                grid-template-columns: 1fr 1fr;
+        }
+        @media (min-width: 768px) {
+            section {
+                padding: 80px 40px;
             }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
+            .hero {
+                min-height: 100vh;
+                padding: 100px 40px 60px;
             }
-
-            .footer-bottom {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            .hero h1 {
+                font-size: 4rem;
             }
-
-            .hero-image .placeholder {
-                max-width: 280px;
+            .section-title {
+                font-size: 2.8rem;
             }
-
-            .hero-image .placeholder i {
-                font-size: 6rem;
+            .restaurant-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                max-width: 800px;
+                gap: 20px;
             }
-
-            .news-grid {
-                grid-template-columns: 1fr;
+            .restaurant-card {
+                flex: 0 0 calc(50% - 10px);
+                max-width: 380px;
+            }
+            .events-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                max-width: 800px;
+                gap: 20px;
+            }
+            .event-card {
+                flex: 0 0 calc(50% - 10px);
+                max-width: 380px;
+            }
+            .gift-card-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                max-width: 800px;
+                gap: 16px;
+            }
+            .gift-card-item {
+                flex: 0 0 calc(33.33% - 11px);
+            }
+            .vendors-grid {
+                max-width: 800px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+            .vendor-item {
+                flex: 0 0 calc(50% - 8px);
+            }
+            .careers-list {
+                max-width: 800px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+            .career-item {
+                flex: 0 0 calc(50% - 8px);
+            }
+            .faq-list {
+                max-width: 800px;
+            }
+            .story-card {
+                max-width: 640px;
+                padding: 40px 36px;
+            }
+            .book-card {
+                max-width: 640px;
+                padding: 40px 36px;
+            }
+            .newsletter-box {
+                max-width: 560px;
+            }
+            .header-nav-desktop {
+                display: flex;
+            }
+            .hamburger {
+                display: none;
             }
         }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 4.8rem;
             }
-
-            .hero-buttons .btn-primary,
-            .hero-buttons .btn-outline {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 3rem;
             }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- ===== HEADER ===== -->
-    <header id="header">
-        <div class="container nav-inner">
-            <a href="#" class="logo">FLORA <span>·</span></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#news">News</a></li>
-                <li><a href="#eshop">Bottega</a></li>
-                <li><a href="#seasonal">Seasonal</a></li>
-                <li><a href="#bookings" class="nav-cta">Book a table</a></li>
-            </ul>
-            <div class="cart-icon" id="cartIcon">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-count" id="cartCount">0</span>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="header" id="header">
+        <a href="#" class="header-logo">
+            <span class="logo-flower">✦</span>
+            <span>La Felicita Group</span>
+            <span class="logo-sub">Private Dining</span>
+        </a>
+        <nav class="header-nav-desktop" id="desktopNav">
+            <a href="#restaurants">Restaurants</a>
+            <a href="#story">Story</a>
+            <a href="#events">Events</a>
+            <a href="#book">Book</a>
+            <a href="#giftcards">Gift Cards</a>
+            <a href="#vendors">Shop</a>
+            <a href="#careers">Careers</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <a href="#book" class="header-cta">Reserve</a>
     </header>
 
-    <!-- ===== HERO ===== -->
+    <!-- ═══════════════ NAV OVERLAY ══════════ -->
+    <nav class="nav-overlay" id="navOverlay">
+        <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
+        <a href="#restaurants" class="nav-link">Restaurants</a>
+        <a href="#story" class="nav-link">Story</a>
+        <a href="#events" class="nav-link">Private Events</a>
+        <a href="#book" class="nav-link">Book a Table</a>
+        <a href="#giftcards" class="nav-link">Gift Cards</a>
+        <a href="#vendors" class="nav-link">Vendors & Shop</a>
+        <a href="#careers" class="nav-link">Careers</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+
+    <!-- ═══════════════ HERO ════════════════ -->
     <section class="hero" id="hero">
-        <video class="page-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-            <source src="https://cdn.coverr.co/videos/coverr-serving-up-gnocchi-pasta-957/360p.mp4" type="video/mp4" />
-        </video>
-        <div class="page-bg-overlay"></div>
-        <div class="hero-pattern"></div>
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-seedling" style="margin-right:8px;"></i> Since 2016
+        <div class="hero-bg-image" data-parallax-speed="0.18"></div>
+        <div class="hero-glow"></div>
+        <div class="candle-container">
+            <div class="candle-glow"></div>
+            <div class="candle-glow"></div>
+            <div class="candle-glow"></div>
+            <div class="candle-glow"></div>
+        </div>
+        <div class="hero-floating-elements" id="petalContainer">
+            <div class="petal-wrapper" data-speed="0.08"><span class="floating-petal">❀</span></div>
+            <div class="petal-wrapper" data-speed="0.14"><span class="floating-petal">✿</span></div>
+            <div class="petal-wrapper" data-speed="0.06"><span class="floating-petal">❋</span></div>
+            <div class="petal-wrapper" data-speed="0.18"><span class="floating-petal">✽</span></div>
+            <div class="petal-wrapper" data-speed="0.10"><span class="floating-petal">❁</span></div>
+        </div>
+        <div class="hero-content reveal" data-parallax-speed="0.12">
+            <span class="hero-badge">✦ Fort Lauderdale · Las Olas ✦</span>
+            <h1>La <span class="gold">Felicita</span> Group</h1>
+            <p class="hero-tagline">A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable</p>
+            <a href="#book" class="hero-cta">Book Your Experience</a>
+        </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 1: RESTAURANTS ═══════════════ -->
+    <section id="restaurants">
+        <span class="section-label reveal text-center">✦ Section 1 ✦</span>
+        <h2 class="section-title text-center reveal">Our <span class="gold">Restaurants</span></h2>
+        <p class="section-subtitle text-center reveal">Each venue is a distinct world — united by candlelight, cucina, and la felicità.</p>
+        <div class="restaurant-grid">
+            <div class="restaurant-card reveal" data-parallax-speed="0.06">
+                <div class="restaurant-img" style="background-image: url('https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&h=400&fit=crop');">
+                    <span class="restaurant-emoji">🕯️</span>
                 </div>
-                <h1>Italian restaurants <br />with <em>tanto amore</em></h1>
-                <p>
-                    FLORA brings the soul of Italy to your table — fresh pasta,
-                    sun‑ripened tomatoes, and the warmth of a family kitchen.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#bookings" class="btn-primary">Book a table</a>
-                    <a href="#seasonal" class="btn-outline">Explore the menu</a>
+                <div class="restaurant-body">
+                    <h3>Flora</h3>
+                    <p class="restaurant-location">Las Olas · Fort Lauderdale</p>
+                    <p>Our flagship private Italian sanctuary — tableside tagliolini, candlelit corners, and the legendary Negroni Fountain.</p>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="placeholder">
-                    <i class="fas fa-leaf"></i>
+            <div class="restaurant-card reveal" data-parallax-speed="0.04">
+                <div class="restaurant-img" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop');">
+                    <span class="restaurant-emoji">🌿</span>
+                </div>
+                <div class="restaurant-body">
+                    <h3>Giardino</h3>
+                    <p class="restaurant-location">Victoria Park · Fort Lauderdale</p>
+                    <p>An open-air Italian conservatory under a canopy of jasmine and fairy lights. Perfect for slow evenings and spritz afternoons.</p>
+                </div>
+            </div>
+            <div class="restaurant-card reveal" data-parallax-speed="0.07">
+                <div class="restaurant-img" style="background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop');">
+                    <span class="restaurant-emoji">🍋</span>
+                </div>
+                <div class="restaurant-body">
+                    <h3>Limone</h3>
+                    <p class="restaurant-location">Harbor Beach · Fort Lauderdale</p>
+                    <p>A coastal Italian retreat — citrus-forward cuisine, white linen, and the sound of the water just steps away.</p>
+                </div>
+            </div>
+            <div class="restaurant-card reveal" data-parallax-speed="0.05">
+                <div class="restaurant-img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop');">
+                    <span class="restaurant-emoji">🍷</span>
+                </div>
+                <div class="restaurant-body">
+                    <h3>Enotecha</h3>
+                    <p class="restaurant-location">Downtown · Fort Lauderdale</p>
+                    <p>A wine-first concept with an ever-evolving list of Italian labels, small plates, and after-dinner rituals.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== NEWS / SQUADRA ===== -->
-    <section class="container" id="news" style="padding: 80px 24px;">
-        <span class="section-label"><i class="fas fa-newspaper" style="margin-right:8px;"></i> News from the Squadra</span>
-        <h2 class="section-title">Fresh stories, <em>fresh pasta</em></h2>
-        <p class="section-sub">
-            From new openings to limited‑edition drops — here’s what’s blooming at FLORA.
-        </p>
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
 
-        <div class="news-grid">
-            <div class="news-card">
-                <div class="icon"><i class="fas fa-birthday-cake"></i></div>
-                <h3>10 Years of FLORA</h3>
-                <p>
-                    10 years of laughter, first dates, big news shared, and unforgettable
-                    moments. From the whole squadra: <strong>GRAZIE MILLE</strong>.
-                </p>
-                <a href="#" class="card-link">Let's celebrate <i class="fas fa-arrow-right"></i></a>
+    <!-- ═══════════════ SECTION 2: STORY ═══════════════ -->
+    <section id="story">
+        <span class="section-label reveal text-center">✦ Section 2 ✦</span>
+        <h2 class="section-title text-center reveal">Our <span class="gold">Story</span></h2>
+        <p class="section-subtitle text-center reveal">From a single candle on Las Olas to a family of restaurants — this is La Felicita.</p>
+        <div class="story-card reveal" data-parallax-speed="0.05">
+            <p>La Felicita Group began with a simple belief: that the most memorable meals happen when the room is warm, the light is low, and the conversation flows like wine.</p>
+            <p>What started as Flora — a small, private dining room on Las Olas Boulevard — grew into a collection of distinct Italian experiences across Fort Lauderdale. Each venue carries the same DNA: hand-pulled pasta, curated Italian wine, and candlelight that makes every guest feel like the only one in the room.</p>
+            <p>We are independent, family-driven, and deeply connected to the local community. Our chefs, sommeliers, and hospitality teams are the heart of everything we do.</p>
+        </div>
+    </section>
+
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
+
+    <!-- ═══════════════ SECTION 3: PRIVATE EVENTS + SHOP PREVIEW ═══════════════ -->
+    <section id="events">
+        <span class="section-label reveal text-center">✦ Section 3 ✦</span>
+        <h2 class="section-title text-center reveal">Private <span class="gold">Events</span></h2>
+        <p class="section-subtitle text-center reveal">Intimate celebrations, business dinners, and curated tastings — plus a preview of what you can bring home.</p>
+        <div class="events-grid">
+            <div class="event-card reveal" data-parallax-speed="0.06">
+                <span class="event-emoji">🥂</span>
+                <h4>Private Dining Rooms</h4>
+                <p>Full venue buyouts or semi-private corners for 8–60 guests. Dedicated service, custom menus, and candlelit ambience.</p>
             </div>
-            <div class="news-card">
-                <div class="icon"><i class="fas fa-store"></i></div>
-                <h3>Our E‑shop is Live</h3>
-                <p>
-                    Our limited‑edition crockery finally landed! From Sicily to Umbria,
-                    bring home the ultimate Italian tablescape.
-                </p>
-                <a href="#eshop" class="card-link">Discover now <i class="fas fa-arrow-right"></i></a>
+            <div class="event-card reveal" data-parallax-speed="0.04">
+                <span class="event-emoji">🛥️</span>
+                <h4>Water Taxi Arrival Packages</h4>
+                <p>Arrive in style along the Intracoastal — we coordinate pickups and dockside greetings for unforgettable entrances.</p>
             </div>
-            <div class="news-card">
-                <div class="icon"><i class="fas fa-utensils"></i></div>
-                <h3>Spring has Sprung</h3>
-                <p>
-                    The sun’s out, and so is the burrata. Fresh antipasti, homemade
-                    pasta, and vanilla rice pudding with salted caramel.
-                </p>
-                <a href="#bookings" class="card-link">Secure your spot <i class="fas fa-arrow-right"></i></a>
+            <div class="event-card reveal" data-parallax-speed="0.07">
+                <span class="event-emoji">🍾</span>
+                <h4>Chef's Table & Tastings</h4>
+                <p>Seasonal multi-course experiences led by our executive chefs, paired with rare Italian labels.</p>
+            </div>
+            <div class="event-card reveal" data-parallax-speed="0.05">
+                <span class="event-emoji">🛍️</span>
+                <h4>Shop Preview</h4>
+                <p>House-made pasta kits, our signature candles, olive oils, and negroni kits — available soon online and in-venue.</p>
             </div>
         </div>
     </section>
 
-    <!-- ===== E-SHOP / LA BOTTEGA ===== -->
-    <section class="eshop" id="eshop">
-        <div class="container">
-            <div class="eshop-header">
-                <span class="section-label"><i class="fas fa-shopping-bag" style="margin-right:8px;"></i> La Bottega</span>
-                <h2 class="section-title">Hand-painted <em>ceramics</em></h2>
-                <p class="section-sub">Bring the Italian sunshine to your table with our curated collection of artisanal plates. Each piece tells a story of tradition.</p>
-            </div>
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
 
-            <div class="product-grid" id="productGrid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image photo">
-                        <img src="fotos/WhatsApp%20Image%202026-06-26%20at%2011.34.32%20AM.jpeg" alt="Sorrento Lemon Plate" />
-                        <span class="product-tag">Best Seller</span>
-                    </div>
-                    <div class="product-info">
-                        <h4>Sorrento Lemon Plate</h4>
-                        <p>Majolica ceramic · 28cm</p>
-                        <div class="product-price">€48.00</div>
-                        <button class="btn-add-cart" data-name="Sorrento Lemon Plate" data-price="48.00">Add to cart</button>
-                    </div>
+    <!-- ═══════════════ SECTION 4: BOOK A TABLE ═══════════════ -->
+    <section id="book">
+        <span class="section-label reveal text-center">✦ Section 4 ✦</span>
+        <h2 class="section-title text-center reveal">Book a <span class="gold">Table</span></h2>
+        <p class="section-subtitle text-center reveal">Choose your experience. We'll take care of the rest.</p>
+        <div class="book-card reveal" data-parallax-speed="0.05">
+            <span class="book-icon">🕯️</span>
+            <p>Reservations are available for all La Felicita Group venues. For parties larger than 8, please contact us directly for private dining options.</p>
+            <a href="#" class="book-btn">Reserve Your Table</a>
+        </div>
+    </section>
+
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
+
+    <!-- ═══════════════ SECTION 5: GIFT CARDS ═══════════════ -->
+    <section id="giftcards">
+        <span class="section-label reveal text-center">✦ Section 5 ✦</span>
+        <h2 class="section-title text-center reveal">Gift <span class="gold">Cards</span></h2>
+        <p class="section-subtitle text-center reveal">Give the gift of candlelight and cucina. Redeemable at any La Felicita venue.</p>
+        <div class="gift-card-grid">
+            <div class="gift-card-item reveal" data-parallax-speed="0.05">
+                <span class="gift-emoji">💌</span>
+                <h4>Classic Gift Card</h4>
+                <p>$50 – $500 · Digital or physical</p>
+            </div>
+            <div class="gift-card-item reveal" data-parallax-speed="0.04">
+                <span class="gift-emoji">🕯️</span>
+                <h4>Candlelit Dinner for Two</h4>
+                <p>$180 · Includes multi-course experience</p>
+            </div>
+            <div class="gift-card-item reveal" data-parallax-speed="0.06">
+                <span class="gift-emoji">🍷</span>
+                <h4>Wine & Dine Package</h4>
+                <p>$250 · Dinner with curated wine pairing</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
+
+    <!-- ═══════════════ SECTION 6: VENDORS + SHOP + NEWSLETTER ═══════════════ -->
+    <section id="vendors">
+        <span class="section-label reveal text-center">✦ Section 6 ✦</span>
+        <h2 class="section-title text-center reveal">Our <span class="gold">Vendors</span> & Shop</h2>
+        <p class="section-subtitle text-center reveal">We partner with the finest local and Italian artisans. Bring a piece of La Felicita home.</p>
+        <div class="vendors-grid">
+            <div class="vendor-item reveal" data-parallax-speed="0.05">
+                <span class="vendor-emoji">🫒</span>
+                <div class="vendor-info">
+                    <h4>Olio d'Oliva — Local Grove</h4>
+                    <p>Cold-pressed extra virgin olive oil from our partner farm.</p>
                 </div>
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image" data-design="olive">
-                        <span class="product-tag">New</span>
-                    </div>
-                    <div class="product-info">
-                        <h4>Sicilian Olive Plate</h4>
-                        <p>Hand-painted · 32cm</p>
-                        <div class="product-price">€52.00</div>
-                        <button class="btn-add-cart" data-name="Sicilian Olive Plate" data-price="52.00">Add to cart</button>
-                    </div>
+            </div>
+            <div class="vendor-item reveal" data-parallax-speed="0.04">
+                <span class="vendor-emoji">🕯️</span>
+                <div class="vendor-info">
+                    <h4>Flora Signature Candle</h4>
+                    <p>Hand-poured in Fort Lauderdale — notes of amber, fig, and warm spice.</p>
                 </div>
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image" data-design="vietri">
-                        <span class="product-tag">Limited</span>
-                    </div>
-                    <div class="product-info">
-                        <h4>Vietri Geometric Plate</h4>
-                        <p>Ceramic · 30cm</p>
-                        <div class="product-price">€65.00</div>
-                        <button class="btn-add-cart" data-name="Vietri Geometric Plate" data-price="65.00">Add to cart</button>
-                    </div>
+            </div>
+            <div class="vendor-item reveal" data-parallax-speed="0.06">
+                <span class="vendor-emoji">🍝</span>
+                <div class="vendor-info">
+                    <h4>Fresh Pasta Kits</h4>
+                    <p>House-made tagliolini, sauces, and truffle butter to recreate at home.</p>
                 </div>
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="product-image" data-design="tuscan">
-                        <span class="product-tag">Classic</span>
-                    </div>
-                    <div class="product-info">
-                        <h4>Tuscan Sun Plate</h4>
-                        <p>Terracotta · 26cm</p>
-                        <div class="product-price">€38.00</div>
-                        <button class="btn-add-cart" data-name="Tuscan Sun Plate" data-price="38.00">Add to cart</button>
-                    </div>
+            </div>
+            <div class="vendor-item reveal" data-parallax-speed="0.04">
+                <span class="vendor-emoji">🏺</span>
+                <div class="vendor-info">
+                    <h4>Negroni Fountain Kit</h4>
+                    <p>Everything you need for the tableside ritual, in a keepsake box.</p>
                 </div>
-                <!-- Product 5 -->
-                <div class="product-card">
-                    <div class="product-image" data-design="rose">
-                        <span class="product-tag">New</span>
-                    </div>
-                    <div class="product-info">
-                        <h4>Raphael's Rose Plate</h4>
-                        <p>Fine porcelain · 27cm</p>
-                        <div class="product-price">€55.00</div>
-                        <button class="btn-add-cart" data-name="Raphael's Rose Plate" data-price="55.00">Add to cart</button>
-                    </div>
+            </div>
+        </div>
+        <div class="newsletter-box reveal" data-parallax-speed="0.05">
+            <span class="newsletter-emoji">✉️</span>
+            <h4>Join Our Newsletter</h4>
+            <p>Be first to know about new venues, seasonal menus, and private event invitations.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
+
+    <!-- ═══════════════ SECTION 7: CAREERS ═══════════════ -->
+    <section id="careers">
+        <span class="section-label reveal text-center">✦ Section 7 ✦</span>
+        <h2 class="section-title text-center reveal">Join Our <span class="gold">Team</span></h2>
+        <p class="section-subtitle text-center reveal">We hire for heart, train for skill. If you love hospitality, we'd love to meet you.</p>
+        <div class="careers-list">
+            <div class="career-item reveal" data-parallax-speed="0.05">
+                <span class="career-emoji">👨‍🍳</span>
+                <div>
+                    <h4>Line Cook</h4>
+                    <p>Full-time · All venues · Immediate start</p>
                 </div>
-                <!-- Product 6 -->
-                <div class="product-card">
-                    <div class="product-image" data-design="navy">
-                        <span class="product-tag">Exclusive</span>
-                    </div>
-                    <div class="product-info">
-                        <h4>Navy & Gold Plate</h4>
-                        <p>Hand-decorated · 31cm</p>
-                        <div class="product-price">€72.00</div>
-                        <button class="btn-add-cart" data-name="Navy & Gold Plate" data-price="72.00">Add to cart</button>
-                    </div>
+            </div>
+            <div class="career-item reveal" data-parallax-speed="0.04">
+                <span class="career-emoji">🥂</span>
+                <div>
+                    <h4>Server / Waitstaff</h4>
+                    <p>Part-time & full-time · Evening shifts</p>
+                </div>
+            </div>
+            <div class="career-item reveal" data-parallax-speed="0.06">
+                <span class="career-emoji">🍷</span>
+                <div>
+                    <h4>Sommelier</h4>
+                    <p>Full-time · Flora & Enotecha</p>
+                </div>
+            </div>
+            <div class="career-item reveal" data-parallax-speed="0.04">
+                <span class="career-emoji">📸</span>
+                <div>
+                    <h4>Social Media Coordinator</h4>
+                    <p>Full-time · Group level · Hybrid</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SEASONAL ===== -->
-    <section class="container seasonal" id="seasonal">
-        <span class="section-label"><i class="fas fa-seedling" style="margin-right:8px;"></i> In season</span>
-        <h2 class="section-title">Spring has <em>sprouted</em></h2>
-        <p class="section-sub">
-            Sun‑kissed flavours, made‑to‑order with love. Here’s what’s fresh right now.
-        </p>
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
 
-        <div class="seasonal-grid">
-            <div class="seasonal-list">
-                <div class="seasonal-item">
-                    <i class="fas fa-cheese"></i>
-                    <div><strong>Piccola Caprese</strong> <span>· mozzarella di bufala, datterini tomatoes, basil pesto</span></div>
-                </div>
-                <div class="seasonal-item">
-                    <i class="fas fa-fish"></i>
-                    <div><strong>Crispy Fried Squid</strong> <span>· tangy lemon yoghurt, fresh herbs</span></div>
-                </div>
-                <div class="seasonal-item">
-                    <i class="fas fa-pasta"></i>
-                    <div><strong>Pasta alla Norma</strong> <span>· San Marzano DOP tomato, Sicilian eggplant</span></div>
-                </div>
-                <div class="seasonal-item">
-                    <i class="fas fa-ice-cream"></i>
-                    <div><strong>Vanilla Rice Pudding</strong> <span>· salted caramel, toasted hazelnuts</span></div>
-                </div>
+    <!-- ═══════════════ SECTION 8: FAQ ═══════════════ -->
+    <section id="faq">
+        <span class="section-label reveal text-center">✦ Section 8 ✦</span>
+        <h2 class="section-title text-center reveal">Frequently Asked <span class="gold">Questions</span></h2>
+        <p class="section-subtitle text-center reveal">Everything you need to know before your visit.</p>
+        <div class="faq-list">
+            <div class="faq-item reveal" data-parallax-speed="0.04">
+                <div class="faq-question"><span class="faq-icon">✧</span> Do you accommodate dietary restrictions?</div>
+                <div class="faq-answer">Absolutely. Our chefs can accommodate gluten-free, vegetarian, vegan, and most allergies with advance notice. Please note any restrictions in your reservation.</div>
             </div>
-            <div class="seasonal-image">
-                <div class="placeholder-icon"><i class="fas fa-leaf"></i></div>
-                <p>Made fresh daily · Sourced from Italy</p>
-                <a href="#" style="display:inline-block;margin-top:20px;font-weight:600;color:var(--flora-green);">
-                    View full menu <i class="fas fa-arrow-right"></i>
-                </a>
+            <div class="faq-item reveal" data-parallax-speed="0.05">
+                <div class="faq-question"><span class="faq-icon">✧</span> Is there a dress code?</div>
+                <div class="faq-answer">We suggest smart casual. Many guests enjoy dressing up for the candlelit experience — it's part of the ritual.</div>
+            </div>
+            <div class="faq-item reveal" data-parallax-speed="0.04">
+                <div class="faq-question"><span class="faq-icon">✧</span> Do you offer private dining or buyouts?</div>
+                <div class="faq-answer">Yes — full venue buyouts and semi-private rooms are available for 8–60 guests. Visit our Private Events section or contact us directly.</div>
+            </div>
+            <div class="faq-item reveal" data-parallax-speed="0.06">
+                <div class="faq-question"><span class="faq-icon">✧</span> Can I arrive by water taxi?</div>
+                <div class="faq-answer">Yes! We partner with the Fort Lauderdale water taxi for dockside drop-offs at select venues. Book the "water taxi arrival package" when reserving.</div>
+            </div>
+            <div class="faq-item reveal" data-parallax-speed="0.04">
+                <div class="faq-question"><span class="faq-icon">✧</span> Are gift cards redeemable at all venues?</div>
+                <div class="faq-answer">Yes — all La Felicita Group gift cards are valid at any of our restaurants, including Flora, Giardino, Limone, and Enotecha.</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== BOOKINGS ===== -->
-    <section class="bookings" id="bookings">
-        <div class="container">
-            <h2>We're taking <em style="color:var(--flora-gold);">bookings!</em></h2>
-            <p>
-                Amici belli, all our restaurants are now open for reservations.
-                Whether it’s a big dinner with your crew, a first date, or a family
-                reunion — come and see us.
-            </p>
-            <a href="#" class="btn-primary">Book a table</a>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
+    <!-- ═══════════════ FOOTER ═══════════════ -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">FLORA <span>·</span></a>
-                    <p>
-                        Italian restaurants con tanto amore. Fresh pasta, handmade with
-                        passion, served with a smile.
-                    </p>
-                </div>
-                <div class="footer-col">
-                    <h4>Restaurants</h4>
-                    <ul>
-                        <li><a href="#">London</a></li>
-                        <li><a href="#">Paris</a></li>
-                        <li><a href="#">Berlin</a></li>
-                        <li><a href="#">Milan</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Info</h4>
-                    <ul>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">Terms</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 FLORA · All rights reserved</span>
-                <div class="footer-socials">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
+        <span class="footer-logo">✦ <span class="gold">La Felicita Group</span> ✦</span>
+        Private Italian Dining · Fort Lauderdale · Las Olas Boulevard
+        <div class="social-links">
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="TikTok">🎵</a>
+            <a href="#" aria-label="Email">✉️</a>
         </div>
+        <small>© 2026 La Felicita Group. Intimate dining, elevated.</small>
+        <span class="footer-candle">🕯️</span>
     </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ═══════════════ FLOATING RESERVE ═════ -->
+    <a href="#book" class="floating-reserve" aria-label="Book a table">🕯️</a>
+
+    <!-- ═══════════════ SCRIPTS ══════════════ -->
     <script>
         (function() {
             'use strict';
 
-            // ----- HEADER SCROLL -----
             const header = document.getElementById('header');
-            window.addEventListener('scroll', function() {
-                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                if (currentScroll > 40) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // ----- MOBILE HAMBURGER -----
             const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
+            const navOverlay = document.getElementById('navOverlay');
+            const navClose = document.getElementById('navClose');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const floatingReserve = document.querySelector('.floating-reserve');
+            const revealElements = document.querySelectorAll('.reveal');
+            const hero = document.getElementById('hero');
+            const faqItems = document.querySelectorAll('.faq-item');
+            const newsletterForm = document.getElementById('newsletterForm');
 
-            hamburger.addEventListener('click', function() {
-                navLinks.classList.toggle('open');
-                const expanded = navLinks.classList.contains('open');
-                hamburger.setAttribute('aria-expanded', expanded);
+            // ─── HEADER SHADOW ─────────────────
+            function updateHeaderShadow() {
+                header.classList.toggle('scrolled', window.scrollY > 20);
+            }
+            window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+            updateHeaderShadow();
+
+            // ─── MOBILE NAV ────────────────────
+            function openNav() {
+                navOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (hamburger) hamburger.addEventListener('click', openNav);
+            if (navClose) navClose.addEventListener('click', closeNav);
+            navLinks.forEach(link => link.addEventListener('click', closeNav));
+            navOverlay.addEventListener('click', function(e) {
+                if (e.target === navOverlay) closeNav();
             });
 
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('open');
-                    hamburger.setAttribute('aria-expanded', 'false');
+            // ─── SCROLL REVEAL ─────────────────
+            const observerOptions = { root: null, rootMargin: '0px 0px -40px 0px', threshold: 0.12 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, observerOptions);
+            revealElements.forEach(el => observer.observe(el));
+
+            // ─── HERO REVEAL ON LOAD ───────────
+            setTimeout(() => {
+                const heroReveal = document.querySelector('.hero .reveal');
+                if (heroReveal && !heroReveal.classList.contains('visible')) {
+                    heroReveal.classList.add('visible');
+                }
+            }, 200);
+
+            // ─── FAQ ACCORDION ─────────────────
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const wasActive = this.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!wasActive) this.classList.add('active');
                 });
             });
 
-            document.addEventListener('click', function(e) {
-                if (!header.contains(e.target)) {
-                    navLinks.classList.remove('open');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                }
-            });
+            // ─── NEWSLETTER FORM ───────────────
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const input = this.querySelector('input[type="email"]');
+                    if (input && input.value) {
+                        alert('Grazie! You have been subscribed to the La Felicita newsletter.');
+                        input.value = '';
+                    }
+                });
+            }
 
-            // ----- SMOOTH SCROLL FOR ANCHOR LINKS -----
-            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            // ─── FLOATING RESERVE HIDE ─────────
+            const bookSection = document.getElementById('book');
+            const reserveObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const isVisible = !entry.isIntersecting;
+                    floatingReserve.style.opacity = isVisible ? '1' : '0';
+                    floatingReserve.style.pointerEvents = isVisible ? 'auto' : 'none';
+                    floatingReserve.style.transform = isVisible ? 'scale(1)' : 'scale(0.7)';
+                });
+            }, { threshold: 0.3 });
+            if (bookSection) reserveObserver.observe(bookSection);
+
+            // ─── SMOOTH ANCHOR SCROLL ──────────
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    const targetEl = document.querySelector(targetId);
-                    if (targetEl) {
+                    const target = document.querySelector(targetId);
+                    if (target) {
                         e.preventDefault();
-                        const offset = 80;
-                        const top = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
-                        window.scrollTo({ top: top, behavior: 'smooth' });
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset -
+                            headerHeight - 10;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     }
                 });
             });
 
-            // ----- INTERSECTION OBSERVER FOR CARDS (subtle reveal) -----
-            const cards = document.querySelectorAll('.news-card, .seasonal-item, .product-card');
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, {
-                    threshold: 0.10,
-                    rootMargin: '0px 0px -40px 0px'
-                });
-
-                cards.forEach(function(card) {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(24px)';
-                    card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-                    observer.observe(card);
-                });
-            } else {
-                cards.forEach(function(card) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                });
+            // ─── PARALLAX SCROLL ──────────────
+            const parallaxElements = [];
+            const heroBg = document.querySelector('.hero-bg-image');
+            if (heroBg) {
+                const speed = parseFloat(heroBg.dataset.parallaxSpeed) || 0.18;
+                parallaxElements.push({ el: heroBg, speed: speed, type: 'translateY', scale: true });
             }
-
-            // ----- SHOPPING CART INTERACTION -----
-            let cartCount = 0;
-            const cartCountElement = document.getElementById('cartCount');
-            const addToCartButtons = document.querySelectorAll('.btn-add-cart');
-
-            function updateCartCount() {
-                cartCountElement.textContent = cartCount;
-                // Simple animation for the cart icon
-                cartCountElement.style.transform = 'scale(1.4)';
-                setTimeout(() => {
-                    cartCountElement.style.transform = 'scale(1)';
-                }, 200);
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                const speed = parseFloat(heroContent.dataset.parallaxSpeed) || 0.12;
+                parallaxElements.push({ el: heroContent, speed: speed, type: 'translateY' });
             }
-
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const productName = this.getAttribute('data-name');
-                    const productPrice = this.getAttribute('data-price');
-
-                    // Increase cart count
-                    cartCount++;
-                    updateCartCount();
-
-                    // Feedback: Change button text temporarily
-                    const originalText = this.textContent;
-                    this.textContent = 'Added! ✨';
-                    this.style.background = '#2b5e3b';
-                    this.style.color = '#fff';
-                    this.style.borderColor = '#2b5e3b';
-                    this.disabled = true;
-
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                        this.style.background = '';
-                        this.style.color = '';
-                        this.style.borderColor = '';
-                        this.disabled = false;
-                    }, 1500);
-
-                    // Optional: Log to console (can be replaced with a proper cart system)
-                    console.log(`🛒 Added ${productName} (€${productPrice}) to cart. Total items: ${cartCount}`);
-                });
+            document.querySelectorAll('.petal-wrapper').forEach(w => {
+                const speed = parseFloat(w.dataset.speed) || 0.10;
+                parallaxElements.push({ el: w, speed: speed, type: 'translateY' });
+            });
+            document.querySelectorAll('[data-parallax-speed]').forEach(el => {
+                if (el.classList.contains('hero-bg-image') || el.classList.contains('hero-content') || el
+                    .classList.contains('petal-wrapper')) return;
+                const speed = parseFloat(el.dataset.parallaxSpeed) || 0.05;
+                parallaxElements.push({ el: el, speed: speed, type: 'translateY' });
             });
 
-            // Reset cart count if needed (optional, just for demo)
-            console.log('🛍️ FLORA Bottega is ready!');
+            let ticking = false;
+            let viewportHeight = window.innerHeight;
+
+            function updateParallax() {
+                const scrollY = window.scrollY;
+                const heroHeight = hero ? hero.offsetHeight : 800;
+                const heroVisible = scrollY < heroHeight * 0.9;
+
+                for (const p of parallaxElements) {
+                    const el = p.el;
+                    if (!el) continue;
+                    const rect = el.getBoundingClientRect();
+                    if (rect.bottom < -300 || rect.top > viewportHeight + 300) continue;
+
+                    let offset = 0;
+                    if (el === heroBg && heroVisible) {
+                        offset = scrollY * p.speed * -0.6;
+                    } else {
+                        const center = rect.top + rect.height / 2;
+                        const viewportCenter = viewportHeight / 2;
+                        const distance = (center - viewportCenter) / viewportHeight;
+                        const maxOffset = Math.min(Math.abs(distance) * 60, 40);
+                        offset = distance * maxOffset * p.speed * 2;
+                        offset = Math.max(-30, Math.min(30, offset));
+                    }
+
+                    if (p.scale) {
+                        const scale = 1.06 + (offset * 0.0008);
+                        el.style.transform = `translateY(${offset}px) scale(${Math.min(1.12, Math.max(1.0, scale))})`;
+                    } else {
+                        el.style.transform = `translateY(${offset}px)`;
+                    }
+                }
+                ticking = false;
+            }
+
+            function requestParallaxUpdate() {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        updateParallax();
+                    });
+                    ticking = true;
+                }
+            }
+            window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    viewportHeight = window.innerHeight;
+                    updateParallax();
+                }, 100);
+            }, { passive: true });
+
+            setTimeout(updateParallax, 150);
+
+            console.log('🕯️ La Felicita Group — full multi-section experience loaded.');
         })();
     </script>
 
