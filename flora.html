@@ -256,6 +256,9 @@
             padding: 28px;
             box-shadow: 0 20px 40px rgba(52, 41, 33, 0.05);
         }
+        .private-event-section {
+            background: var(--paper);
+        }
         .private-event-form h3 {
             color: var(--wine-dark);
             font-size: clamp(1.6rem, 2vw, 2.2rem);
@@ -484,6 +487,24 @@
             }
             .form-grid {
                 grid-template-columns: 1fr;
+            }
+            .private-event-section {
+                padding-bottom: 72px;
+                padding-top: 72px;
+            }
+            .private-event-form {
+                border-radius: 16px;
+                gap: 20px;
+                margin-top: 0;
+                padding: 22px 18px;
+            }
+            .private-event-form h3 {
+                font-size: 1.7rem;
+            }
+            .form-submit {
+                justify-self: stretch;
+                text-align: center;
+                width: 100%;
             }
         }
         @media (min-width: 768px) {
@@ -1232,6 +1253,8 @@
                 <article class="experience-card"><span>🍾</span><h3>Chef's Table & Tastings</h3><p>Seasonal multi-course experiences led by our chefs and paired with rare Italian labels.</p></article>
                 <article class="experience-card"><span>🛍️</span><h3>Flora To Go</h3><p>Bring the ritual home with house-made pasta kits, signature candles, olive oils, and Negroni kits.</p></article>
             </div>
+            </section>
+            <section class="flora-section private-event-section" id="private-event-inquiry">
 
             <form class="private-event-form" id="private-events-form" action="https://formspree.io/f/xljenlpn" method="POST">
                 <div>
