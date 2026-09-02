@@ -66,18 +66,107 @@
         .details { border-left: 1px solid var(--line); display: grid; gap: 22px; padding-left: 30px; }
         .details strong { color: var(--wine); display: block; font-size: 0.65rem; letter-spacing: 2px; margin-bottom: 3px; text-transform: uppercase; }
         .details span { color: var(--muted); font-size: 0.9rem; }
-        .menu-section { background: var(--wine-dark); color: #fffaf6; padding: 105px 5vw; }
-        .menu-inner { display: grid; gap: clamp(34px, 6vw, 82px); grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr); margin: auto; max-width: 1120px; }
+        .menu-section {
+            background: linear-gradient(180deg, #f8f3ee 0%, #f2ece4 100%);
+            color: #2d2925;
+            padding: 64px 20px 80px;
+        }
+        .menu-inner {
+            display: block;
+            margin: 0 auto;
+            max-width: 1100px;
+        }
         .menu-feature { align-self: stretch; min-height: 620px; position: relative; }
         .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
         .menu-feature figcaption { bottom: 24px; color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
-        .menu-content { align-self: center; }
-        .menu-section .section-kicker { color: #e8b7b0; }
-        .menu-section h2 { margin-bottom: 42px; }
-        .menu-grid { display: grid; gap: 1px; grid-template-columns: repeat(3, 1fr); }
-        .menu-item { border-top: 1px solid rgba(255, 250, 246, 0.2); padding: 22px 20px 22px 0; }
-        .menu-item h3 { font-size: 1.25rem; margin-bottom: 5px; }
-        .menu-item p { color: rgba(255, 250, 246, 0.67); font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; }
+        .menu-content {
+            align-self: center;
+            width: 100%;
+        }
+        .menu-section .section-kicker { color: var(--wine); }
+        .menu-section h2 { margin-bottom: 18px; }
+        .menu-category {
+            margin-bottom: 36px;
+        }
+        .menu-category-title {
+            color: var(--charcoal);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.1rem, 3vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .menu-category-sub {
+            color: rgba(45, 41, 37, 0.7);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.12rem;
+            font-style: italic;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .menu-item-card {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(201, 169, 110, 0.12);
+            border-radius: 24px;
+            box-shadow: 0 18px 40px rgba(52, 41, 33, 0.08);
+            flex: 0 0 calc(50% - 15px);
+            max-width: 500px;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        .menu-item-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 169, 110, 0.22);
+            box-shadow: 0 24px 52px rgba(52, 41, 33, 0.12);
+        }
+        .menu-item-img {
+            height: 290px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .menu-item-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 14, 10, 0.18), transparent 55%);
+        }
+        .menu-item-body {
+            padding: 22px 22px 24px;
+            color: #2d2925;
+        }
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .menu-item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d2925;
+            letter-spacing: -0.03em;
+        }
+        .menu-item-price {
+            color: var(--wine);
+            font-size: 1rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .menu-item-desc {
+            color: rgba(45, 41, 37, 0.72);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
         .flora-section { padding: 100px 5vw; }
         .flora-section:nth-child(even) { background: var(--paper); }
         .flora-section-head { margin: 0 auto 38px; max-width: 760px; text-align: center; }
@@ -97,6 +186,17 @@
         .reserve { background: #eaded5; padding: 90px 5vw; text-align: center; }
         .reserve p { color: var(--muted); margin: 0 auto 24px; max-width: 480px; }
         footer { background: var(--cream); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.72rem; padding: 25px 5vw; text-align: center; }
+        @media (max-width: 900px) {
+            .menu-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+            .menu-item-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
         @media (max-width: 700px) {
             .site-header { padding: 10px 20px; }
             .hero { display: flex; flex-direction: column; min-height: 0; }
@@ -108,8 +208,6 @@
             .intro { display: block; padding: 75px 24px; }
             .details { border-left: 0; border-top: 1px solid var(--line); margin-top: 42px; padding: 28px 0 0; }
             .menu-section, .gallery, .reserve { padding-left: 24px; padding-right: 24px; }
-            .menu-grid { grid-template-columns: 1fr; }
-            .menu-inner { grid-template-columns: 1fr; }
             .menu-feature { min-height: 400px; }
             .flora-section { padding: 75px 24px; }
             .experience-grid, .gift-grid { grid-template-columns: 1fr; }
@@ -169,17 +267,32 @@
         </section>
         <section class="menu-section">
             <div class="menu-inner">
-                
                 <div class="menu-content">
-                    <div class="section-kicker">A taste of Flora</div>
-                    <h2>Made to be shared.</h2>
-                    <div class="menu-grid">
-                        <article class="menu-item"><h3>Tableside Tagliolini</h3><p>Hand-pulled pasta, butter, Parmigiano, and the night's truffle.</p></article>
-                        <article class="menu-item"><h3>Market Antipasti</h3><p>Seasonal vegetables, marinated olives, and warm focaccia for the table.</p></article>
-                        <article class="menu-item"><h3>Flora's Negroni</h3><p>A bitter-sweet house pour, served slowly and with good company.</p></article>
-                        <article class="menu-item"><h3>Branzino al Limone</h3><p>Coastal flavors, bright citrus, and a little taste of the sea.</p></article>
-                        <article class="menu-item"><h3>Dolce della Casa</h3><p>A changing dessert inspired by the season and the room.</p></article>
-                        <article class="menu-item"><h3>Italian Wine</h3><p>Thoughtful bottles and pours selected to keep the evening moving.</p></article>
+                    <div class="menu-category" id="antipasti">
+                        <h2 class="menu-category-title">Antipasti</h2>
+                        <p class="menu-category-sub">To begin, small plates made for sharing.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1541529086526-db283c563270?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Burrata e Pomodoro</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Creamy burrata, heirloom tomatoes, basil, aged balsamic.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Carpaccio di Manzo</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc">Thinly sliced beef, arugula, shaved parmesan, lemon oil.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
