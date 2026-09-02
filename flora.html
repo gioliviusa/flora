@@ -24,16 +24,16 @@
         .site-header { align-items: center; background: rgba(255, 253, 249, 0.9); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 12px 5vw; position: absolute; width: 100%; z-index: 2; }
         .site-header img { border-radius: 10px; display: block; height: 40px; width: auto; }
         .back-link { color: var(--wine); font-size: 0.7rem; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
-        .hero { align-items: center; color: #fffaf6; display: flex; justify-content: center; min-height: 78vh; overflow: hidden; padding: 120px 8vw 80px; position: relative; text-align: center; }
+        .hero { align-items: center; color: #fffaf6; display: flex; justify-content: flex-start; min-height: 78vh; overflow: hidden; padding: 120px 8vw 80px; position: relative; text-align: left; }
         .hero-carousel { inset: 0; overflow: hidden; position: absolute; }
         .hero-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
         .hero-slide.active { opacity: 1; }
-        .hero-copy { align-items: center; display: flex; flex-direction: column; max-width: 680px; position: relative; z-index: 1; }
-        .hero-logo { background: transparent; border-radius: 0; display: block; height: auto; margin-bottom: 22px; max-width: min(170px, 42vw); mix-blend-mode: multiply; width: 100%; }
+        .hero-copy { align-items: flex-start; display: flex; flex-direction: column; max-width: 680px; position: relative; z-index: 1; }
+        .hero-logo { background: transparent; border-radius: 0; display: block; height: auto; margin-bottom: 22px; max-width: min(170px, 42vw); width: 100%; }
         .eyebrow { font-size: 0.66rem; font-weight: 600; letter-spacing: 4px; margin-bottom: 18px; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
         h1 { font-size: clamp(3.8rem, 10vw, 8rem); font-style: italic; line-height: 0.9; text-shadow: 0 3px 22px rgba(0, 0, 0, 0.7); }
-        .hero p { color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.2vw, 1.65rem); font-style: italic; margin: 24px auto 30px; max-width: 520px; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75); }
+        .hero p { color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.2vw, 1.65rem); font-style: italic; margin: 24px 0 30px; max-width: 520px; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75); }
         .button { background: var(--wine); border: 1px solid var(--wine); color: #fffaf6; display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.7px; padding: 14px 24px; text-transform: uppercase; transition: transform 0.25s, background 0.25s; }
         .button:hover { background: #8a4a52; transform: translateY(-2px); }
         .intro { display: grid; gap: 50px; grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr); margin: 0 auto; max-width: 1120px; padding: 110px 5vw; }
@@ -98,7 +98,7 @@
                 <div class="hero-slide" style="background-image: url('img/img4.jpeg');"></div>
             </div>
             <div class="hero-copy">
-                <img class="hero-logo" src="img/logo1.jpeg" alt="La Felicita Group logo" />
+                <img class="hero-logo" src="img/logonob-white.png" alt="La Felicita Group logo" />
                 <div class="eyebrow">La Felicita Group · Las Olas</div>
                 <h1>Flora</h1>
                 <p>A private Italian sanctuary where handmade pasta, candlelight, and long conversations take center stage.</p>
