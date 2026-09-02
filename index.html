@@ -156,6 +156,38 @@
             color: var(--dark-bg);
             border-color: var(--warm-gold);
         }
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            flex-shrink: 0;
+        }
+        .language-switcher label {
+            color: var(--warm-gold);
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .language-switcher select {
+            appearance: none;
+            background: transparent;
+            border: 1px solid rgba(201, 169, 110, 0.35);
+            border-radius: 50px;
+            color: var(--warm-gold);
+            cursor: pointer;
+            font: 500 0.62rem 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            padding: 8px 25px 8px 10px;
+            background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+            background-position: calc(100% - 11px) 11px, calc(100% - 7px) 11px;
+            background-size: 4px 4px, 4px 4px;
+            background-repeat: no-repeat;
+        }
+        .language-switcher select:focus-visible {
+            outline: 2px solid var(--warm-gold-glow);
+            outline-offset: 2px;
+        }
 
         /* ─── HAMBURGER ──────────────────────── */
         .hamburger {
@@ -335,18 +367,45 @@
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 500;
             color: #fffaf6;
-            line-height: 1.1;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
+            line-height: 1;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
             text-shadow: 0 4px 40px rgba(0, 0, 0, 0.45);
         }
         .hero h1 .gold {
+            display: block;
+            position: relative;
+            margin: 7px 0 9px;
             color: #f4d9d5;
             font-style: italic;
-            font-weight: 500;
+            font-size: clamp(3.2rem, 15vw, 5rem);
+            font-weight: 600;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            text-shadow: 0 5px 34px rgba(31, 8, 12, 0.55);
+        }
+        .hero h1 .gold::before,
+        .hero h1 .gold::after {
+            content: '';
+            display: inline-block;
+            width: clamp(26px, 9vw, 72px);
+            height: 1px;
+            margin: 0 12px 0.28em;
+            background: rgba(244, 217, 213, 0.72);
+            vertical-align: middle;
+        }
+        .hero h1 .hero-group {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            padding-left: 6px;
+            text-transform: uppercase;
+            color: rgba(255, 250, 246, 0.86);
         }
         .hero-tagline {
             font-family: 'Cormorant Garamond', serif;
@@ -1475,6 +1534,14 @@
                 display: none;
             }
         }
+        @media (max-width: 767px) {
+            .language-switcher label {
+                display: none;
+            }
+            .language-switcher select {
+                max-width: 74px;
+            }
+        }
         @media (min-width: 1024px) {
             .hero h1 {
                 font-size: 4.8rem;
@@ -1505,6 +1572,17 @@
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
+        <div class="language-switcher">
+            <label for="languageSelect">Language</label>
+            <select id="languageSelect" aria-label="Choose language">
+                <option value="en">English</option>
+                <option value="it">Italiano</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
         <a href="#book" class="header-cta">Reserve</a>
     </header>
 
@@ -1547,7 +1625,7 @@
         </div>
         <div class="hero-content reveal" data-parallax-speed="0.12">
             <!-- <span class="hero-badge">✦ Fort Lauderdale · Las Olas ✦</span> -->
-            <h1>La <span class="gold">Felicità</span> Group</h1>
+            <h1>La <span class="gold">Felicità</span><span class="hero-group">Group</span></h1>
             <p class="hero-tagline">A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable</p>
             <a href="#book" class="hero-cta">Book Your Experience</a>
         </div>
@@ -1574,8 +1652,8 @@
                     <span class="restaurant-emoji">🌿</span>
                 </div>
                 <div class="restaurant-body">
-                    <h3>Giardino</h3>
-                    <p class="restaurant-location">Victoria Park · Fort Lauderdale</p>
+                    <h3>Comming Soon</h3>
+                    <p class="restaurant-location"> · Palm Beach</p>
                     <p>An open-air Italian conservatory under a canopy of jasmine and fairy lights. Perfect for slow evenings and spritz afternoons.</p>
                 </div>
             </div>
@@ -1583,21 +1661,21 @@
                 <div class="restaurant-img" style="background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop');">
                     <span class="restaurant-emoji">🍋</span>
                 </div>
-                <div class="restaurant-body">
+                <!-- <div class="restaurant-body">
                     <h3>Limone</h3>
                     <p class="restaurant-location">Harbor Beach · Fort Lauderdale</p>
                     <p>A coastal Italian retreat — citrus-forward cuisine, white linen, and the sound of the water just steps away.</p>
-                </div>
+                </div> -->
             </div>
-            <div class="restaurant-card reveal" data-parallax-speed="0.05">
+            <!-- <div class="restaurant-card reveal" data-parallax-speed="0.05">
                 <div class="restaurant-img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop');">
                     <span class="restaurant-emoji">🍷</span>
-                </div>
-                <div class="restaurant-body">
+                </div> -->
+                <!-- <div class="restaurant-body">
                     <h3>Enotecha</h3>
                     <p class="restaurant-location">Downtown · Fort Lauderdale</p>
                     <p>A wine-first concept with an ever-evolving list of Italian labels, small plates, and after-dinner rituals.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -1906,6 +1984,59 @@
             const heroSlides = document.querySelectorAll('.hero-slide');
             const heroCarouselDots = document.querySelectorAll('.hero-carousel-dot');
             const heroCarousel = document.querySelector('.hero');
+            const languageSelect = document.getElementById('languageSelect');
+
+            const translations = {
+                it: {
+                    Language: 'Lingua', Restaurants: 'Ristoranti', Story: 'Storia', Events: 'Eventi', Book: 'Prenota', 'Gift Cards': 'Carte regalo', Shop: 'Negozio', Careers: 'Lavora con noi', FAQ: 'FAQ', Reserve: 'Prenota', 'Private Events': 'Eventi privati', 'Book a Table': 'Prenota un tavolo', 'Vendors & Shop': 'Artigiani e negozio',
+                    'A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable': 'Una famiglia di esperienze private di cucina italiana · A lume di candela · Intime · Indimenticabili', 'Book Your Experience': 'Prenota la tua esperienza', Our: 'I nostri', Restaurants: 'Ristoranti', Story: 'Storia', Private: 'Eventi', Table: 'Tavolo', Gift: 'Carte regalo', Cards: 'regalo', Vendors: 'Artigiani', Team: 'squadra', 'Join Our': 'Unisciti alla nostra', Questions: 'Domande', Frequently: 'Domande frequenti', 'Our story': 'La nostra storia', 'Private events': 'Eventi privati', 'Gift cards': 'Carte regalo', 'Book a table': 'Prenota un tavolo', 'Join our team': 'Unisciti al team', Newsletter: 'Newsletter', Explore: 'Scopri', 'Guest services': 'Servizi per gli ospiti', 'Come find us': 'Dove trovarci', Hours: 'Orari',
+                    'Each venue is a distinct world — united by candlelight, cucina, and la felicità.': 'Ogni locale è un mondo distinto, unito da lume di candela, cucina e felicità.', 'From a single candle on Las Olas to a family of restaurants — this is La Felicita.': 'Da una singola candela su Las Olas a una famiglia di ristoranti: questa è La Felicita.', 'Intimate celebrations, business dinners, and curated tastings — plus a preview of what you can bring home.': 'Celebrazioni intime, cene di lavoro e degustazioni curate, con un assaggio di ciò che puoi portare a casa.', "Choose your experience. We'll take care of the rest.": 'Scegli la tua esperienza. Al resto pensiamo noi.', 'Give the gift of candlelight and cucina. Redeemable at any La Felicita venue.': 'Regala il lume di candela e la cucina. Valido in ogni locale La Felicita.', 'Everything you need to know before your visit.': 'Tutto ciò che devi sapere prima della tua visita.',
+                    'Frequently Asked': 'Domande frequenti', 'Reserve Your Table': 'Prenota il tuo tavolo', 'Join Our Newsletter': 'Iscriviti alla newsletter', Subscribe: 'Iscriviti', 'Your email address': 'Il tuo indirizzo email', 'Join us': 'Unisciti a noi', 'A seat at the table': 'Un posto a tavola', Accessibility: 'Accessibilita', Privacy: 'Privacy', Terms: 'Termini'
+                },
+                fr: { Language: 'Langue', Restaurants: 'Restaurants', Story: 'Histoire', Events: 'Événements', Book: 'Réserver', 'Gift Cards': 'Cartes cadeaux', Shop: 'Boutique', Careers: 'Carrières', FAQ: 'FAQ', Reserve: 'Réserver', 'Private Events': 'Événements privés', 'Book a Table': 'Réserver une table', 'Vendors & Shop': 'Artisans et boutique', 'A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable': 'Une famille d expériences culinaires italiennes privées · À la chandelle · Intimes · Inoubliables', 'Book Your Experience': 'Réservez votre expérience', Our: 'Nos', Restaurants: 'Restaurants', Story: 'Histoire', Private: 'Événements', Table: 'Table', Gift: 'Cartes', Cards: 'cadeaux', Vendors: 'Artisans', Team: 'équipe', 'Join Our': 'Rejoignez notre', Questions: 'Questions', Frequently: 'Questions fréquentes', 'Frequently Asked': 'Questions fréquentes', 'Our story': 'Notre histoire', 'Private events': 'Événements privés', 'Gift cards': 'Cartes cadeaux', 'Book a table': 'Réserver une table', 'Join our team': 'Rejoignez notre équipe', Newsletter: 'Newsletter', Explore: 'Découvrir', 'Guest services': 'Services aux clients', 'Come find us': 'Nous trouver', Hours: 'Horaires', 'Each venue is a distinct world — united by candlelight, cucina, and la felicità.': 'Chaque adresse est un monde unique, uni par la lumière des bougies, la cucina et la felicità.', 'From a single candle on Las Olas to a family of restaurants — this is La Felicita.': 'D une seule bougie sur Las Olas à une famille de restaurants, voici La Felicita.', 'Intimate celebrations, business dinners, and curated tastings — plus a preview of what you can bring home.': 'Célébrations intimes, dîners professionnels et dégustations choisies, avec un aperçu à emporter.', "Choose your experience. We'll take care of the rest.": 'Choisissez votre expérience. Nous nous occupons du reste.', 'Give the gift of candlelight and cucina. Redeemable at any La Felicita venue.': 'Offrez la lumière des bougies et la cucina. Valable dans tous les lieux La Felicita.', 'Everything you need to know before your visit.': 'Tout ce qu il faut savoir avant votre visite.', 'Reserve Your Table': 'Réserver votre table', 'Join Our Newsletter': 'Inscrivez-vous à la newsletter', Subscribe: 'S inscrire', 'Your email address': 'Votre adresse e-mail', 'Join us': 'Rejoignez-nous', 'A seat at the table': 'Une place à table', Accessibility: 'Accessibilité', Privacy: 'Confidentialité', Terms: 'Conditions' },
+                es: { Language: 'Idioma', Restaurants: 'Restaurantes', Story: 'Historia', Events: 'Eventos', Book: 'Reservar', 'Gift Cards': 'Tarjetas regalo', Shop: 'Tienda', Careers: 'Empleo', FAQ: 'Preguntas', Reserve: 'Reservar', 'Private Events': 'Eventos privados', 'Book a Table': 'Reservar una mesa', 'Vendors & Shop': 'Artesanos y tienda', 'A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable': 'Una familia de experiencias privadas de cocina italiana · A la luz de las velas · Íntimas · Inolvidables', 'Book Your Experience': 'Reserva tu experiencia', Our: 'Nuestros', Restaurants: 'Restaurantes', Story: 'Historia', Private: 'Eventos', Table: 'Mesa', Gift: 'Tarjetas', Cards: 'regalo', Vendors: 'Artesanos', Team: 'equipo', 'Join Our': 'Únete a nuestro', Questions: 'Preguntas', Frequently: 'Preguntas frecuentes', 'Frequently Asked': 'Preguntas frecuentes', 'Our story': 'Nuestra historia', 'Private events': 'Eventos privados', 'Gift cards': 'Tarjetas regalo', 'Book a table': 'Reservar una mesa', 'Join our team': 'Únete al equipo', Newsletter: 'Boletín', Explore: 'Explorar', 'Guest services': 'Atención al cliente', 'Come find us': 'Encuéntranos', Hours: 'Horario', 'Each venue is a distinct world — united by candlelight, cucina, and la felicità.': 'Cada local es un mundo distinto, unido por velas, cucina y felicidad.', 'From a single candle on Las Olas to a family of restaurants — this is La Felicita.': 'De una sola vela en Las Olas a una familia de restaurantes: esto es La Felicita.', 'Intimate celebrations, business dinners, and curated tastings — plus a preview of what you can bring home.': 'Celebraciones íntimas, cenas de negocios y degustaciones, además de una muestra para llevar a casa.', "Choose your experience. We'll take care of the rest.": 'Elige tu experiencia. Nosotros nos ocupamos del resto.', 'Give the gift of candlelight and cucina. Redeemable at any La Felicita venue.': 'Regala luz de velas y cucina. Canjeable en cualquier local de La Felicita.', 'Everything you need to know before your visit.': 'Todo lo que necesitas saber antes de tu visita.', 'Reserve Your Table': 'Reserva tu mesa', 'Join Our Newsletter': 'Únete a nuestro boletín', Subscribe: 'Suscribirse', 'Your email address': 'Tu dirección de correo', 'Join us': 'Únete', 'A seat at the table': 'Un lugar en la mesa', Accessibility: 'Accesibilidad', Privacy: 'Privacidad', Terms: 'Términos' },
+                de: { Language: 'Sprache', Restaurants: 'Restaurants', Story: 'Geschichte', Events: 'Events', Book: 'Buchen', 'Gift Cards': 'Geschenkkarten', Shop: 'Shop', Careers: 'Karriere', FAQ: 'FAQ', Reserve: 'Reservieren', 'Private Events': 'Private Veranstaltungen', 'Book a Table': 'Tisch reservieren', 'Vendors & Shop': 'Partner und Shop', 'A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable': 'Eine Familie privater italienischer Genusserlebnisse · Kerzenschein · Persönlich · Unvergesslich', 'Book Your Experience': 'Erlebnis reservieren', Our: 'Unsere', Restaurants: 'Restaurants', Story: 'Geschichte', Private: 'Private', Table: 'Tisch', Gift: 'Geschenk', Cards: 'karten', Vendors: 'Partner', Team: 'Team', 'Join Our': 'Werde Teil unseres', Questions: 'Fragen', Frequently: 'Häufige Fragen', 'Our story': 'Unsere Geschichte', 'Private events': 'Private Veranstaltungen', 'Gift cards': 'Geschenkkarten', 'Book a table': 'Tisch reservieren', 'Join our team': 'Unserem Team beitreten', Newsletter: 'Newsletter', Explore: 'Entdecken', 'Guest services': 'Gästeservice', 'Come find us': 'So finden Sie uns', Hours: 'Öffnungszeiten', 'Each venue is a distinct world — united by candlelight, cucina, and la felicità.': 'Jeder Ort ist eine eigene Welt, verbunden durch Kerzenlicht, Cucina und Lebensfreude.', 'From a single candle on Las Olas to a family of restaurants — this is La Felicita.': 'Von einer einzelnen Kerze auf Las Olas zu einer Restaurantfamilie: Das ist La Felicita.', 'Intimate celebrations, business dinners, and curated tastings — plus a preview of what you can bring home.': 'Private Feiern, Geschäftsessen und ausgewählte Verkostungen, plus ein Vorgeschmack zum Mitnehmen.', "Choose your experience. We'll take care of the rest.": 'Wählen Sie Ihr Erlebnis. Wir kümmern uns um den Rest.', 'Give the gift of candlelight and cucina. Redeemable at any La Felicita venue.': 'Schenken Sie Kerzenlicht und Cucina. In allen La-Felicita-Lokalen einlösbar.', 'Everything you need to know before your visit.': 'Alles, was Sie vor Ihrem Besuch wissen sollten.', 'Reserve Your Table': 'Tisch reservieren', 'Join Our Newsletter': 'Newsletter abonnieren', Subscribe: 'Abonnieren', 'Your email address': 'Ihre E-Mail-Adresse', 'Join us': 'Dabei sein', 'A seat at the table': 'Ein Platz am Tisch', Accessibility: 'Barrierefreiheit', Privacy: 'Datenschutz', Terms: 'Bedingungen' },
+                pt: { Language: 'Idioma', Restaurants: 'Restaurantes', Story: 'História', Events: 'Eventos', Book: 'Reservar', 'Gift Cards': 'Cartões-presente', Shop: 'Loja', Careers: 'Carreiras', FAQ: 'Perguntas', Reserve: 'Reservar', 'Private Events': 'Eventos privados', 'Book a Table': 'Reservar uma mesa', 'Vendors & Shop': 'Artesãos e loja', 'A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable': 'Uma família de experiências privadas da culinária italiana · À luz de velas · Íntimas · Inesquecíveis', 'Book Your Experience': 'Reserve sua experiência', Our: 'Nossos', Restaurants: 'Restaurantes', Story: 'História', Private: 'Eventos', Table: 'Mesa', Gift: 'Cartões', Cards: 'presente', Vendors: 'Artesãos', Team: 'equipe', 'Join Our': 'Faça parte da nossa', Questions: 'Perguntas', Frequently: 'Perguntas frequentes', 'Our story': 'Nossa história', 'Private events': 'Eventos privados', 'Gift cards': 'Cartões-presente', 'Book a table': 'Reservar uma mesa', 'Join our team': 'Faça parte da equipe', Newsletter: 'Boletim', Explore: 'Explorar', 'Guest services': 'Atendimento aos hóspedes', 'Come find us': 'Encontre-nos', Hours: 'Horários', 'Each venue is a distinct world — united by candlelight, cucina, and la felicità.': 'Cada espaço é um mundo distinto, unido por luz de velas, cucina e felicidade.', 'From a single candle on Las Olas to a family of restaurants — this is La Felicita.': 'De uma única vela em Las Olas a uma família de restaurantes: esta é a La Felicita.', 'Intimate celebrations, business dinners, and curated tastings — plus a preview of what you can bring home.': 'Celebrações íntimas, jantares de negócios e degustações especiais, além de uma prévia para levar para casa.', "Choose your experience. We'll take care of the rest.": 'Escolha sua experiência. Nós cuidamos do resto.', 'Give the gift of candlelight and cucina. Redeemable at any La Felicita venue.': 'Presenteie com luz de velas e cucina. Válido em qualquer espaço La Felicita.', 'Everything you need to know before your visit.': 'Tudo o que você precisa saber antes da sua visita.', 'Reserve Your Table': 'Reserve sua mesa', 'Join Our Newsletter': 'Assine nossa newsletter', Subscribe: 'Assinar', 'Your email address': 'Seu endereço de e-mail', 'Join us': 'Junte-se a nós', 'A seat at the table': 'Um lugar à mesa', Accessibility: 'Acessibilidade', Privacy: 'Privacidade', Terms: 'Termos' }
+            };
+
+            const translatableNodes = [];
+            document.body.querySelectorAll('*').forEach(element => {
+                if (['SCRIPT', 'STYLE', 'SELECT', 'OPTION'].includes(element.tagName)) return;
+                element.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                        translatableNodes.push({ node: node, original: node.textContent });
+                    }
+                });
+            });
+            document.querySelectorAll('[placeholder], [aria-label]').forEach(element => {
+                const attributeNames = ['placeholder', 'aria-label'];
+                attributeNames.forEach(attributeName => {
+                    const original = element.getAttribute(attributeName);
+                    if (original) translatableNodes.push({ element: element, attributeName: attributeName, original: original });
+                });
+            });
+
+            function translatePage(language) {
+                const dictionary = translations[language] || {};
+                translatableNodes.forEach(item => {
+                    const original = item.original;
+                    const key = original.trim();
+                    const translated = language === 'en' ? key : dictionary[key];
+                    if (!translated) return;
+                    const value = original.replace(key, translated);
+                    if (item.node) item.node.textContent = value;
+                    else item.element.setAttribute(item.attributeName, translated);
+                });
+                document.documentElement.lang = language;
+                localStorage.setItem('flora-language', language);
+            }
+
+            if (languageSelect) {
+                const savedLanguage = localStorage.getItem('flora-language') || 'en';
+                languageSelect.value = savedLanguage;
+                languageSelect.addEventListener('change', () => translatePage(languageSelect.value));
+                if (savedLanguage !== 'en') translatePage(savedLanguage);
+            }
             let heroSlideIndex = 0;
             let heroCarouselTimer;
 
