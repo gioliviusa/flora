@@ -944,6 +944,135 @@
             background: var(--warm-gold-light);
         }
 
+        /* ─── NEWSLETTER POPUP ───────────────── */
+        .newsletter-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(35, 20, 22, 0.46);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        .newsletter-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .newsletter-modal-card {
+            position: relative;
+            width: min(100%, 470px);
+            padding: 42px 28px 34px;
+            background: #fffdf9;
+            border: 1px solid rgba(94, 33, 41, 0.16);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 24px 80px rgba(45, 29, 26, 0.24);
+            text-align: center;
+            transform: translateY(16px) scale(0.98);
+            transition: transform 0.35s ease;
+        }
+        .newsletter-modal.active .newsletter-modal-card {
+            transform: translateY(0) scale(1);
+        }
+        .newsletter-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 50%;
+            background: transparent;
+            color: rgba(45, 41, 37, 0.58);
+            font-size: 1.35rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .newsletter-modal-close:hover,
+        .newsletter-modal-close:focus-visible {
+            background: var(--dark-surface);
+            color: var(--warm-gold);
+            outline: none;
+        }
+        .newsletter-modal-icon {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--warm-gold);
+            font-size: 1.6rem;
+        }
+        .newsletter-modal-card h2 {
+            margin-bottom: 8px;
+            color: var(--charcoal);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.15;
+        }
+        .newsletter-modal-card p {
+            max-width: 350px;
+            margin: 0 auto 22px;
+            color: rgba(45, 41, 37, 0.72);
+            font-size: 0.82rem;
+            line-height: 1.7;
+        }
+        .newsletter-modal-form {
+            display: flex;
+            gap: 8px;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+        .newsletter-modal-form input {
+            min-width: 0;
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(94, 33, 41, 0.2);
+            border-radius: 50px;
+            background: #fff;
+            color: var(--charcoal);
+            font: inherit;
+            font-size: 0.78rem;
+            outline: none;
+        }
+        .newsletter-modal-form input:focus {
+            border-color: var(--warm-gold);
+            box-shadow: 0 0 0 3px rgba(94, 33, 41, 0.1);
+        }
+        .newsletter-modal-form button {
+            flex-shrink: 0;
+            padding: 12px 18px;
+            border: 0;
+            border-radius: 50px;
+            background: var(--warm-gold);
+            color: #fffdf9;
+            font: inherit;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .newsletter-modal-form button:hover {
+            background: var(--warm-gold-light);
+        }
+        .newsletter-modal-note {
+            display: block;
+            margin-top: 14px;
+            color: rgba(45, 41, 37, 0.5);
+            font-size: 0.62rem;
+        }
+        @media (max-width: 420px) {
+            .newsletter-modal-form {
+                flex-direction: column;
+            }
+            .newsletter-modal-form button {
+                width: 100%;
+            }
+        }
+
         /* ─── CAREERS ───────────────────────── */
         #careers {
             background: var(--dark-surface);
@@ -1417,7 +1546,7 @@
             <div class="petal-wrapper" data-speed="0.10"><span class="floating-petal">❁</span></div>
         </div>
         <div class="hero-content reveal" data-parallax-speed="0.12">
-            <span class="hero-badge">✦ Fort Lauderdale · Las Olas ✦</span>
+            <!-- <span class="hero-badge">✦ Fort Lauderdale · Las Olas ✦</span> -->
             <h1>La <span class="gold">Felicità</span> Group</h1>
             <p class="hero-tagline">A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable</p>
             <a href="#book" class="hero-cta">Book Your Experience</a>
@@ -1738,6 +1867,21 @@
         </div>
     </footer>
 
+    <!-- ═══════════════ NEWSLETTER POPUP ═══════════════ -->
+    <div class="newsletter-modal" id="newsletterModal" role="dialog" aria-modal="true" aria-labelledby="newsletterModalTitle" aria-hidden="true">
+        <div class="newsletter-modal-card">
+            <button class="newsletter-modal-close" id="newsletterModalClose" type="button" aria-label="Close newsletter signup">×</button>
+            <span class="newsletter-modal-icon" aria-hidden="true">✉</span>
+            <h2 id="newsletterModalTitle">A seat at the table</h2>
+            <p>Get first taste of seasonal menus, new venues, and invitations to our most intimate evenings.</p>
+            <form class="newsletter-modal-form" id="newsletterModalForm">
+                <input type="email" placeholder="Your email address" aria-label="Email address" required />
+                <button type="submit">Join us</button>
+            </form>
+            <small class="newsletter-modal-note">No noise. Just the good stuff, occasionally.</small>
+        </div>
+    </div>
+
     <!-- ═══════════════ FLOATING RESERVE ═════ -->
     <a href="#book" class="floating-reserve" aria-label="Book a table">🕯️</a>
 
@@ -1756,6 +1900,9 @@
             const hero = document.getElementById('hero');
             const faqItems = document.querySelectorAll('.faq-item');
             const newsletterForm = document.getElementById('newsletterForm');
+            const newsletterModal = document.getElementById('newsletterModal');
+            const newsletterModalClose = document.getElementById('newsletterModalClose');
+            const newsletterModalForm = document.getElementById('newsletterModalForm');
             const heroSlides = document.querySelectorAll('.hero-slide');
             const heroCarouselDots = document.querySelectorAll('.hero-carousel-dot');
             const heroCarousel = document.querySelector('.hero');
@@ -1777,7 +1924,7 @@
 
             function startHeroCarousel() {
                 clearInterval(heroCarouselTimer);
-                heroCarouselTimer = setInterval(() => showHeroSlide(heroSlideIndex + 1), 6000);
+                heroCarouselTimer = setInterval(() => showHeroSlide(heroSlideIndex + 1), 5000);
             }
 
             heroCarouselDots.forEach((dot, dotIndex) => {
@@ -1866,6 +2013,40 @@
                         alert('Grazie! You have been subscribed to the La Felicita newsletter.');
                         input.value = '';
                     }
+                });
+            }
+
+            // ─── NEWSLETTER POPUP ────────────
+            function closeNewsletterModal() {
+                newsletterModal.classList.remove('active');
+                newsletterModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                sessionStorage.setItem('newsletterModalSeen', 'true');
+            }
+
+            function openNewsletterModal() {
+                newsletterModal.classList.add('active');
+                newsletterModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                newsletterModalClose.focus();
+            }
+
+            if (newsletterModal && !sessionStorage.getItem('newsletterModalSeen')) {
+                setTimeout(openNewsletterModal, 4500);
+                newsletterModalClose.addEventListener('click', closeNewsletterModal);
+                newsletterModal.addEventListener('click', (event) => {
+                    if (event.target === newsletterModal) closeNewsletterModal();
+                });
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && newsletterModal.classList.contains('active')) {
+                        closeNewsletterModal();
+                    }
+                });
+                newsletterModalForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    alert('Grazie! You have been subscribed to the La Felicita newsletter.');
+                    newsletterModalForm.reset();
+                    closeNewsletterModal();
                 });
             }
 
