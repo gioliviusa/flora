@@ -96,6 +96,24 @@
             letter-spacing: -0.04em;
             margin-bottom: 8px;
             text-align: center;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.25s ease;
+            position: relative;
+        }
+        .menu-category-title:hover {
+            color: var(--wine);
+        }
+        .menu-category-title::after {
+            content: '+';
+            display: inline-block;
+            margin-left: 12px;
+            font-size: 1.2rem;
+            color: var(--wine);
+            transition: transform 0.25s ease;
+        }
+        .menu-category.open .menu-category-title::after {
+            content: '−';
         }
         .menu-category-sub {
             color: rgba(45, 41, 37, 0.7);
@@ -106,10 +124,14 @@
             text-align: center;
         }
         .menu-grid {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
+            padding-top: 12px;
+        }
+        .menu-category.open .menu-grid {
+            display: flex;
         }
         .menu-item-card {
             background: rgba(255, 255, 255, 0.82);
@@ -1287,6 +1309,38 @@
                 heroSlides[heroSlideIndex].classList.add('active');
             }, 4000);
         }
+
+        const menuCategories = document.querySelectorAll('.menu-category');
+        menuCategories.forEach((category, index) => {
+            const title = category.querySelector('.menu-category-title');
+            if (index === 0) {
+                category.classList.add('open');
+            }
+            title.setAttribute('tabindex', '0');
+            title.setAttribute('role', 'button');
+            title.setAttribute('aria-expanded', index === 0 ? 'true' : 'false');
+
+            const toggleCategory = () => {
+                const isOpen = category.classList.contains('open');
+                menuCategories.forEach((item) => {
+                    item.classList.remove('open');
+                    const itemTitle = item.querySelector('.menu-category-title');
+                    itemTitle.setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    category.classList.add('open');
+                    title.setAttribute('aria-expanded', 'true');
+                }
+            };
+
+            title.addEventListener('click', toggleCategory);
+            title.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleCategory();
+                }
+            });
+        });
     </script>
 </body>
 </html>
