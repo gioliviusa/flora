@@ -261,19 +261,47 @@
             position: absolute;
             inset: 0;
             z-index: 0;
-            background-image: url('img/WhatsApp Image 2026-08-28 at 3.53.51 PM (1).jpeg');
-            background-size: cover;
-            background-position: center;
             transform: scale(1.08);
             opacity: 0.72;
             will-change: transform;
         }
-        .hero-bg-image::after {
-            content: '';
+        .hero-slide {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(12, 9, 10, 0.52) 0%, rgba(29, 15, 18, 0.58) 24%, rgba(18, 15, 16, 0.68) 72%, rgba(9, 7, 8, 0.8) 100%);
-            pointer-events: none;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.04);
+            transition: opacity 1.2s ease, transform 7s ease;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1.09);
+        }
+        .hero-carousel-controls {
+            position: absolute;
+            z-index: 3;
+            right: 24px;
+            bottom: 28px;
+            display: flex;
+            gap: 8px;
+        }
+        .hero-carousel-dot {
+            width: 34px;
+            height: 4px;
+            padding: 0;
+            border: 0;
+            border-radius: 2px;
+            background: rgba(255, 250, 246, 0.45);
+            cursor: pointer;
+            transition: background 0.3s, width 0.3s;
+        }
+        .hero-carousel-dot.active,
+        .hero-carousel-dot:hover,
+        .hero-carousel-dot:focus-visible {
+            width: 52px;
+            background: #fffaf6;
+            outline: none;
         }
         .hero-glow {
             position: absolute;
@@ -1366,7 +1394,14 @@
 
     <!-- ═══════════════ HERO ════════════════ -->
     <section class="hero" id="hero">
-        <div class="hero-bg-image" data-parallax-speed="0.18"></div>
+        <div class="hero-bg-image" data-parallax-speed="0.18" aria-label="La Felicita dining spaces">
+            <div class="hero-slide active" style="background-image: url('img/img3.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('img/img4.jpeg');"></div>
+        </div>
+        <div class="hero-carousel-controls" role="group" aria-label="Hero image controls">
+            <button class="hero-carousel-dot active" type="button" aria-label="Show dining room image 1" aria-pressed="true"></button>
+            <button class="hero-carousel-dot" type="button" aria-label="Show dining room image 2" aria-pressed="false"></button>
+        </div>
         <div class="hero-glow"></div>
         <div class="candle-container">
             <div class="candle-glow"></div>
@@ -1721,6 +1756,45 @@
             const hero = document.getElementById('hero');
             const faqItems = document.querySelectorAll('.faq-item');
             const newsletterForm = document.getElementById('newsletterForm');
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            const heroCarouselDots = document.querySelectorAll('.hero-carousel-dot');
+            const heroCarousel = document.querySelector('.hero');
+            let heroSlideIndex = 0;
+            let heroCarouselTimer;
+
+            // ─── HERO CAROUSEL ────────────────
+            function showHeroSlide(index) {
+                heroSlideIndex = (index + heroSlides.length) % heroSlides.length;
+                heroSlides.forEach((slide, slideIndex) => {
+                    slide.classList.toggle('active', slideIndex === heroSlideIndex);
+                });
+                heroCarouselDots.forEach((dot, dotIndex) => {
+                    const isActive = dotIndex === heroSlideIndex;
+                    dot.classList.toggle('active', isActive);
+                    dot.setAttribute('aria-pressed', String(isActive));
+                });
+            }
+
+            function startHeroCarousel() {
+                clearInterval(heroCarouselTimer);
+                heroCarouselTimer = setInterval(() => showHeroSlide(heroSlideIndex + 1), 6000);
+            }
+
+            heroCarouselDots.forEach((dot, dotIndex) => {
+                dot.addEventListener('click', () => {
+                    showHeroSlide(dotIndex);
+                    startHeroCarousel();
+                });
+            });
+            if (heroSlides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                startHeroCarousel();
+                heroCarousel.addEventListener('mouseenter', () => clearInterval(heroCarouselTimer));
+                heroCarousel.addEventListener('mouseleave', startHeroCarousel);
+                heroCarousel.addEventListener('focusin', () => clearInterval(heroCarouselTimer));
+                heroCarousel.addEventListener('focusout', (event) => {
+                    if (!heroCarousel.contains(event.relatedTarget)) startHeroCarousel();
+                });
+            }
 
             // ─── HEADER SHADOW ─────────────────
             function updateHeaderShadow() {
