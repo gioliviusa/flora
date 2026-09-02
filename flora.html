@@ -224,6 +224,15 @@
             font-size: 0.92rem;
             line-height: 1.6;
         }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .flora-section { padding: 100px 5vw; }
         .flora-section:nth-child(even) { background: var(--paper); }
         .flora-section-head { margin: 0 auto 38px; max-width: 760px; text-align: center; }
@@ -1366,6 +1375,16 @@
                 heroSlides[heroSlideIndex].classList.add('active');
             }, 4000);
         }
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { root: null, rootMargin: '0px 0px -40px 0px', threshold: 0.12 });
+        revealElements.forEach((element) => revealObserver.observe(element));
 
         const menuSection = document.querySelector('.menu-section');
         const menuCategories = document.querySelectorAll('.menu-category');
