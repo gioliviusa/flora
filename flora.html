@@ -86,23 +86,36 @@
         .menu-section .section-kicker { color: var(--wine); }
         .menu-section h2 { margin-bottom: 18px; }
         .menu-category {
-            margin-bottom: 36px;
+            margin-bottom: 18px;
         }
         .menu-category-title {
+            align-items: center;
+            background: rgba(255, 250, 246, 0.72);
+            border: 1px solid rgba(94, 33, 41, 0.18);
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(52, 41, 33, 0.05);
             color: var(--charcoal);
+            cursor: pointer;
+            display: flex;
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.1rem, 3vw, 2.8rem);
             font-weight: 700;
             letter-spacing: -0.04em;
-            margin-bottom: 8px;
-            text-align: center;
-            cursor: pointer;
-            user-select: none;
-            transition: color 0.25s ease;
+            justify-content: space-between;
+            line-height: 1.05;
+            margin: 0;
+            padding: 22px 28px;
             position: relative;
+            text-align: left;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            user-select: none;
         }
-        .menu-category-title:hover {
+        .menu-category-title:hover,
+        .menu-category-title:focus-visible {
+            border-color: rgba(94, 33, 41, 0.42);
             color: var(--wine);
+            box-shadow: 0 14px 30px rgba(52, 41, 33, 0.09);
+            outline: none;
         }
         .menu-category-title::after {
             content: '+';
@@ -120,8 +133,12 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.12rem;
             font-style: italic;
-            margin-bottom: 28px;
-            text-align: center;
+            line-height: 1.25;
+            margin: 0 0 28px;
+            text-align: left;
+        }
+        .menu-category:not(.open) .menu-category-sub {
+            display: none;
         }
         .menu-grid {
             display: none;
@@ -132,6 +149,15 @@
         }
         .menu-category.open .menu-grid {
             display: flex;
+        }
+        @media (max-width: 600px) {
+            .menu-category-title {
+                font-size: 1.75rem;
+                padding: 18px;
+            }
+            .menu-category-sub {
+                font-size: 1rem;
+            }
         }
         .menu-item-card {
             background: rgba(255, 255, 255, 0.82);
@@ -1311,14 +1337,11 @@
         }
 
         const menuCategories = document.querySelectorAll('.menu-category');
-        menuCategories.forEach((category, index) => {
+        menuCategories.forEach((category) => {
             const title = category.querySelector('.menu-category-title');
-            if (index === 0) {
-                category.classList.add('open');
-            }
             title.setAttribute('tabindex', '0');
             title.setAttribute('role', 'button');
-            title.setAttribute('aria-expanded', index === 0 ? 'true' : 'false');
+            title.setAttribute('aria-expanded', 'false');
 
             const toggleCategory = () => {
                 const isOpen = category.classList.contains('open');
