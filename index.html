@@ -1008,32 +1008,89 @@
 
         /* ─── FOOTER ────────────────────────── */
         footer {
-            min-height: 100vh;
-            background: #f0e9e1;
+            background: #eee5dc;
             color: rgba(45, 41, 37, 0.72);
-            text-align: center;
-            padding: 40px 20px 30px;
+            padding: 64px 20px 24px;
             font-size: 0.75rem;
             letter-spacing: 0.5px;
-            line-height: 2;
+            line-height: 1.6;
             border-top: 1px solid rgba(184, 138, 90, 0.12);
             scroll-snap-align: start;
             scroll-snap-stop: always;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        }
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+        .footer-main {
+            display: grid;
+            gap: 38px;
+            padding-bottom: 48px;
+        }
+        .footer-brand {
+            max-width: 330px;
         }
         footer .footer-logo {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 18px;
         }
         footer .footer-logo img {
             display: block;
-            max-width: 180px;
+            width: 168px;
             height: auto;
-            margin: 0 auto;
             border-radius: 16px;
+        }
+        .footer-kicker,
+        .footer-heading {
+            color: var(--warm-gold);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+        .footer-kicker {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-brand h2 {
+            color: var(--charcoal);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.65rem;
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            max-width: 290px;
+            line-height: 1.8;
+        }
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-heading {
+            margin-bottom: 6px;
+        }
+        .footer-column a,
+        .footer-contact a {
+            color: rgba(45, 41, 37, 0.72);
+            font-size: 0.75rem;
+        }
+        .footer-column a:hover,
+        .footer-contact a:hover {
+            color: var(--warm-gold);
+        }
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-contact p {
+            line-height: 1.7;
+        }
+        .footer-contact .footer-heading {
+            margin-bottom: 2px;
         }
         footer .footer-logo .gold {
             color: var(--warm-gold);
@@ -1048,13 +1105,12 @@
         }
         .social-links {
             display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin: 14px 0;
+            gap: 10px;
+            margin: 18px 0 0;
         }
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.6);
             display: flex;
@@ -1070,11 +1126,31 @@
             color: var(--warm-gold);
             border-color: rgba(201, 169, 110, 0.15);
         }
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(94, 33, 41, 0.14);
+            color: rgba(45, 41, 37, 0.56);
+            font-size: 0.65rem;
+        }
+        .footer-legal {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 18px;
+        }
+        .footer-legal a {
+            color: rgba(45, 41, 37, 0.56);
+        }
+        .footer-legal a:hover {
+            color: var(--warm-gold);
+        }
         footer .footer-candle {
             font-size: 0.9rem;
             opacity: 0.2;
-            display: block;
-            margin-top: 12px;
+            display: inline-block;
+            margin-left: auto;
         }
 
         /* ─── SCROLL REVEAL ─────────────────── */
@@ -1222,6 +1298,18 @@
             }
             .newsletter-box {
                 max-width: 560px;
+            }
+            footer {
+                padding: 76px 40px 26px;
+            }
+            .footer-main {
+                grid-template-columns: minmax(240px, 1.4fr) repeat(2, minmax(130px, 0.7fr)) minmax(190px, 1fr);
+                gap: 32px;
+            }
+            .footer-bottom {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
             }
             .header-nav-desktop {
                 display: flex;
@@ -1565,16 +1653,54 @@
 
     <!-- ═══════════════ FOOTER ═══════════════ -->
     <footer>
-        <span class="footer-logo"><img src="img/logo.jpeg" alt="La Felicita Group logo" /></span>
-        Private Italian Dining · Fort Lauderdale · Las Olas Boulevard
-        <div class="social-links">
-            <a href="#" aria-label="Instagram">📸</a>
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="#" aria-label="TikTok">🎵</a>
-            <a href="#" aria-label="Email">✉️</a>
+        <div class="footer-inner">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <span class="footer-logo"><img src="img/logo.jpeg" alt="La Felicita Group logo" /></span>
+                    <span class="footer-kicker">A little more felicità</span>
+                    <h2>Italian nights, made memorable.</h2>
+                    <p>Private Italian dining experiences shaped by candlelight, generous tables, and the joy of gathering.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer">📸</a>
+                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noreferrer">📘</a>
+                        <a href="https://www.tiktok.com/" aria-label="TikTok" target="_blank" rel="noreferrer">🎵</a>
+                        <a href="mailto:hello@lafelicita.group" aria-label="Email us">✉️</a>
+                    </div>
+                </div>
+                <nav class="footer-column" aria-label="Explore La Felicita Group">
+                    <span class="footer-heading">Explore</span>
+                    <a href="#restaurants">Restaurants</a>
+                    <a href="#story">Our story</a>
+                    <a href="#events">Private events</a>
+                    <a href="#giftcards">Gift cards</a>
+                    <a href="#vendors">Shop</a>
+                </nav>
+                <nav class="footer-column" aria-label="Guest services">
+                    <span class="footer-heading">Guest services</span>
+                    <a href="#book">Book a table</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#careers">Join our team</a>
+                    <a href="#newsletterForm">Newsletter</a>
+                </nav>
+                <div class="footer-contact">
+                    <span class="footer-heading">Come find us</span>
+                    <p>Las Olas Boulevard<br />Fort Lauderdale, Florida</p>
+                    <a href="tel:+19545550148">+1 (954) 555-0148</a>
+                    <a href="mailto:hello@lafelicita.group">hello@lafelicita.group</a>
+                    <span class="footer-heading">Hours</span>
+                    <p>Tuesday–Sunday · 5:00–11:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 La Felicità Group. Intimate dining, elevated.</span>
+                <div class="footer-legal">
+                    <a href="#faq">Accessibility</a>
+                    <a href="#faq">Privacy</a>
+                    <a href="#faq">Terms</a>
+                    <span class="footer-candle" aria-hidden="true">🕯️</span>
+                </div>
+            </div>
         </div>
-        <small>© 2026 La Felicità Group. Intimate dining, elevated.</small>
-        <span class="footer-candle">🕯️</span>
     </footer>
 
     <!-- ═══════════════ FLOATING RESERVE ═════ -->
