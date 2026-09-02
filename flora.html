@@ -18,13 +18,13 @@
             --line: rgba(94, 33, 41, 0.16);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+        body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; scroll-snap-type: y proximity; }
         a { color: inherit; text-decoration: none; }
         .site-header { align-items: center; background: rgba(255, 253, 249, 0.9); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 12px 5vw; position: absolute; width: 100%; z-index: 2; }
         .site-header img { border-radius: 10px; display: block; height: 40px; width: auto; }
         .back-link { color: var(--wine); font-size: 0.7rem; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
-        .hero { background: var(--cream); color: var(--ink); display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; overflow: hidden; padding: 0; position: relative; text-align: left; }
+        .hero { background: var(--cream); color: var(--ink); display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; overflow: hidden; padding: 0; position: relative; scroll-snap-align: start; scroll-snap-stop: always; text-align: left; }
         .hero-carousel { border: 1px solid rgba(255, 250, 246, 0.72); border-radius: 24px; box-shadow: inset 0 0 0 10px rgba(255, 250, 246, 0.08); min-height: 100vh; overflow: hidden; position: relative; }
         .hero-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
         .hero-slide.active { opacity: 1; }
@@ -59,7 +59,7 @@
         .hero-link { align-items: center; border-bottom: 1px solid var(--line); color: var(--wine); display: flex; font-size: 0.67rem; font-weight: 700; justify-content: space-between; letter-spacing: 1.4px; padding: 14px 0; text-transform: uppercase; transition: border-color 0.25s, color 0.25s; }
         .hero-link::after { content: '→'; font-size: 1rem; font-weight: 400; }
         .hero-link:hover { border-color: var(--wine); color: var(--wine-dark); }
-        .intro { display: grid; gap: 50px; grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr); margin: 0 auto; max-width: 1120px; padding: 110px 5vw; }
+        .intro { display: grid; gap: 50px; grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr); margin: 0 auto; max-width: 1120px; padding: 110px 5vw; scroll-snap-align: start; scroll-snap-stop: always; }
         .section-kicker { color: var(--wine); font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
         h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.03; margin: 14px 0 20px; }
         .intro-copy p { color: var(--muted); max-width: 590px; }
@@ -70,6 +70,8 @@
             background: linear-gradient(180deg, #f8f3ee 0%, #f2ece4 100%);
             color: #2d2925;
             padding: 64px 20px 80px;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
         .menu-inner {
             align-items: start;
@@ -233,7 +235,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .flora-section { padding: 100px 5vw; }
+        .flora-section { padding: 100px 5vw; scroll-snap-align: start; scroll-snap-stop: always; }
         .flora-section:nth-child(even) { background: var(--paper); }
         .flora-section-head { margin: 0 auto 38px; max-width: 760px; text-align: center; }
         .flora-section-head p { color: var(--muted); margin: 0 auto; max-width: 620px; }
@@ -307,10 +309,10 @@
         .flora-book { background: #eaded5; text-align: center; }
         .flora-book p { color: var(--muted); margin: 0 auto 24px; max-width: 520px; }
         .flora-gifts { background: var(--cream); }
-        .gallery { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr; gap: 12px; margin: auto; max-width: 1120px; padding: 90px 5vw; }
+        .gallery { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr; gap: 12px; margin: auto; max-width: 1120px; padding: 90px 5vw; scroll-snap-align: start; scroll-snap-stop: always; }
         .gallery img { display: block; height: 330px; object-fit: cover; width: 100%; }
         .gallery img:first-child { grid-row: span 2; height: 672px; }
-        .reserve { background: #eaded5; padding: 90px 5vw; text-align: center; }
+        .reserve { background: #eaded5; padding: 90px 5vw; scroll-snap-align: start; scroll-snap-stop: always; text-align: center; }
         .reserve p { color: var(--muted); margin: 0 auto 24px; max-width: 480px; }
         footer {
             background: #eee5dc;
@@ -1231,7 +1233,7 @@
                 <article class="experience-card"><span>🛍️</span><h3>Flora To Go</h3><p>Bring the ritual home with house-made pasta kits, signature candles, olive oils, and Negroni kits.</p></article>
             </div>
 
-            <form class="private-event-form" id="private-events-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <form class="private-event-form" id="private-events-form" action="https://formspree.io/f/xljenlpn" method="POST">
                 <div>
                     <div class="section-kicker">Private event inquiry</div>
                     <h3>Tell us about your gathering.</h3>
