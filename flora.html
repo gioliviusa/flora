@@ -435,10 +435,22 @@
             margin-left: auto;
         }
         @media (max-width: 900px) {
-            .menu-grid {
+            .menu-category.open .menu-grid {
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 22px;
+            }
+            .menu-category:not(.open) .menu-grid {
+                display: none;
+            }
+            .menu-category-title {
+                font-size: 1.65rem;
+                margin-bottom: 6px;
+                padding: 16px 18px;
+            }
+            .menu-category-sub {
+                font-size: 0.98rem;
+                margin-bottom: 20px;
             }
             .menu-item-card {
                 flex: 1 1 100%;
