@@ -72,11 +72,20 @@
             padding: 64px 20px 80px;
         }
         .menu-inner {
-            display: block;
+            align-items: start;
+            display: grid;
+            gap: 56px;
+            grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
             margin: 0 auto;
             max-width: 1100px;
         }
-        .menu-feature { align-self: stretch; min-height: 620px; position: relative; }
+        .menu-section.menu-active .menu-inner {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        .menu-section.menu-active .menu-feature {
+            display: none;
+        }
+        .menu-feature { align-self: stretch; min-height: 620px; position: sticky; top: 28px; }
         .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
         .menu-feature figcaption { bottom: 24px; color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
         .menu-content {
@@ -435,6 +444,12 @@
             margin-left: auto;
         }
         @media (max-width: 900px) {
+            .menu-inner {
+                display: block;
+            }
+            .menu-feature {
+                display: none;
+            }
             .menu-category.open .menu-grid {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -1188,6 +1203,10 @@
                         </div>
                     </div>
                 </div>
+                <figure class="menu-feature">
+                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                    <figcaption>Seasonal plates, made to linger over.</figcaption>
+                </figure>
             </div>
         </section>
         <section class="flora-section" id="events">
@@ -1348,6 +1367,7 @@
             }, 4000);
         }
 
+        const menuSection = document.querySelector('.menu-section');
         const menuCategories = document.querySelectorAll('.menu-category');
         menuCategories.forEach((category) => {
             const title = category.querySelector('.menu-category-title');
@@ -1366,6 +1386,7 @@
                     category.classList.add('open');
                     title.setAttribute('aria-expanded', 'true');
                 }
+                menuSection.classList.toggle('menu-active', !isOpen);
             };
 
             title.addEventListener('click', toggleCategory);
