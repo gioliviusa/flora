@@ -1264,6 +1264,76 @@
             font-size: 0.7rem;
             color: rgba(45, 41, 37, 0.68);
         }
+        .careers-form {
+            background: var(--dark-card);
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-warm);
+            display: grid;
+            gap: 16px;
+            margin: 28px auto 0;
+            max-width: 520px;
+            padding: 22px 18px;
+        }
+        .careers-form h3 {
+            color: var(--charcoal);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+        .careers-form p {
+            color: rgba(45, 41, 37, 0.68);
+            font-size: 0.72rem;
+        }
+        .careers-form-grid {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .careers-form label {
+            color: var(--warm-gold);
+            display: flex;
+            flex-direction: column;
+            font-size: 0.62rem;
+            gap: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .careers-form input,
+        .careers-form select,
+        .careers-form textarea {
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(201, 169, 110, 0.16);
+            border-radius: 8px;
+            color: var(--charcoal);
+            font: 400 0.8rem 'Inter', sans-serif;
+            padding: 10px 11px;
+            width: 100%;
+        }
+        .careers-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .careers-form input:focus,
+        .careers-form select:focus,
+        .careers-form textarea:focus {
+            border-color: var(--warm-gold);
+            outline: 2px solid rgba(201, 169, 110, 0.2);
+        }
+        .careers-form .form-submit {
+            background: var(--warm-gold);
+            border: 1px solid var(--warm-gold);
+            color: var(--dark-bg);
+            cursor: pointer;
+            font: 700 0.65rem 'Inter', sans-serif;
+            justify-self: start;
+            letter-spacing: 1.3px;
+            padding: 12px 18px;
+            text-transform: uppercase;
+        }
+        .careers-form .form-submit:hover {
+            background: var(--warm-gold-light);
+        }
 
         /* ─── FAQ ───────────────────────────── */
         #faq {
@@ -1922,6 +1992,21 @@
                 </div>
             </div>
         </div>
+        <form class="careers-form" action="https://formspree.io/f/xljenlpn" method="POST">
+            <div>
+                <h3>Join the Squadra</h3>
+                <p>Tell us a little about yourself and the role that feels right.</p>
+            </div>
+            <div class="careers-form-grid">
+                <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
+                <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+                <label>Phone<input type="tel" name="phone" autocomplete="tel" /></label>
+                <label>Role<select name="role" required><option value="">Select a role</option><option>Line Cook</option><option>Server / Waitstaff</option><option>Sommelier</option><option> Lead Bartender</option><option> Host Reception</option><option> Floor Manager</option><option> Bar Back</option><option> Pizzaiolo </option> <option> Garde Manger</option><option> Head Prep</option></select></label>
+            </div>
+            <label>Message<textarea name="message" placeholder="Tell us about your experience and availability."></textarea></label>
+            <input type="hidden" name="_subject" value="New La Felicita careers application" />
+            <button class="form-submit" type="submit">Send application</button>
+        </form>
     </section>
 
     <div class="ornamental-divider reveal">✦ ✦ ✦</div>
