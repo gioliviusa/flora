@@ -129,8 +129,9 @@
         .menu-section.menu-active .menu-feature {
             display: none;
         }
-        .menu-feature { align-self: stretch; min-height: 620px; position: sticky; top: 28px; }
-        .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
+        .menu-feature { align-self: stretch; min-height: 620px; overflow: hidden; position: sticky; top: 28px; }
+        .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; inset: 0; object-fit: cover; opacity: 0; position: absolute; transition: opacity 1s ease; width: 100%; }
+        .menu-feature img.active { opacity: 1; }
         .menu-feature figcaption { bottom: 24px; color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
         .menu-content {
             align-self: center;
@@ -285,6 +286,8 @@
         .experience-card, .gift-card { background: var(--cream); border: 1px solid var(--line); padding: 26px; }
         .menu-section + .flora-section .experience-card, .gift-card { background: var(--paper); }
         .experience-card span, .gift-card span { display: block; font-size: 1.7rem; margin-bottom: 12px; }
+        .experience-card span svg { fill: none; height: 30px; stroke: var(--wine); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; width: 30px; }
+        .gift-card span svg { fill: none; height: 30px; stroke: var(--wine); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; width: 30px; }
         .experience-card h3, .gift-card h3 { font-size: 1.35rem; margin-bottom: 6px; }
         .experience-card p, .gift-card p { color: var(--muted); font-size: 0.86rem; }
         .private-event-form {
@@ -1438,7 +1441,9 @@
                     </div>
                 </div>
                 <figure class="menu-feature">
-                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                    <img class="active" src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                    <img src="img/img3.jpeg" alt="Flora Italian dining table" />
+                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.51%20PM.jpeg" alt="Flora dining detail" />
                     <figcaption>Seasonal plates, made to linger over.</figcaption>
                 </figure>
             </div>
@@ -1450,10 +1455,10 @@
                 <p>From milestone dinners to long-table celebrations, Flora creates intimate evenings with the details handled beautifully.</p>
             </div>
             <div class="experience-grid">
-                <article class="experience-card"><span>🥂</span><h3>Private Dining Rooms</h3><p>Full venue buyouts or semi-private corners for 8–60 guests, with dedicated service and custom menus.</p></article>
-                <article class="experience-card"><span>🛥️</span><h3>Water Taxi Arrivals</h3><p>Arrive along the Intracoastal with coordinated pickups and a dockside welcome for an unforgettable entrance.</p></article>
-                <article class="experience-card"><span>🍾</span><h3>Chef's Table & Tastings</h3><p>Seasonal multi-course experiences led by our chefs and paired with rare Italian labels.</p></article>
-                <article class="experience-card"><span>🛍️</span><h3>Flora To Go</h3><p>Bring the ritual home with house-made pasta kits, signature candles, olive oils, and Negroni kits.</p></article>
+                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 5h4l1 5a3 3 0 0 1-3 3 3 3 0 0 1-3-3l1-5Zm10 0h4l1 5a3 3 0 0 1-3 3 3 3 0 0 1-3-3l1-5ZM8 13v6m8-6v6M6 19h4m4 0h4M12 10v9" /></svg></span><h3>Private Dining Rooms</h3><p>Full venue buyouts or semi-private corners for 8–60 guests, with dedicated service and custom menus.</p></article>
+                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 16h18M5 16l1-6h8l4 6M14 10h3l3 4M7 19h2m6 0h2M3 16l-1 2h20l-1-2" /></svg></span><h3>Water Taxi Arrivals</h3><p>Arrive along the Intracoastal with coordinated pickups and a dockside welcome for an unforgettable entrance.</p></article>
+                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M9 3h6M10 3v4l-2 3v8h8v-8l-2-3V3M8 10h8M10 14h4M10 18h4" /></svg></span><h3>Chef's Table &amp; Tastings</h3><p>Seasonal multi-course experiences led by our chefs and paired with rare Italian labels.</p></article>
+                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 8h14l-1 12H6L5 8Zm3 0V6a4 4 0 0 1 8 0v2M3 8h18" /></svg></span><h3>Flora To Go</h3><p>Bring the ritual home with house-made pasta kits, signature candles, olive oils, and Negroni kits.</p></article>
             </div>
             </section>
             <section class="flora-section private-event-section" id="private-event-inquiry">
@@ -1525,9 +1530,9 @@
                 <p>Thoughtful ways to send someone special into an evening of candlelight, pasta, and good company.</p>
             </div>
             <div class="gift-grid">
-                <article class="gift-card"><span>💌</span><h3>Classic Gift Card</h3><p>$50–$500 · Digital or physical</p></article>
-                <article class="gift-card"><span>🕯️</span><h3>Candlelit Dinner for Two</h3><p>$180 · Includes a multi-course experience</p></article>
-                <article class="gift-card"><span>🍷</span><h3>Wine & Dine Package</h3><p>$250 · Dinner with a curated wine pairing</p></article>
+                <article class="gift-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><rect x="3" y="5" width="18" height="14" rx="1.5" /><path d="m3 7 9 6 9-6M8 10l-3 3m11-3 3 3" /></svg></span><h3>Classic Gift Card</h3><p>$50–$500 · Digital or physical</p></article>
+                <article class="gift-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M8 10h8v9H8zM7 19h10M9 7h6v3H9zM10 4h4v3h-4zM9 2h6" /></svg></span><h3>Candlelit Dinner for Two</h3><p>$180 · Includes a multi-course experience</p></article>
+                <article class="gift-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M6 4h12l-1 5a5 5 0 0 1-4 4v5h4M6 4l1 5a5 5 0 0 0 4 4v5H7m-1 0h12" /></svg></span><h3>Wine &amp; Dine Package</h3><p>$250 · Dinner with a curated wine pairing</p></article>
             </div>
         </section>
         <section class="gallery" aria-label="Flora dining gallery">
@@ -1725,6 +1730,16 @@
                 heroSlideIndex = (heroSlideIndex + 1) % heroSlides.length;
                 heroSlides[heroSlideIndex].classList.add('active');
             }, 4000);
+        }
+
+        const menuFeatureSlides = document.querySelectorAll('.menu-feature img');
+        let menuFeatureSlideIndex = 0;
+        if (menuFeatureSlides.length > 1) {
+            setInterval(() => {
+                menuFeatureSlides[menuFeatureSlideIndex].classList.remove('active');
+                menuFeatureSlideIndex = (menuFeatureSlideIndex + 1) % menuFeatureSlides.length;
+                menuFeatureSlides[menuFeatureSlideIndex].classList.add('active');
+            }, 4500);
         }
 
         const revealElements = document.querySelectorAll('.reveal');
