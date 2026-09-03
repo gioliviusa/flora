@@ -24,6 +24,10 @@
         .site-header { align-items: center; background: rgba(255, 253, 249, 0.9); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 12px 5vw; position: absolute; width: 100%; z-index: 2; }
         .site-header img { border-radius: 10px; display: block; height: 40px; width: auto; }
         .back-link { color: var(--wine); font-size: 0.7rem; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
+        .language-switcher { align-items: center; display: flex; gap: 7px; margin-left: auto; margin-right: 20px; }
+        .language-switcher label { color: var(--wine); font-size: 0.58rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        .language-switcher select { appearance: none; background: transparent; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 11px) 11px, calc(100% - 7px) 11px; background-repeat: no-repeat; background-size: 4px 4px, 4px 4px; border: 1px solid rgba(94, 33, 41, 0.25); border-radius: 50px; color: var(--wine); cursor: pointer; font: 500 0.62rem 'Inter', sans-serif; letter-spacing: 0.5px; padding: 8px 25px 8px 10px; }
+        .language-switcher select:focus-visible { outline: 2px solid rgba(94, 33, 41, 0.22); outline-offset: 2px; }
         .hero { background: var(--cream); color: var(--ink); display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; overflow: hidden; padding: 0; position: relative; scroll-snap-align: start; scroll-snap-stop: always; text-align: left; }
         .hero-carousel { border: 1px solid rgba(255, 250, 246, 0.72); border-radius: 24px; box-shadow: inset 0 0 0 10px rgba(255, 250, 246, 0.08); min-height: 100vh; overflow: hidden; position: relative; }
         .hero-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
@@ -524,7 +528,11 @@
             }
         }
         @media (max-width: 700px) {
-            .site-header { padding: 10px 20px; }
+            .site-header { padding: 10px 16px; }
+            .site-header img { height: 34px; }
+            .language-switcher { margin-right: 12px; }
+            .language-switcher label { display: none; }
+            .language-switcher select { font-size: 0.58rem; padding: 7px 22px 7px 8px; }
             .hero { display: flex; flex-direction: column; min-height: 0; }
             .hero-carousel { margin: 16px 16px 0; min-height: calc(52vh - 16px); width: calc(100% - 32px); }
             .hero-overlay { padding: 28px 24px; }
@@ -623,6 +631,17 @@
 <body>
     <header class="site-header">
         <a href="index.html" aria-label="Back to La Felicita Group"><img src="img/logo.jpeg" alt="La Felicita Group" /></a>
+        <div class="language-switcher">
+            <label for="languageSelect">Language</label>
+            <select id="languageSelect" aria-label="Choose language">
+                <option value="en">English</option>
+                <option value="it">Italiano</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
         <a class="back-link" href="index.html#restaurants">Back to group</a>
     </header>
     <main>
@@ -1475,6 +1494,62 @@
         </div>
     </footer>
     <script>
+        const languageSelect = document.getElementById('languageSelect');
+        const translations = {
+            it: {
+                Language: 'Lingua', 'Back to group': 'Torna al gruppo', 'Private Italian dining on Las Olas.': 'Cucina italiana privata su Las Olas.', 'La Felicita Group · Las Olas': 'La Felicita Group · Las Olas', 'A private Italian sanctuary where handmade pasta, candlelight, and long conversations take center stage.': 'Un rifugio italiano privato dove pasta fatta a mano, candele e lunghe conversazioni sono protagoniste.', 'Open in Google Maps': 'Apri in Google Maps', 'Reserve your table': 'Prenota il tuo tavolo', 'Private gatherings': 'Eventi privati', 'Gift cards': 'Carte regalo', 'The Flora experience': 'L esperienza Flora', 'Come for dinner. Stay for the feeling.': 'Vieni a cena. Resta per l atmosfera.', 'Location': 'Posizione', Hours: 'Orari', Reservations: 'Prenotazioni', Antipasti: 'Antipasti', 'La Pasta': 'La Pasta', Insalate: 'Insalate', 'Big Cuts': 'Tagli importanti', 'Your table is waiting': 'Il tuo tavolo ti aspetta', 'Make an evening of it.': 'Vivi una serata speciale.', 'Gather your favorite people and let Flora take care of the rest.': 'Riunisci le persone che ami e lascia che Flora pensi al resto.', 'Book Flora': 'Prenota Flora', 'A little more felicità': 'Un po’ più di felicità', 'Italian nights, made memorable.': 'Notti italiane da ricordare.', Explore: 'Scopri', 'Our story': 'La nostra storia', 'Private events': 'Eventi privati', 'Guest services': 'Servizi per gli ospiti', 'Book a table': 'Prenota un tavolo', 'Join our team': 'Unisciti al team', Newsletter: 'Newsletter', 'Come find us': 'Dove trovarci', Accessibility: 'Accessibilità', Privacy: 'Privacy', Terms: 'Termini'
+            },
+            fr: {
+                Language: 'Langue', 'Back to group': 'Retour au groupe', 'Private Italian dining on Las Olas.': 'Cuisine italienne privée sur Las Olas.', 'A private Italian sanctuary where handmade pasta, candlelight, and long conversations take center stage.': 'Un sanctuaire italien privé où les pâtes fraîches, les bougies et les longues conversations sont à l honneur.', 'Open in Google Maps': 'Ouvrir dans Google Maps', 'Reserve your table': 'Réserver votre table', 'Private gatherings': 'Événements privés', 'Gift cards': 'Cartes cadeaux', 'The Flora experience': 'L expérience Flora', 'Come for dinner. Stay for the feeling.': 'Venez dîner. Restez pour l ambiance.', Location: 'Adresse', Hours: 'Horaires', Reservations: 'Réservations', Antipasti: 'Antipasti', 'La Pasta': 'La Pasta', Insalate: 'Salades', 'Big Cuts': 'Belles pièces', 'Your table is waiting': 'Votre table vous attend', 'Make an evening of it.': 'Faites-en une soirée spéciale.', 'Book Flora': 'Réserver Flora', 'A little more felicità': 'Un peu plus de felicità', 'Italian nights, made memorable.': 'Des nuits italiennes inoubliables.', Explore: 'Découvrir', 'Our story': 'Notre histoire', 'Private events': 'Événements privés', 'Guest services': 'Services aux clients', 'Book a table': 'Réserver une table', 'Join our team': 'Rejoindre notre équipe', Newsletter: 'Newsletter', 'Come find us': 'Nous trouver', Accessibility: 'Accessibilité', Privacy: 'Confidentialité', Terms: 'Conditions'
+            },
+            es: {
+                Language: 'Idioma', 'Back to group': 'Volver al grupo', 'Private Italian dining on Las Olas.': 'Cocina italiana privada en Las Olas.', 'A private Italian sanctuary where handmade pasta, candlelight, and long conversations take center stage.': 'Un santuario italiano privado donde la pasta artesanal, las velas y las largas conversaciones son protagonistas.', 'Open in Google Maps': 'Abrir en Google Maps', 'Reserve your table': 'Reserva tu mesa', 'Private gatherings': 'Eventos privados', 'Gift cards': 'Tarjetas regalo', 'The Flora experience': 'La experiencia Flora', 'Come for dinner. Stay for the feeling.': 'Ven a cenar. Quédate por la experiencia.', Location: 'Ubicación', Hours: 'Horario', Reservations: 'Reservas', Antipasti: 'Antipasti', 'La Pasta': 'La Pasta', Insalate: 'Ensaladas', 'Big Cuts': 'Cortes especiales', 'Your table is waiting': 'Tu mesa te espera', 'Make an evening of it.': 'Haz de ello una velada especial.', 'Book Flora': 'Reservar Flora', 'A little more felicità': 'Un poco más de felicità', 'Italian nights, made memorable.': 'Noches italianas para recordar.', Explore: 'Explorar', 'Our story': 'Nuestra historia', 'Private events': 'Eventos privados', 'Guest services': 'Atención al cliente', 'Book a table': 'Reservar una mesa', 'Join our team': 'Únete al equipo', Newsletter: 'Boletín', 'Come find us': 'Encuéntranos', Accessibility: 'Accesibilidad', Privacy: 'Privacidad', Terms: 'Términos'
+            },
+            de: {
+                Language: 'Sprache', 'Back to group': 'Zur Gruppe', 'Private Italian dining on Las Olas.': 'Private italienische Küche auf Las Olas.', 'A private Italian sanctuary where handmade pasta, candlelight, and long conversations take center stage.': 'Ein privater italienischer Rückzugsort mit hausgemachter Pasta, Kerzenlicht und langen Gesprächen.', 'Open in Google Maps': 'In Google Maps öffnen', 'Reserve your table': 'Tisch reservieren', 'Private gatherings': 'Private Veranstaltungen', 'Gift cards': 'Geschenkkarten', 'The Flora experience': 'Das Flora-Erlebnis', 'Come for dinner. Stay for the feeling.': 'Kommen Sie zum Abendessen. Bleiben Sie für das Gefühl.', Location: 'Ort', Hours: 'Öffnungszeiten', Reservations: 'Reservierungen', Antipasti: 'Antipasti', 'La Pasta': 'La Pasta', Insalate: 'Salate', 'Big Cuts': 'Große Stücke', 'Your table is waiting': 'Ihr Tisch wartet', 'Make an evening of it.': 'Machen Sie einen besonderen Abend daraus.', 'Book Flora': 'Flora reservieren', 'A little more felicità': 'Ein wenig mehr felicità', 'Italian nights, made memorable.': 'Unvergessliche italienische Abende.', Explore: 'Entdecken', 'Our story': 'Unsere Geschichte', 'Private events': 'Private Veranstaltungen', 'Guest services': 'Gästeservice', 'Book a table': 'Tisch reservieren', 'Join our team': 'Unserem Team beitreten', Newsletter: 'Newsletter', 'Come find us': 'So finden Sie uns', Accessibility: 'Barrierefreiheit', Privacy: 'Datenschutz', Terms: 'Bedingungen'
+            },
+            pt: {
+                Language: 'Idioma', 'Back to group': 'Voltar ao grupo', 'Private Italian dining on Las Olas.': 'Culinária italiana privada em Las Olas.', 'A private Italian sanctuary where handmade pasta, candlelight, and long conversations take center stage.': 'Um santuário italiano privado onde massas artesanais, luz de velas e longas conversas são protagonistas.', 'Open in Google Maps': 'Abrir no Google Maps', 'Reserve your table': 'Reserve sua mesa', 'Private gatherings': 'Eventos privados', 'Gift cards': 'Cartões-presente', 'The Flora experience': 'A experiência Flora', 'Come for dinner. Stay for the feeling.': 'Venha jantar. Fique pela experiência.', Location: 'Localização', Hours: 'Horários', Reservations: 'Reservas', Antipasti: 'Antipasti', 'La Pasta': 'La Pasta', Insalate: 'Saladas', 'Big Cuts': 'Cortes especiais', 'Your table is waiting': 'Sua mesa está esperando', 'Make an evening of it.': 'Transforme em uma noite especial.', 'Book Flora': 'Reserve Flora', 'A little more felicità': 'Um pouco mais de felicità', 'Italian nights, made memorable.': 'Noites italianas inesquecíveis.', Explore: 'Explorar', 'Our story': 'Nossa história', 'Private events': 'Eventos privados', 'Guest services': 'Atendimento aos hóspedes', 'Book a table': 'Reservar uma mesa', 'Join our team': 'Faça parte da equipe', Newsletter: 'Boletim', 'Come find us': 'Encontre-nos', Accessibility: 'Acessibilidade', Privacy: 'Privacidade', Terms: 'Termos'
+            }
+        };
+
+        const translatableNodes = [];
+        document.body.querySelectorAll('*').forEach((element) => {
+            if (['SCRIPT', 'STYLE', 'SELECT', 'OPTION'].includes(element.tagName)) return;
+            element.childNodes.forEach((node) => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    translatableNodes.push({ node, original: node.textContent });
+                }
+            });
+        });
+        document.querySelectorAll('[placeholder], [aria-label]').forEach((element) => {
+            ['placeholder', 'aria-label'].forEach((attributeName) => {
+                const original = element.getAttribute(attributeName);
+                if (original) translatableNodes.push({ element, attributeName, original });
+            });
+        });
+
+        function translatePage(language) {
+            const dictionary = translations[language] || {};
+            translatableNodes.forEach((item) => {
+                const key = item.original.trim();
+                const translated = language === 'en' ? key : dictionary[key];
+                if (!translated) return;
+                const value = item.original.replace(key, translated);
+                if (item.node) item.node.textContent = value;
+                else item.element.setAttribute(item.attributeName, translated);
+            });
+            document.documentElement.lang = language;
+            localStorage.setItem('flora-language', language);
+        }
+
+        if (languageSelect) {
+            const savedLanguage = localStorage.getItem('flora-language') || 'en';
+            languageSelect.value = savedLanguage;
+            languageSelect.addEventListener('change', () => translatePage(languageSelect.value));
+            if (savedLanguage !== 'en') translatePage(savedLanguage);
+        }
+
         const heroSlides = document.querySelectorAll('.hero-slide');
         let heroSlideIndex = 0;
         if (heroSlides.length > 1) {
