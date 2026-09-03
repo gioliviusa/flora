@@ -1978,8 +1978,8 @@
             <span class="newsletter-emoji">✉️</span>
             <h4>Join Our Newsletter</h4>
             <p>Be first to know about new venues, seasonal menus, and private event invitations.</p>
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" placeholder="Your email address" required />
+            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/xjyvobzl" method="POST">
+                <input type="email" name="email" placeholder="Your email address" required />
                 <button type="submit">Subscribe</button>
             </form>
         </div>
@@ -2031,7 +2031,7 @@
                 <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
                 <label>Email<input type="email" name="email" autocomplete="email" required /></label>
                 <label>Phone<input type="tel" name="phone" autocomplete="tel" /></label>
-                <label>Role<select name="role" required><option value="">Select a role</option><option>Line Cook</option><option>Server / Waitstaff</option><option> Lead Bartender</option><option> Host Reception</option><option> Floor Manager</option><option> Bar Back</option><option> Pizzaiolo </option> <option> Garde Manger</option><option> Head Prep</option></select></label>
+                <label>Role<select name="role" required><option value="">Select a role</option><option>Line Cook</option><option>Server / Waitstaff</option><option>Bartender</option><option> Host Reception</option><option> Floor Manager</option><option> Bar Back</option><option> Pizzaiolo </option> <option> Garde Manger</option><option> Head Prep</option></select></label>
             </div>
             <label>Resume / CV<input type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required /></label>
             <label>Message<textarea name="message" placeholder="Tell us about your experience and availability."></textarea></label>
@@ -2137,8 +2137,8 @@
             <span class="newsletter-modal-icon" aria-hidden="true">✉</span>
             <h2 id="newsletterModalTitle">A seat at the table</h2>
             <p>Get first taste of seasonal menus, new venues, and invitations to our most intimate evenings.</p>
-            <form class="newsletter-modal-form" id="newsletterModalForm">
-                <input type="email" placeholder="Your email address" aria-label="Email address" required />
+            <form class="newsletter-modal-form" id="newsletterModalForm" action="https://formspree.io/f/xjyvobzl" method="POST">
+                <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required />
                 <button type="submit">Join us</button>
             </form>
             <small class="newsletter-modal-note">No noise. Just the good stuff, occasionally.</small>
@@ -2366,14 +2366,7 @@
 
             // ─── NEWSLETTER FORM ───────────────
             if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const input = this.querySelector('input[type="email"]');
-                    if (input && input.value) {
-                        alert('Grazie! You have been subscribed to the La Felicita newsletter.');
-                        input.value = '';
-                    }
-                });
+                newsletterForm.querySelector('input[type="email"]').setAttribute('autocomplete', 'email');
             }
 
             // ─── NEWSLETTER POPUP ────────────
@@ -2402,12 +2395,7 @@
                         closeNewsletterModal();
                     }
                 });
-                newsletterModalForm.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    alert('Grazie! You have been subscribed to the La Felicita newsletter.');
-                    newsletterModalForm.reset();
-                    closeNewsletterModal();
-                });
+                newsletterModalForm.querySelector('input[type="email"]').setAttribute('autocomplete', 'email');
             }
 
             // ─── FLOATING RESERVE HIDE ─────────
