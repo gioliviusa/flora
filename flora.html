@@ -129,9 +129,8 @@
         .menu-section.menu-active .menu-feature {
             display: none;
         }
-        .menu-feature { align-self: stretch; min-height: 620px; overflow: hidden; position: sticky; top: 28px; }
-        .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; inset: 0; object-fit: cover; opacity: 0; position: absolute; transition: opacity 1s ease; width: 100%; }
-        .menu-feature img.active { opacity: 1; }
+        .menu-feature { align-self: stretch; min-height: 620px; position: sticky; top: 28px; }
+        .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
         .menu-feature figcaption { bottom: 24px; color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
         .menu-content {
             align-self: center;
@@ -356,7 +355,13 @@
         }
         .flora-book { background: #eaded5; text-align: center; }
         .flora-book p { color: var(--muted); margin: 0 auto 24px; max-width: 520px; }
-        .flora-gifts { background: var(--cream); }
+        .flora-gifts { background: var(--wine-dark); overflow: hidden; position: relative; }
+        .flora-gifts::before { background: rgba(41, 19, 23, 0.58); content: ''; inset: 0; pointer-events: none; position: absolute; z-index: 1; }
+        .flora-gifts .gift-section-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
+        .flora-gifts .gift-section-slide.active { opacity: 1; }
+        .flora-gifts > *:not(.gift-section-slide) { position: relative; z-index: 2; }
+        .flora-gifts .flora-section-head .section-kicker, .flora-gifts .flora-section-head h2, .flora-gifts .flora-section-head p { color: #fffaf6; }
+        .flora-gifts .gift-card { background: rgba(255, 253, 249, 0.9); }
         .gallery { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr; gap: 12px; margin: auto; max-width: 1120px; padding: 90px 5vw; scroll-snap-align: start; scroll-snap-stop: always; }
         .gallery img { display: block; height: 330px; object-fit: cover; width: 100%; }
         .gallery img:first-child { grid-row: span 2; height: 672px; }
@@ -1441,9 +1446,7 @@
                     </div>
                 </div>
                 <figure class="menu-feature">
-                    <img class="active" src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
-                    <img src="img/img3.jpeg" alt="Flora Italian dining table" />
-                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.51%20PM.jpeg" alt="Flora dining detail" />
+                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
                     <figcaption>Seasonal plates, made to linger over.</figcaption>
                 </figure>
             </div>
@@ -1524,6 +1527,9 @@
             </div>
         </section>
         <section class="flora-section flora-gifts" id="giftcards">
+            <div class="gift-section-slide active" style="background-image: url('img/WhatsApp%20Image%202026-08-28%20at%203.53.50%20PM.jpeg');" aria-hidden="true"></div>
+            <div class="gift-section-slide" style="background-image: url('img/img3.jpeg');" aria-hidden="true"></div>
+            <div class="gift-section-slide" style="background-image: url('img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg');" aria-hidden="true"></div>
             <div class="flora-section-head">
                 <div class="section-kicker">Give a little felicità</div>
                 <h2>Gift the Flora feeling.</h2>
@@ -1732,13 +1738,13 @@
             }, 4000);
         }
 
-        const menuFeatureSlides = document.querySelectorAll('.menu-feature img');
-        let menuFeatureSlideIndex = 0;
-        if (menuFeatureSlides.length > 1) {
+        const giftSectionSlides = document.querySelectorAll('.gift-section-slide');
+        let giftSectionSlideIndex = 0;
+        if (giftSectionSlides.length > 1) {
             setInterval(() => {
-                menuFeatureSlides[menuFeatureSlideIndex].classList.remove('active');
-                menuFeatureSlideIndex = (menuFeatureSlideIndex + 1) % menuFeatureSlides.length;
-                menuFeatureSlides[menuFeatureSlideIndex].classList.add('active');
+                giftSectionSlides[giftSectionSlideIndex].classList.remove('active');
+                giftSectionSlideIndex = (giftSectionSlideIndex + 1) % giftSectionSlides.length;
+                giftSectionSlides[giftSectionSlideIndex].classList.add('active');
             }, 4500);
         }
 
