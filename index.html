@@ -13,6 +13,21 @@
             --dark-surface: #f0ece5;
             --dark-card: #fffdf9;
             --dark-border: #e6dbc7;
+        @media (max-width: 700px) {
+            html {
+                scroll-snap-type: none;
+            }
+            body {
+                max-width: 100%;
+                overscroll-behavior-x: none;
+                scroll-snap-type: none;
+            }
+            section,
+            footer {
+                scroll-snap-align: none;
+                scroll-snap-stop: normal;
+            }
+        }
             --warm-gold: #5E2129;
             --warm-gold-light: #8a4a52;
             --warm-gold-glow: #c88b90;
