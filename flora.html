@@ -324,7 +324,9 @@
             font-size: 0.75rem;
             letter-spacing: 0.5px;
             line-height: 1.6;
-            border-top: 1px solid rgba(184, 138, 90, 0.12);
+            border-top: 2px solid rgba(94, 33, 41, 0.16);
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
         .footer-inner {
             max-width: 1180px;
@@ -399,6 +401,9 @@
         }
         .footer-contact .footer-heading {
             margin-bottom: 2px;
+        }
+        .footer-contact-group {
+            display: contents;
         }
         footer a {
             color: var(--wine);
@@ -538,7 +543,7 @@
             .gallery img, .gallery img:first-child { height: 230px; }
             .gallery img:first-child { grid-column: span 2; grid-row: auto; }
             footer {
-                padding: 32px 16px 14px;
+                padding: 40px 16px 18px;
             }
             .footer-main {
                 gap: 20px 16px;
@@ -590,8 +595,14 @@
             }
             .footer-contact {
                 display: grid;
-                gap: 4px 14px;
-                grid-template-columns: max-content minmax(0, 1fr);
+                gap: 16px;
+                grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+            }
+            .footer-contact-group {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                min-width: 0;
             }
             .footer-contact p {
                 line-height: 1.4;
@@ -1440,12 +1451,16 @@
                     <a href="#newsletterForm">Newsletter</a>
                 </nav>
                 <div class="footer-contact">
-                    <span class="footer-heading">Come find us</span>
-                    <p>Las Olas Boulevard<br />Fort Lauderdale, Florida</p>
-                    <a href="tel:+19545550148">+1 (954) 555-0148</a>
-                    <a href="mailto:hello@lafelicita.group">hello@lafelicita.group</a>
-                    <span class="footer-heading">Hours</span>
-                    <p>Tuesday–Sunday · 5:00–11:00 PM</p>
+                    <div class="footer-contact-group">
+                        <span class="footer-heading">Come find us</span>
+                        <p>Las Olas Boulevard<br />Fort Lauderdale, Florida</p>
+                        <a href="tel:+19545550148">+1 (954) 555-0148</a>
+                        <a href="mailto:hello@lafelicita.group">hello@lafelicita.group</a>
+                    </div>
+                    <div class="footer-contact-group">
+                        <span class="footer-heading">Hours</span>
+                        <p>Tuesday–Sunday · 5:00–11:00 PM</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
