@@ -130,7 +130,7 @@
             display: none;
         }
         .menu-feature { align-self: stretch; min-height: 620px; position: sticky; top: 28px; }
-        .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
+        .menu-feature img, .menu-feature video { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
         .menu-feature figcaption { bottom: 24px; color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
         .menu-content {
             align-self: center;
@@ -1446,7 +1446,10 @@
                     </div>
                 </div>
                 <figure class="menu-feature">
-                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                    <video autoplay muted loop playsinline poster="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" aria-label="A quiet view of the Flora menu experience">
+                        <source src="img/flora-menu.mp4" type="video/mp4" />
+                        <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                    </video>
                     <figcaption>Seasonal plates, made to linger over.</figcaption>
                 </figure>
             </div>
