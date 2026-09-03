@@ -1335,6 +1335,21 @@
             border-color: var(--warm-gold);
             outline: 2px solid rgba(201, 169, 110, 0.2);
         }
+        .careers-form input[type="file"] {
+            color: rgba(45, 41, 37, 0.68);
+            cursor: pointer;
+            padding: 8px;
+        }
+        .careers-form input[type="file"]::file-selector-button {
+            background: var(--warm-gold);
+            border: 0;
+            border-radius: 6px;
+            color: var(--dark-bg);
+            cursor: pointer;
+            font: 600 0.68rem 'Inter', sans-serif;
+            margin-right: 8px;
+            padding: 8px 10px;
+        }
         .careers-form .form-submit {
             background: var(--warm-gold);
             border: 1px solid var(--warm-gold);
@@ -2007,7 +2022,7 @@
                 </div>
             </div>
         </div>
-        <form class="careers-form" action="https://formspree.io/f/xjyvobjl" method="POST">
+        <form class="careers-form" action="https://formspree.io/f/xjyvobjl" method="POST" enctype="multipart/form-data">
             <div>
                 <h3>Join the Team</h3>
                 <p>Tell us a little about yourself and the role that feels right.</p>
@@ -2016,8 +2031,9 @@
                 <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
                 <label>Email<input type="email" name="email" autocomplete="email" required /></label>
                 <label>Phone<input type="tel" name="phone" autocomplete="tel" /></label>
-                <label>Role<select name="role" required><option value="">Select a role</option><option>Line Cook</option><option>Server / Waitstaff</option><option>Sommelier</option><option> Lead Bartender</option><option> Host Reception</option><option> Floor Manager</option><option> Bar Back</option><option> Pizzaiolo </option> <option> Garde Manger</option><option> Head Prep</option></select></label>
+                <label>Role<select name="role" required><option value="">Select a role</option><option>Line Cook</option><option>Server / Waitstaff</option><option> Lead Bartender</option><option> Host Reception</option><option> Floor Manager</option><option> Bar Back</option><option> Pizzaiolo </option> <option> Garde Manger</option><option> Head Prep</option></select></label>
             </div>
+            <label>Resume / CV<input type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required /></label>
             <label>Message<textarea name="message" placeholder="Tell us about your experience and availability."></textarea></label>
             <input type="hidden" name="_subject" value="New La Felicita careers application" />
             <button class="form-submit" type="submit">Send application</button>
