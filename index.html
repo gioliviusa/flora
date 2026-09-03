@@ -203,6 +203,17 @@
             z-index: 1003;
             text-transform: uppercase;
         }
+        .nav-overlay { align-items: stretch; background: var(--dark-card); border: 1px solid var(--dark-border); box-shadow: 0 18px 42px rgba(52, 41, 33, 0.18); display: none; gap: 0; justify-content: flex-start; left: 20px; max-height: calc(100vh - 100px); opacity: 0; overflow-y: auto; padding: 24px; pointer-events: none; position: fixed; right: auto; top: 76px; transition: opacity 0.25s ease; width: min(390px, calc(100vw - 32px)); z-index: 1001; }
+        .nav-overlay.active { display: block; opacity: 1; pointer-events: auto; }
+        .nav-overlay .nav-close { display: none; }
+        .nav-overlay .site-menu-logo { border-radius: 10px; display: block; height: 52px; margin-bottom: 20px; width: auto; }
+        .nav-overlay .site-menu-label { color: var(--warm-gold); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
+        .nav-overlay .site-menu-primary, .nav-overlay .site-menu-secondary { display: grid; }
+        .nav-overlay .site-menu-primary { gap: 4px; }
+        .nav-overlay .nav-link { border-bottom: 1px solid var(--dark-border); color: var(--charcoal); display: flex; font-family: 'Playfair Display', serif; font-size: 1.35rem; justify-content: space-between; padding: 9px 0; text-align: left; }
+        .nav-overlay .site-menu-primary .nav-link::after { color: var(--warm-gold); content: '→'; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .nav-overlay .site-menu-secondary { border-top: 1px solid var(--dark-border); gap: 5px; margin-top: 20px; padding-top: 16px; }
+        .nav-overlay .site-menu-secondary .nav-link { border: 0; color: #534d47; font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 1px; padding: 3px 0; text-transform: uppercase; }
         .accessibility-toggle:focus-visible,
         .accessibility-option input:focus-visible + span {
             outline: 2px solid var(--warm-gold-glow);
@@ -237,6 +248,13 @@
         html.a11y-reduced-motion *,
         html.a11y-reduced-motion *::before,
         html.a11y-reduced-motion *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+        .hamburger { align-items: center; background: transparent; border: 1px solid var(--warm-gold); border-radius: 50%; color: var(--warm-gold); cursor: pointer; display: flex; flex-shrink: 0; height: 36px; justify-content: center; margin-left: 12px; order: 1; padding: 0; position: relative; width: 36px; }
+        .hamburger span { display: none; }
+        .hamburger::before { content: '☰'; font-size: 1rem; line-height: 1; }
+        .hamburger[aria-expanded='true']::before { content: '×'; font-size: 1.35rem; }
+        .header-nav-desktop { order: 2; }
+        .language-switcher { margin-left: auto; order: 3; }
+        .header-cta { order: 4; }
 
         /* ─── HAMBURGER ──────────────────────── */
         .hamburger {
@@ -324,6 +342,24 @@
         .nav-close:hover {
             background: rgba(255, 255, 255, 0.06);
         }
+        .header .hamburger { align-items: center; background: transparent; border: 1px solid var(--warm-gold); border-radius: 50%; color: var(--warm-gold); display: flex; flex-shrink: 0; height: 36px; justify-content: center; margin-left: 12px; order: 1; padding: 0; position: relative; width: 36px; }
+        .header .hamburger span { display: none; }
+        .header .hamburger::before { content: '☰'; font-size: 1rem; line-height: 1; }
+        .header .hamburger[aria-expanded='true']::before { content: '×'; font-size: 1.35rem; }
+        .header .header-nav-desktop { order: 2; }
+        .header .language-switcher { margin-left: auto; order: 3; }
+        .header .header-cta { order: 4; }
+        .nav-overlay { align-items: stretch; background: var(--dark-card); border: 1px solid var(--dark-border); box-shadow: 0 18px 42px rgba(52, 41, 33, 0.18); display: none; gap: 0; justify-content: flex-start; left: 20px; max-height: calc(100vh - 100px); opacity: 0; overflow-y: auto; padding: 24px; pointer-events: none; position: fixed; right: auto; top: 76px; transition: opacity 0.25s ease; width: min(390px, calc(100vw - 32px)); z-index: 1001; }
+        .nav-overlay.active { display: block; opacity: 1; pointer-events: auto; }
+        .nav-overlay .nav-close { display: none; }
+        .nav-overlay .site-menu-logo { border-radius: 10px; display: block; height: 52px; margin-bottom: 20px; width: auto; }
+        .nav-overlay .site-menu-label { color: var(--warm-gold); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
+        .nav-overlay .site-menu-primary, .nav-overlay .site-menu-secondary { display: grid; }
+        .nav-overlay .site-menu-primary { gap: 4px; }
+        .nav-overlay .nav-link { border-bottom: 1px solid var(--dark-border); color: var(--charcoal); display: flex; font-family: 'Playfair Display', serif; font-size: 1.35rem; justify-content: space-between; padding: 9px 0; text-align: left; }
+        .nav-overlay .site-menu-primary .nav-link::after { color: var(--warm-gold); content: '→'; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .nav-overlay .site-menu-secondary { border-top: 1px solid var(--dark-border); gap: 5px; margin-top: 20px; padding-top: 16px; }
+        .nav-overlay .site-menu-secondary .nav-link { border: 0; color: #534d47; font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 1px; padding: 3px 0; text-transform: uppercase; }
 
         /* ─── HERO ──────────────────────────── */
         .hero {
@@ -1599,6 +1635,9 @@
             .accessibility-toggle::before { content: '♿'; font-size: 0.9rem; }
             .accessibility-toggle { bottom: 14px !important; left: 12px !important; }
             .accessibility-panel { bottom: 62px; left: 12px; right: auto; top: auto; }
+            .nav-overlay { left: 12px; right: auto; top: 62px; }
+            .nav-overlay .site-menu-logo { height: 44px; margin-bottom: 16px; }
+            .nav-overlay .nav-link { font-size: 1.2rem; }
         }
         @media (min-width: 1024px) {
             .hero h1 {
@@ -1627,7 +1666,7 @@
             <a href="#careers">Careers</a>
             <a href="#faq">FAQ</a>
         </nav>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open site menu" aria-expanded="false" aria-controls="navOverlay">
             <span></span><span></span><span></span>
         </button>
         <div class="language-switcher">
@@ -1655,15 +1694,23 @@
 
     <!-- ═══════════════ NAV OVERLAY ══════════ -->
     <nav class="nav-overlay" id="navOverlay">
-        <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
-        <a href="#restaurants" class="nav-link">Restaurants</a>
-        <a href="#story" class="nav-link">Story</a>
-        <a href="flora.html#events" class="nav-link">Private Events</a>
-        <a href="flora.html#book" class="nav-link">Book a Table</a>
-        <a href="flora.html#giftcards" class="nav-link">Gift Cards</a>
-        <a href="#vendors" class="nav-link">Vendors & Shop</a>
-        <a href="#careers" class="nav-link">Careers</a>
-        <a href="#faq" class="nav-link">FAQ</a>
+        <img class="site-menu-logo" src="img/logo.jpeg" alt="La Felicita Group" />
+        <span class="site-menu-label">Explore La Felicita</span>
+        <div class="site-menu-primary">
+            <a href="flora.html#menu" class="nav-link">Menu</a>
+            <a href="flora.html#book" class="nav-link">Book a table</a>
+            <a href="flora.html#location" class="nav-link">Location</a>
+            <a href="flora.html#events" class="nav-link">Private events</a>
+            <a href="flora.html#giftcards" class="nav-link">Gift cards</a>
+        </div>
+        <div class="site-menu-secondary">
+            <a href="#vendors" class="nav-link">Our shop</a>
+            <a href="#story" class="nav-link">Our news &amp; moments</a>
+            <a href="#vendors" class="nav-link">Our producers</a>
+            <a href="#story" class="nav-link">Our missions</a>
+            <a href="#careers" class="nav-link">Join the Squadra</a>
+            <a href="mailto:hello@lafelicita.group" class="nav-link">Contact us</a>
+        </div>
     </nav>
 
     <!-- ═══════════════ HERO ════════════════ -->
@@ -2120,11 +2167,15 @@
             // ─── MOBILE NAV ────────────────────
             function openNav() {
                 navOverlay.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
+                hamburger.setAttribute('aria-label', 'Close site menu');
                 document.body.style.overflow = 'hidden';
             }
 
             function closeNav() {
                 navOverlay.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Open site menu');
                 document.body.style.overflow = '';
             }
             if (hamburger) hamburger.addEventListener('click', openNav);

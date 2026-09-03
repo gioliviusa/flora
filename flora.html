@@ -24,7 +24,7 @@
         .site-header { align-items: center; background: rgba(255, 253, 249, 0.9); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 12px 5vw; position: absolute; width: 100%; z-index: 2; }
         .site-header img { border-radius: 10px; display: block; height: 40px; width: auto; }
         .back-link { color: var(--wine); font-size: 0.7rem; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
-        .language-switcher { align-items: center; display: flex; gap: 7px; margin-left: auto; margin-right: 20px; }
+        .language-switcher { align-items: center; display: flex; gap: 7px; margin-left: auto; margin-right: 12px; }
         .language-switcher label { color: var(--wine); font-size: 0.58rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         .language-switcher select { appearance: none; background: transparent; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 11px) 11px, calc(100% - 7px) 11px; background-repeat: no-repeat; background-size: 4px 4px, 4px 4px; border: 1px solid rgba(94, 33, 41, 0.25); border-radius: 50px; color: var(--wine); cursor: pointer; font: 500 0.62rem 'Inter', sans-serif; letter-spacing: 0.5px; padding: 8px 25px 8px 10px; }
         .language-switcher select:focus-visible { outline: 2px solid rgba(94, 33, 41, 0.22); outline-offset: 2px; }
@@ -41,6 +41,23 @@
         html.a11y-contrast a, html.a11y-contrast button, html.a11y-contrast .section-kicker { color: #111111; }
         html.a11y-links a { text-decoration: underline; text-decoration-thickness: 0.1em; text-underline-offset: 0.18em; }
         html.a11y-reduced-motion *, html.a11y-reduced-motion *::before, html.a11y-reduced-motion *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+        .site-menu-toggle { align-items: center; background: transparent; border: 1px solid var(--line); border-radius: 50%; color: var(--wine); cursor: pointer; display: flex; flex-shrink: 0; height: 36px; justify-content: center; margin-left: 12px; order: 1; padding: 0; width: 36px; }
+        .site-menu-toggle::before { content: '☰'; font-size: 1rem; line-height: 1; }
+        .site-menu-toggle[aria-expanded='true']::before { content: '×'; font-size: 1.35rem; }
+        .site-menu-toggle:focus-visible, .site-menu-link:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
+        .site-menu-panel { background: var(--paper); border: 1px solid var(--line); box-shadow: 0 18px 42px rgba(52, 41, 33, 0.18); display: none; left: 5vw; max-height: calc(100vh - 100px); overflow-y: auto; padding: 24px; position: fixed; right: auto; top: 76px; width: min(390px, calc(100vw - 32px)); z-index: 1001; }
+        .site-menu-panel.open { display: block; }
+        .site-menu-logo { border-radius: 10px; display: block; height: 52px; margin-bottom: 20px; width: auto; }
+        .language-switcher { order: 2; }
+        .back-link { order: 4; }
+        .site-menu-label { color: var(--wine); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
+        .site-menu-primary, .site-menu-secondary { display: grid; }
+        .site-menu-primary { gap: 4px; }
+        .site-menu-link { border-bottom: 1px solid var(--line); color: var(--ink); display: flex; font-family: 'Playfair Display', serif; font-size: 1.35rem; justify-content: space-between; padding: 9px 0; }
+        .site-menu-link::after { color: var(--wine); content: '→'; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .site-menu-secondary { border-top: 1px solid var(--line); gap: 5px; margin-top: 20px; padding-top: 16px; }
+        .site-menu-secondary .site-menu-link { border: 0; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 1px; padding: 3px 0; text-transform: uppercase; }
+        .site-menu-secondary .site-menu-link::after { content: ''; }
         .hero { background: var(--cream); color: var(--ink); display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; overflow: hidden; padding: 0; position: relative; scroll-snap-align: start; scroll-snap-stop: always; text-align: left; }
         .hero-carousel { border: 1px solid rgba(255, 250, 246, 0.72); border-radius: 24px; box-shadow: inset 0 0 0 10px rgba(255, 250, 246, 0.08); min-height: 100vh; overflow: hidden; position: relative; }
         .hero-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
@@ -550,6 +567,10 @@
             .accessibility-toggle { bottom: 14px; left: 12px; }
             .accessibility-toggle::before { content: '♿'; font-size: 0.9rem; }
             .accessibility-panel { bottom: 62px; left: 12px; right: auto; top: auto; }
+            .site-menu-toggle { margin-left: 8px; margin-right: 0; }
+            .site-menu-panel { left: 12px; right: auto; top: 62px; }
+            .site-menu-logo { height: 44px; margin-bottom: 16px; }
+            .site-menu-link { font-size: 1.2rem; }
             .hero { display: flex; flex-direction: column; min-height: 0; }
             .hero-carousel { margin: 16px 16px 0; min-height: calc(52vh - 16px); width: calc(100% - 32px); }
             .hero-overlay { padding: 28px 24px; }
@@ -648,6 +669,7 @@
 <body>
     <header class="site-header">
         <a href="index.html" aria-label="Back to La Felicita Group"><img src="img/logo.jpeg" alt="La Felicita Group" /></a>
+        <button class="site-menu-toggle" id="siteMenuToggle" type="button" aria-expanded="false" aria-controls="siteMenuPanel" aria-label="Open site menu"></button>
         <div class="language-switcher">
             <label for="languageSelect">Language</label>
             <select id="languageSelect" aria-label="Choose language">
@@ -669,6 +691,25 @@
         </div>
         <a class="back-link" href="index.html#restaurants">Back to group</a>
     </header>
+    <nav class="site-menu-panel" id="siteMenuPanel" aria-label="Site navigation">
+        <img class="site-menu-logo" src="img/logo.jpeg" alt="La Felicita Group" />
+        <span class="site-menu-label">Your Flora evening</span>
+        <div class="site-menu-primary">
+            <a class="site-menu-link" href="#menu">Menu</a>
+            <a class="site-menu-link" href="#book">Book a table</a>
+            <a class="site-menu-link" href="#location">Location</a>
+            <a class="site-menu-link" href="#events">Private events</a>
+            <a class="site-menu-link" href="#giftcards">Gift cards</a>
+        </div>
+        <div class="site-menu-secondary">
+            <a class="site-menu-link" href="index.html#vendors">Our shop</a>
+            <a class="site-menu-link" href="index.html#story">Our news &amp; moments</a>
+            <a class="site-menu-link" href="index.html#vendors">Our producers</a>
+            <a class="site-menu-link" href="index.html#story">Our missions</a>
+            <a class="site-menu-link" href="index.html#careers">Join the Squadra</a>
+            <a class="site-menu-link" href="mailto:hello@lafelicita.group">Contact us</a>
+        </div>
+    </nav>
     <main>
         <section class="hero">
             <div class="hero-carousel" aria-label="Flora dining gallery">
@@ -698,7 +739,7 @@
                 </div>
             </div>
         </section>
-        <section class="intro">
+        <section class="intro" id="location">
             <div class="intro-copy">
                 <div class="section-kicker">The Flora experience</div>
                 <h2>Come for dinner. Stay for the feeling.</h2>
@@ -710,7 +751,7 @@
                 <div><strong>Reservations</strong><span>Walk-ins welcome when available<br />Private dining for larger gatherings</span></div>
             </div>
         </section>
-        <section class="menu-section">
+        <section class="menu-section" id="menu">
             <div class="menu-inner">
                 <div class="menu-content">
                     <div class="menu-category" id="antipasti">
@@ -1574,6 +1615,31 @@
             languageSelect.addEventListener('change', () => translatePage(languageSelect.value));
             if (savedLanguage !== 'en') translatePage(savedLanguage);
         }
+
+        const siteMenuToggle = document.getElementById('siteMenuToggle');
+        const siteMenuPanel = document.getElementById('siteMenuPanel');
+        const siteMenuLinks = siteMenuPanel.querySelectorAll('a');
+        function closeSiteMenu() {
+            siteMenuPanel.classList.remove('open');
+            siteMenuToggle.setAttribute('aria-expanded', 'false');
+            siteMenuToggle.setAttribute('aria-label', 'Open site menu');
+        }
+        siteMenuToggle.addEventListener('click', () => {
+            const isOpen = siteMenuPanel.classList.toggle('open');
+            siteMenuToggle.setAttribute('aria-expanded', String(isOpen));
+            siteMenuToggle.setAttribute('aria-label', isOpen ? 'Close site menu' : 'Open site menu');
+            if (isOpen) siteMenuLinks[0].focus();
+        });
+        siteMenuLinks.forEach((link) => link.addEventListener('click', closeSiteMenu));
+        document.addEventListener('click', (event) => {
+            if (!siteMenuPanel.contains(event.target) && !siteMenuToggle.contains(event.target)) closeSiteMenu();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeSiteMenu();
+                siteMenuToggle.focus();
+            }
+        });
 
         const accessibilityToggle = document.getElementById('accessibilityToggle');
         const accessibilityPanel = document.getElementById('accessibilityPanel');
