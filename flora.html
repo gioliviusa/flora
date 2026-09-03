@@ -129,8 +129,10 @@
         .menu-section.menu-active .menu-feature {
             display: none;
         }
-        .menu-feature { align-self: stretch; min-height: 620px; position: sticky; top: 28px; }
-        .menu-feature img, .menu-feature video { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
+        .menu-feature { align-self: stretch; min-height: 620px; overflow: hidden; position: sticky; top: 28px; }
+        .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
+        .menu-feature video { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; height: 100%; inset: 0; object-fit: cover; opacity: 0; position: absolute; transition: opacity 1.2s ease; width: 100%; }
+        .menu-feature video.active { opacity: 1; }
         .menu-feature figcaption { bottom: 24px; color: #fffaf6; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
         .menu-content {
             align-self: center;
@@ -1446,9 +1448,12 @@
                     </div>
                 </div>
                 <figure class="menu-feature">
-                    <video autoplay muted loop playsinline poster="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" aria-label="A quiet view of the Flora menu experience">
-                        <source src="img/flora-menu.mp4" type="video/mp4" />
+                    <video class="menu-feature-video active" autoplay muted loop playsinline poster="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" aria-label="A quiet view of the Flora menu experience">
+                        <source src="img/ScreenRecording_09-03-2026%2017.mov" type="video/quicktime" />
                         <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                    </video>
+                    <video class="menu-feature-video" muted loop playsinline poster="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" aria-label="Another view of the Flora menu experience">
+                        <source src="img/ScreenRecording_09-03-2026%2016-40-33_1.mov" type="video/quicktime" />
                     </video>
                     <figcaption>Seasonal plates, made to linger over.</figcaption>
                 </figure>
@@ -1739,6 +1744,21 @@
                 heroSlideIndex = (heroSlideIndex + 1) % heroSlides.length;
                 heroSlides[heroSlideIndex].classList.add('active');
             }, 4000);
+        }
+
+        const menuFeatureVideos = document.querySelectorAll('.menu-feature-video');
+        let menuFeatureVideoIndex = 0;
+        if (menuFeatureVideos.length > 1) {
+            setInterval(() => {
+                const currentVideo = menuFeatureVideos[menuFeatureVideoIndex];
+                currentVideo.pause();
+                currentVideo.classList.remove('active');
+                menuFeatureVideoIndex = (menuFeatureVideoIndex + 1) % menuFeatureVideos.length;
+                const nextVideo = menuFeatureVideos[menuFeatureVideoIndex];
+                nextVideo.currentTime = 0;
+                nextVideo.classList.add('active');
+                nextVideo.play().catch(() => {});
+            }, 6000);
         }
 
         const giftSectionSlides = document.querySelectorAll('.gift-section-slide');
