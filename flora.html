@@ -61,6 +61,10 @@
         .site-menu-secondary { border-top: 1px solid var(--line); gap: 5px; margin-top: 20px; padding-top: 16px; }
         .site-menu-secondary .site-menu-link { border: 0; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 1px; padding: 3px 0; text-transform: uppercase; }
         .site-menu-secondary .site-menu-link::after { content: ''; }
+        .site-menu-social { border-top: 1px solid var(--line); display: flex; gap: 10px; margin-top: 20px; padding-top: 16px; }
+        .site-menu-social a { align-items: center; background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(184, 138, 90, 0.12); border-radius: 50%; color: rgba(45, 41, 37, 0.75); display: flex; height: 36px; justify-content: center; transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease; width: 36px; }
+        .site-menu-social a:hover { background: rgba(201, 169, 110, 0.08); border-color: rgba(201, 169, 110, 0.15); color: var(--wine); }
+        .site-menu-social svg { fill: currentColor; height: 17px; width: 17px; }
         .hero { background: var(--cream); color: var(--ink); display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; overflow: hidden; padding: 0; position: relative; scroll-snap-align: start; scroll-snap-stop: always; text-align: left; }
         .hero-carousel { border: 1px solid rgba(255, 250, 246, 0.72); border-radius: 24px; box-shadow: inset 0 0 0 10px rgba(255, 250, 246, 0.08); min-height: 100vh; overflow: hidden; position: relative; }
         .hero-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
@@ -468,6 +472,11 @@
             color: rgba(45, 41, 37, 0.75);
             border: 1px solid rgba(184, 138, 90, 0.12);
         }
+        .social-links svg {
+            fill: currentColor;
+            height: 17px;
+            width: 17px;
+        }
         .social-links a:hover {
             background: rgba(201, 169, 110, 0.08);
             color: var(--wine);
@@ -711,6 +720,17 @@
             <a class="site-menu-link" href="index.html#story">Our missions</a>
             <a class="site-menu-link" href="index.html#careers">Join the Squadra</a>
             <a class="site-menu-link" href="mailto:hello@lafelicita.group">Contact us</a>
+        </div>
+        <div class="site-menu-social" aria-label="Social media">
+            <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" /></svg>
+            </a>
+            <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M13.5 21v-8h2.75l.41-3H13.5V8.08c0-.87.24-1.46 1.5-1.46h1.79V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.48V10H7v3h2.81v8h3.69Z" /></svg>
+            </a>
+            <a href="https://www.tiktok.com/" aria-label="TikTok" target="_blank" rel="noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M16.5 2h3.02c.22 1.86 1.28 3.5 2.98 4.43v3.08a8.82 8.82 0 0 1-2.98-1.06v6.23a6.32 6.32 0 1 1-6.32-6.32c.34 0 .67.03 1 .08v3.2a3.25 3.25 0 1 0 2.07 3.04V2h.23Z" /></svg>
+            </a>
         </div>
     </nav>
     <main>
@@ -1517,9 +1537,15 @@
                     <h2>Italian nights, made memorable.</h2>
                     <p>Private Italian dining experiences shaped by candlelight, generous tables, and the joy of gathering.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer">📸</a>
-                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noreferrer">📘</a>
-                        <a href="https://www.tiktok.com/" aria-label="TikTok" target="_blank" rel="noreferrer">🎵</a>
+                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" /></svg>
+                        </a>
+                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noreferrer">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M13.5 21v-8h2.75l.41-3H13.5V8.08c0-.87.24-1.46 1.5-1.46h1.79V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.48V10H7v3h2.81v8h3.69Z" /></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/" aria-label="TikTok" target="_blank" rel="noreferrer">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M16.5 2h3.02c.22 1.86 1.28 3.5 2.98 4.43v3.08a8.82 8.82 0 0 1-2.98-1.06v6.23a6.32 6.32 0 1 1-6.32-6.32c.34 0 .67.03 1 .08v3.2a3.25 3.25 0 1 0 2.07 3.04V2h.23Z" /></svg>
+                        </a>
                         <a href="mailto:hello@lafelicita.group" aria-label="Email us">✉️</a>
                     </div>
                 </div>
@@ -1542,7 +1568,7 @@
                     <div class="footer-contact-group">
                         <span class="footer-heading">Come find us</span>
                         <p>Las Olas Boulevard<br />Fort Lauderdale, Florida</p>
-                        <a href="tel:+19545550148">+1 (954) 555-0148</a>
+                        <a href="tel:+13053459754">+1 (305) 345 9754</a>
                         <a href="mailto:hello@lafelicita.group">hello@lafelicita.group</a>
                     </div>
                     <div class="footer-contact-group">
