@@ -537,6 +537,75 @@
             .gallery { grid-template-columns: 1fr 1fr; }
             .gallery img, .gallery img:first-child { height: 230px; }
             .gallery img:first-child { grid-column: span 2; grid-row: auto; }
+            footer {
+                padding: 32px 16px 14px;
+            }
+            .footer-main {
+                gap: 20px 16px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding-bottom: 20px;
+            }
+            .footer-brand,
+            .footer-contact {
+                grid-column: 1 / -1;
+            }
+            footer .footer-logo {
+                margin-bottom: 10px;
+            }
+            footer .footer-logo img {
+                border-radius: 12px;
+                width: 124px;
+            }
+            .footer-brand h2 {
+                font-size: 1.35rem;
+                margin-bottom: 6px;
+            }
+            .footer-brand p {
+                line-height: 1.45;
+                max-width: none;
+            }
+            .footer-kicker,
+            .footer-heading {
+                font-size: 0.57rem;
+                letter-spacing: 1.4px;
+            }
+            .footer-column {
+                gap: 5px;
+            }
+            .footer-heading {
+                margin-bottom: 3px;
+            }
+            .footer-column a,
+            .footer-contact a {
+                font-size: 0.68rem;
+            }
+            .social-links {
+                gap: 7px;
+                margin-top: 10px;
+            }
+            .social-links a {
+                font-size: 0.85rem;
+                height: 30px;
+                width: 30px;
+            }
+            .footer-contact {
+                display: grid;
+                gap: 4px 14px;
+                grid-template-columns: max-content minmax(0, 1fr);
+            }
+            .footer-contact p {
+                line-height: 1.4;
+            }
+            .footer-contact .footer-heading {
+                margin-bottom: 0;
+            }
+            .footer-bottom {
+                gap: 8px;
+                padding-top: 12px;
+            }
+            .footer-legal {
+                gap: 4px 12px;
+            }
         }
     </style>
 </head>
