@@ -188,6 +188,55 @@
             outline: 2px solid var(--warm-gold-glow);
             outline-offset: 2px;
         }
+        .accessibility-toggle {
+            background: var(--dark-card);
+            border: 1px solid rgba(201, 169, 110, 0.35);
+            border-radius: 50px;
+            color: var(--warm-gold);
+            cursor: pointer;
+            font: 600 0.62rem 'Inter', sans-serif;
+            letter-spacing: 1px;
+            padding: 9px 12px;
+            bottom: 20px !important;
+            left: 20px !important;
+            position: fixed !important;
+            z-index: 1003;
+            text-transform: uppercase;
+        }
+        .accessibility-toggle:focus-visible,
+        .accessibility-option input:focus-visible + span {
+            outline: 2px solid var(--warm-gold-glow);
+            outline-offset: 2px;
+        }
+        .accessibility-panel {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            box-shadow: 0 16px 36px rgba(52, 41, 33, 0.16);
+            display: none;
+            padding: 16px;
+            bottom: 68px;
+            left: 20px;
+            position: fixed;
+            right: auto;
+            top: auto;
+            width: 220px;
+            z-index: 1002;
+        }
+        .accessibility-panel.open { display: grid; gap: 12px; }
+        .accessibility-panel strong { color: var(--charcoal); font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; }
+        .accessibility-option { align-items: center; color: var(--charcoal); display: flex; font-size: 0.75rem; gap: 9px; }
+        .accessibility-option input { accent-color: var(--warm-gold); height: 16px; width: 16px; }
+        html.a11y-large { font-size: 112.5%; }
+        html.a11y-contrast body { background: #ffffff; color: #111111; }
+        html.a11y-contrast .header,
+        html.a11y-contrast .accessibility-panel { background: #ffffff; border-color: #111111; }
+        html.a11y-contrast a,
+        html.a11y-contrast button,
+        html.a11y-contrast .section-kicker { color: #111111; }
+        html.a11y-links a { text-decoration: underline; text-decoration-thickness: 0.1em; text-underline-offset: 0.18em; }
+        html.a11y-reduced-motion *,
+        html.a11y-reduced-motion *::before,
+        html.a11y-reduced-motion *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 
         /* ─── HAMBURGER ──────────────────────── */
         .hamburger {
@@ -1544,6 +1593,10 @@
             .language-switcher select {
                 max-width: 74px;
             }
+            .accessibility-toggle { font-size: 0; padding: 9px; }
+            .accessibility-toggle::before { content: '♿'; font-size: 0.9rem; }
+            .accessibility-toggle { bottom: 14px !important; left: 12px !important; }
+            .accessibility-panel { bottom: 62px; left: 12px; right: auto; top: auto; }
         }
         @media (min-width: 1024px) {
             .hero h1 {
@@ -1588,6 +1641,15 @@
         </div>
         <a href="#book" class="header-cta">Reserve</a>
     </header>
+
+    <button class="accessibility-toggle" id="accessibilityToggle" type="button" aria-expanded="false" aria-controls="accessibilityPanel">Accessibility</button>
+    <div class="accessibility-panel" id="accessibilityPanel" aria-label="Accessibility settings">
+        <strong>Accessibility</strong>
+        <label class="accessibility-option"><input id="largeTextToggle" type="checkbox" /> <span>Larger text</span></label>
+        <label class="accessibility-option"><input id="contrastToggle" type="checkbox" /> <span>High contrast</span></label>
+        <label class="accessibility-option"><input id="motionToggle" type="checkbox" /> <span>Reduce motion</span></label>
+        <label class="accessibility-option"><input id="linksToggle" type="checkbox" /> <span>Underline links</span></label>
+    </div>
 
     <!-- ═══════════════ NAV OVERLAY ══════════ -->
     <nav class="nav-overlay" id="navOverlay">
@@ -1969,6 +2031,46 @@
                 languageSelect.addEventListener('change', () => translatePage(languageSelect.value));
                 if (savedLanguage !== 'en') translatePage(savedLanguage);
             }
+
+            const accessibilityToggle = document.getElementById('accessibilityToggle');
+            const accessibilityPanel = document.getElementById('accessibilityPanel');
+            const accessibilitySettings = {
+                largeText: document.getElementById('largeTextToggle'),
+                contrast: document.getElementById('contrastToggle'),
+                motion: document.getElementById('motionToggle'),
+                links: document.getElementById('linksToggle')
+            };
+            const accessibilityClasses = {
+                largeText: 'a11y-large',
+                contrast: 'a11y-contrast',
+                motion: 'a11y-reduced-motion',
+                links: 'a11y-links'
+            };
+
+            function applyAccessibilitySetting(name, enabled) {
+                document.documentElement.classList.toggle(accessibilityClasses[name], enabled);
+                accessibilitySettings[name].checked = enabled;
+            }
+
+            const savedAccessibility = JSON.parse(localStorage.getItem('flora-accessibility') || '{}');
+            Object.keys(accessibilitySettings).forEach((name) => {
+                applyAccessibilitySetting(name, Boolean(savedAccessibility[name]));
+                accessibilitySettings[name].addEventListener('change', () => {
+                    applyAccessibilitySetting(name, accessibilitySettings[name].checked);
+                    const settings = Object.fromEntries(Object.keys(accessibilitySettings).map((key) => [key, accessibilitySettings[key].checked]));
+                    localStorage.setItem('flora-accessibility', JSON.stringify(settings));
+                });
+            });
+            accessibilityToggle.addEventListener('click', () => {
+                const isOpen = accessibilityPanel.classList.toggle('open');
+                accessibilityToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+            document.addEventListener('click', (event) => {
+                if (!accessibilityPanel.contains(event.target) && !accessibilityToggle.contains(event.target)) {
+                    accessibilityPanel.classList.remove('open');
+                    accessibilityToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
             let heroSlideIndex = 0;
             let heroCarouselTimer;
 
