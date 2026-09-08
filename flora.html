@@ -132,6 +132,7 @@
         .intro-copy p { color: var(--ink); margin: 0 auto; max-width: 520px; }
         .intro-chef { display: block; height: auto; margin: 32px auto 0; width: 118px; }
         .details { border-left: 3px solid var(--wine); display: grid; gap: 22px; padding-left: 30px; }
+        .details, .details * { font-family: 'Courier Prime', monospace !important; }
         .details strong { color: var(--wine); display: block; font-size: 0.65rem; letter-spacing: 2px; margin-bottom: 3px; text-transform: uppercase; }
         .details span { color: var(--muted); font-size: 0.9rem; }
         .details a { color: var(--wine); font-size: 0.9rem; }
@@ -164,6 +165,23 @@
         .menu-content {
             align-self: center;
             width: 100%;
+        }
+        .menu-quick { align-items: stretch; display: grid; gap: 48px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin: 0 auto 64px; max-width: 1180px; }
+        .menu-quick-media img { border-radius: 24px; display: block; height: 100%; min-height: 340px; object-fit: cover; width: 100%; }
+        .menu-quick-body { display: flex; flex-direction: column; justify-content: center; }
+        .menu-quick-body h2 { color: var(--wine); }
+        .menu-quicklinks { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); margin: 24px 0; }
+        .menu-quicklink { background: var(--wine); border-radius: 50px; color: #ffffff; display: block; font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; padding: 16px 20px; text-align: center; text-transform: uppercase; transition: background 0.25s, transform 0.25s; }
+        .menu-quicklink:hover { background: #8a4a52; transform: translateY(-2px); }
+        .menu-quick-tagline { color: var(--wine); font-family: 'Instrument Serif', serif !important; font-size: clamp(1.6rem, 3vw, 2.4rem); font-style: italic; margin-top: 24px; text-align: left; }
+        @media (max-width: 900px) {
+            .menu-quick { grid-template-columns: 1fr; }
+            .menu-quick-media img { min-height: 260px; }
+            .menu-quicklinks { grid-template-columns: 1fr 1fr; }
+            .menu-quick-tagline { text-align: left; }
+        }
+        @media (max-width: 500px) {
+            .menu-quicklinks { grid-template-columns: 1fr; }
         }
         .menu-section .section-kicker { color: var(--wine); }
         .menu-section h2 { margin-bottom: 18px; }
@@ -844,6 +862,20 @@ Come for pasta and a glass of wine. Stay for another bottle, another story, and 
             </div>
         </section>
         <section class="menu-section" id="menu">
+            <div class="menu-quick">
+                <div class="menu-quick-media"><img src="img/img3.jpeg" alt="A table set at Flora" /></div>
+                <div class="menu-quick-body">
+                    <div class="section-kicker">Something to eat</div>
+                    <h2>Come hungry.</h2>
+                    <div class="menu-quicklinks">
+                        <a class="menu-quicklink" href="#antipasti">Brunch</a>
+                        <a class="menu-quicklink" href="#insalate">Lunch</a>
+                        <a class="menu-quicklink" href="#big-cuts">Dinner</a>
+                        <a class="menu-quicklink" href="#giftcards">Wines &amp; Cocktails</a>
+                    </div>
+                    <div class="menu-quick-tagline">Un altro, per favore.</div>
+                </div>
+            </div>
             <div class="menu-inner">
                 <div class="menu-content">
                     <div class="menu-category" id="antipasti">
