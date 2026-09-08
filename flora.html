@@ -332,6 +332,26 @@
         }
         .flora-section { padding: 100px 5vw; scroll-snap-align: start; scroll-snap-stop: always; }
         #events, .flora-gifts { border-radius: 24px; overflow: hidden; }
+        #events { background: var(--wine); padding: 0; position: relative; }
+        #events .section-kicker, #events .flora-section-head p { color: rgba(255, 255, 255, 0.85); }
+        #events .flora-section-head h2 { color: #ffffff; font-family: 'Instrument Serif', serif !important; }
+        #events .experience-card { background: #fff7e3; border-color: rgba(255, 255, 255, 0.25); }
+        #events .experience-card h3 { color: #000000; font-family: 'Courier Prime', monospace !important; }
+        #events .experience-card p { color: #000000; }
+        #events .experience-card span svg { stroke: #000000; }
+        .events-layout { align-items: center; display: grid; gap: 48px; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); margin: 0 auto; max-width: 1100px; }
+        .events-media img { border-radius: 20px; display: block; height: 100%; min-height: 420px; object-fit: cover; width: 100%; }
+        #events .events-media { bottom: 0; left: 0; overflow: hidden; position: absolute; top: 0; width: min(46%, 640px); }
+        #events .events-media img { border-radius: 0; }
+        #events .events-layout { display: block; margin-left: min(46%, 640px); max-width: none; padding: 100px clamp(24px, 5vw, 64px); }
+        #events .experience-grid { margin: 0; max-width: none; }
+        @media (max-width: 900px) {
+            .events-layout { grid-template-columns: 1fr; }
+            .events-media img { min-height: 280px; }
+            #events .events-media { bottom: auto; height: 280px; position: static; width: 100%; }
+            #events .events-media img { border-radius: 0; height: 280px; }
+            #events .events-layout { margin-left: 0; padding: 48px 24px; }
+        }
         .flora-section:nth-child(even) { background: var(--paper); }
         .flora-section-head { margin: 0 auto 38px; max-width: 760px; text-align: center; }
         .flora-section-head p { color: var(--muted); margin: 0 auto; max-width: 620px; }
@@ -1544,16 +1564,19 @@ Come for pasta and a glass of wine. Stay for another bottle, another story, and 
             </div>
         </section>
         <section class="flora-section" id="events">
-            <div class="flora-section-head">
-                <div class="section-kicker">Private gatherings</div>
-                <h2>Make the room yours.</h2>
-                <p>From milestone dinners to long-table celebrations, Flora creates intimate evenings with the details handled beautifully.</p>
-            </div>
-            <div class="experience-grid">
-                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 5h4l1 5a3 3 0 0 1-3 3 3 3 0 0 1-3-3l1-5Zm10 0h4l1 5a3 3 0 0 1-3 3 3 3 0 0 1-3-3l1-5ZM8 13v6m8-6v6M6 19h4m4 0h4M12 10v9" /></svg></span><h3>Private Dining Rooms</h3><p>Full venue buyouts or semi-private corners for 8–60 guests, with dedicated service and custom menus.</p></article>
-                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 16h18M5 16l1-6h8l4 6M14 10h3l3 4M7 19h2m6 0h2M3 16l-1 2h20l-1-2" /></svg></span><h3>Water Taxi Arrivals</h3><p>Arrive along the Intracoastal with coordinated pickups and a dockside welcome for an unforgettable entrance.</p></article>
-                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M9 3h6M10 3v4l-2 3v8h8v-8l-2-3V3M8 10h8M10 14h4M10 18h4" /></svg></span><h3>Chef's Table &amp; Tastings</h3><p>Seasonal multi-course experiences led by our chefs and paired with rare Italian labels.</p></article>
-                <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 8h14l-1 12H6L5 8Zm3 0V6a4 4 0 0 1 8 0v2M3 8h18" /></svg></span><h3>Flora To Go</h3><p>Bring the ritual home with house-made pasta kits, signature candles, olive oils, and Negroni kits.</p></article>
+            <div class="events-media"><img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.51%20PM.jpeg" alt="Private dining experience at Flora" /></div>
+            <div class="events-layout">
+                <div class="flora-section-head">
+                    <div class="section-kicker">Private gatherings</div>
+                    <h2>Make the room yours.</h2>
+                    <p>From milestone dinners to long-table celebrations, Flora creates intimate evenings with the details handled beautifully.</p>
+                </div>
+                <div class="experience-grid">
+                    <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 5h4l1 5a3 3 0 0 1-3 3 3 3 0 0 1-3-3l1-5Zm10 0h4l1 5a3 3 0 0 1-3 3 3 3 0 0 1-3-3l1-5ZM8 13v6m8-6v6M6 19h4m4 0h4M12 10v9" /></svg></span><h3>Private Dining Rooms</h3><p>Full venue buyouts or semi-private corners for 8–60 guests, with dedicated service and custom menus.</p></article>
+                    <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 16h18M5 16l1-6h8l4 6M14 10h3l3 4M7 19h2m6 0h2M3 16l-1 2h20l-1-2" /></svg></span><h3>Water Taxi Arrivals</h3><p>Arrive along the Intracoastal with coordinated pickups and a dockside welcome for an unforgettable entrance.</p></article>
+                    <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M9 3h6M10 3v4l-2 3v8h8v-8l-2-3V3M8 10h8M10 14h4M10 18h4" /></svg></span><h3>Chef's Table &amp; Tastings</h3><p>Seasonal multi-course experiences led by our chefs and paired with rare Italian labels.</p></article>
+                    <article class="experience-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5 8h14l-1 12H6L5 8Zm3 0V6a4 4 0 0 1 8 0v2M3 8h18" /></svg></span><h3>Flora To Go</h3><p>Bring the ritual home with house-made pasta kits, signature candles, olive oils, and Negroni kits.</p></article>
+                </div>
             </div>
             </section>
             <section class="flora-section private-event-section" id="private-event-inquiry">
