@@ -467,13 +467,20 @@
             .flora-book .flora-section-head { max-width: 100%; width: 100%; }
             .flora-book-media { height: 220px; opacity: 0.45; top: auto; width: 42%; }
         }
-        .flora-gifts { background: var(--wine-dark); overflow: hidden; position: relative; }
-        .flora-gifts::before { background: rgba(41, 19, 23, 0.58); content: ''; inset: 0; pointer-events: none; position: absolute; z-index: 1; }
-        .flora-gifts .gift-section-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
-        .flora-gifts .gift-section-slide.active { opacity: 1; }
-        .flora-gifts > *:not(.gift-section-slide) { position: relative; z-index: 2; }
-        .flora-gifts .flora-section-head .section-kicker, .flora-gifts .flora-section-head h2, .flora-gifts .flora-section-head p { color: #fffaf6; }
-        .flora-gifts .gift-card { background: rgba(255, 253, 249, 0.9); }
+        .flora-gifts { background: #fff7e3; border-bottom: 3px solid var(--wine); border-radius: 0; border-top: 3px solid var(--wine); color: #171311; min-height: 100vh; overflow: hidden; padding-bottom: 76px; padding-top: 76px; position: relative; }
+        .flora-gifts::before { display: none; }
+        .flora-gifts .gift-section-slide { display: none; }
+        .flora-gifts > * { position: relative; z-index: 1; }
+        .flora-gifts .flora-section-head { margin-bottom: 28px; max-width: 700px; }
+        .flora-gifts .flora-section-head .section-kicker { color: var(--wine); font-family: 'Courier Prime', monospace !important; font-size: 1rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: none; }
+        .flora-gifts .flora-section-head h2 { color: #171311; font-family: 'Instrument Serif', serif !important; font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: 0.02em; line-height: 1; text-transform: uppercase; }
+        .flora-gifts .flora-section-head p { color: #171311; font-family: 'Courier Prime', monospace !important; font-size: 1.05rem; line-height: 1.35; max-width: 600px; }
+        .flora-gift-illustration { height: 240px; margin: 0 auto 28px; max-width: 900px; overflow: hidden; }
+        .flora-gift-illustration img { display: block; height: 100%; object-fit: cover; object-position: center bottom; width: 100%; }
+        .flora-gifts .gift-grid { gap: 14px; max-width: 1000px; }
+        .flora-gifts .gift-card { background: transparent; border: 1px solid rgba(155, 64, 53, 0.55); border-radius: 0; padding: 22px; }
+        .flora-gifts .gift-card h3 { color: #171311; font-family: 'Courier Prime', monospace !important; font-size: 1rem; }
+        .flora-gifts .gift-card p { color: #171311; font-family: 'Courier Prime', monospace !important; }
         .gallery { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr; gap: 12px; margin: auto; max-width: 1120px; padding: 90px 5vw; scroll-snap-align: start; scroll-snap-stop: always; }
         .gallery img { display: block; height: 330px; object-fit: cover; width: 100%; }
         .gallery img:first-child { grid-row: span 2; height: 672px; }
@@ -1686,10 +1693,11 @@ Come for pasta and a glass of wine. Stay for another bottle, another story, and 
             <div class="gift-section-slide" style="background-image: url('img/img3.jpeg');" aria-hidden="true"></div>
             <div class="gift-section-slide" style="background-image: url('img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg');" aria-hidden="true"></div>
             <div class="flora-section-head">
-                <div class="section-kicker">Give a little felicità</div>
-                <h2>Gift the Flora feeling.</h2>
-                <p>Thoughtful ways to send someone special into an evening of candlelight, pasta, and good company.</p>
+                <div class="section-kicker">Give them a seat at the table.</div>
+                <h2>Gift cards &amp; vouchers</h2>
+                <p>Dinner for two, a birthday around the table, or simply a reason to get together. Give them Flora and let the rest take care of itself.</p>
             </div>
+            <div class="flora-gift-illustration" aria-hidden="true"><img src="img/giftcard.png" alt="" /></div>
             <div class="gift-grid">
                 <article class="gift-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><rect x="3" y="5" width="18" height="14" rx="1.5" /><path d="m3 7 9 6 9-6M8 10l-3 3m11-3 3 3" /></svg></span><h3>Classic Gift Card</h3><p>$50–$500 · Digital or physical</p></article>
                 <article class="gift-card"><span aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M8 10h8v9H8zM7 19h10M9 7h6v3H9zM10 4h4v3h-4zM9 2h6" /></svg></span><h3>Candlelit Dinner for Two</h3><p>$180 · Includes a multi-course experience</p></article>
