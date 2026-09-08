@@ -364,21 +364,31 @@
         .experience-card h3, .gift-card h3 { font-size: 1.35rem; margin-bottom: 6px; }
         .experience-card p, .gift-card p { color: var(--muted); font-size: 0.86rem; }
         .private-event-form {
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid var(--line);
-            border-radius: 24px;
+            background: var(--wine);
+            border: 2px solid #fff7e3;
+            border-radius: 36px;
             display: grid;
             gap: 18px;
             margin: 42px auto 0;
             max-width: 760px;
-            padding: 28px;
-            box-shadow: 0 20px 40px rgba(52, 41, 33, 0.05);
+            padding: 52px clamp(24px, 5vw, 64px) 38px;
+            box-shadow: 0 0 0 20px var(--wine), 0 20px 40px rgba(52, 41, 33, 0.05);
         }
         .private-event-section {
-            background: var(--paper);
+            background: #fff7e3;
+            padding-bottom: 90px;
+            padding-top: 90px;
+        }
+        .private-event-form > div:first-child {
+            text-align: center;
+        }
+        .private-event-form .section-kicker {
+            color: #fff7e3;
         }
         .private-event-form h3 {
-            color: var(--wine-dark);
+            color: #fff7e3;
+        }
+        .private-event-form h3 {
             font-size: clamp(1.6rem, 2vw, 2.2rem);
             line-height: 1.1;
             margin-bottom: 6px;
@@ -395,7 +405,7 @@
             text-align: left;
         }
         .field label {
-            color: var(--wine);
+            color: #fff7e3;
             font-size: 0.66rem;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -404,29 +414,41 @@
         .field input,
         .field textarea,
         .field select {
-            background: rgba(255, 255, 255, 0.76);
-            border: 1px solid rgba(94, 33, 41, 0.16);
-            border-radius: 12px;
-            color: var(--ink);
+            background: transparent;
+            border: 2px solid #fff7e3;
+            border-radius: 50px;
+            color: #fff7e3;
             font: 400 0.95rem 'Inter', sans-serif;
             padding: 12px 14px;
             width: 100%;
         }
         .field textarea {
+            border-radius: 20px;
             min-height: 120px;
             resize: vertical;
+        }
+        .field input::placeholder,
+        .field textarea::placeholder {
+            color: rgba(255, 247, 227, 0.72);
         }
         .field input:focus,
         .field textarea:focus,
         .field select:focus {
-            outline: 2px solid rgba(94, 33, 41, 0.18);
-            border-color: rgba(94, 33, 41, 0.3);
+            outline: 2px solid rgba(255, 247, 227, 0.35);
+            border-color: #ffffff;
         }
         .form-submit {
+            background: #fff7e3;
+            border-color: var(--wine);
+            border-radius: 50px;
+            color: #000000;
             align-self: start;
             justify-self: start;
             margin-top: 10px;
+            min-width: 220px;
+            text-align: center;
         }
+        .form-submit:hover { background: #fff7e3; color: var(--wine); }
         .flora-book { background: #eaded5; text-align: center; }
         .flora-book p { color: var(--muted); margin: 0 auto 24px; max-width: 520px; }
         .flora-gifts { background: var(--wine-dark); overflow: hidden; position: relative; }
