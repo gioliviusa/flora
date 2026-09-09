@@ -1127,6 +1127,95 @@
         .vendor-supplier:last-child {
             border-bottom: 0;
         }
+        #shop {
+            align-items: center;
+            background: #f4f2d6;
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(180px, 0.55fr);
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 0 5vw 150px;
+            position: relative;
+        }
+        .shop-copy {
+            max-width: 620px;
+            order: 2;
+            padding: 80px 0;
+            text-align: center;
+            transform: translateX(clamp(-42px, -3vw, -14px));
+        }
+        .shop-copy .section-title {
+            color: #171311;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .shop-copy .section-subtitle {
+            color: #171311;
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+        }
+        .shop-copy p {
+            color: #171311;
+            font-family: 'Courier Prime', monospace;
+            font-size: clamp(1rem, 1.7vw, 1.25rem);
+            line-height: 1.55;
+            margin: 0 auto 24px;
+            max-width: 480px;
+        }
+        .shop-copy .shop-link {
+            color: #171311;
+            display: inline-block;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.45rem;
+            text-decoration: underline;
+        }
+        .shop-art {
+            align-self: center;
+            background: #f4f2d6;
+            height: min(48vh, 430px);
+            max-height: 100%;
+            overflow: hidden;
+            order: 1;
+        }
+        .shop-art img {
+            display: block;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            width: 100%;
+        }
+        .shop-plates {
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            padding: 8px 0;
+            position: absolute;
+            width: 100%;
+        }
+        .shop-plates-track {
+            animation: shopPlatesRight 24s linear infinite;
+            display: flex;
+            width: max-content;
+        }
+        .shop-plates-track img {
+            display: block;
+            flex: 0 0 auto;
+            height: 132px;
+            max-width: none;
+            width: auto;
+        }
+        @keyframes shopPlatesRight {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
+        }
+        html.a11y-reduced-motion .shop-plates-track {
+            animation: none;
+        }
         @media (max-width: 767px) {
             #vendors {
                 display: flex;
@@ -1148,6 +1237,31 @@
                 max-width: none;
                 object-position: right center;
                 width: 235%;
+            }
+            #shop {
+                display: flex;
+                flex-direction: column;
+                min-height: 0;
+                padding: 0 0 96px;
+            }
+            .shop-copy {
+                order: 1;
+                padding: 72px 24px 54px;
+                transform: none;
+            }
+            .shop-art {
+                height: 220px;
+                min-height: 0;
+                order: 2;
+                width: 100%;
+            }
+            .shop-art img {
+                object-fit: contain;
+                object-position: center;
+                width: 100%;
+            }
+            .shop-plates-track img {
+                height: 92px;
             }
         }
         .vendors-grid {
@@ -2110,6 +2224,29 @@
         </div>
         <div class="vendors-reference-media">
             <img src="img/WhatsApp Image 2026-08-28 at 3.53.51 PM (1).jpeg" alt="La Felicita suppliers landscape" />
+        </div>
+    </section>
+
+    <div class="ornamental-divider reveal">✦ ✦ ✦</div>
+
+    <!-- ═══════════════ SECTION 4: SHOP ═══════════════ -->
+    <section id="shop">
+        <div class="shop-copy">
+            <h2 class="section-title reveal">OUR SHOP</h2>
+            <p class="section-subtitle reveal">A LITTLE SOMETHING IS COMING.</p>
+            <p class="reveal">We’re working on a few things worth bringing home.<br />Stay tuned for a first look at the La Felicità shop.</p>
+            <a class="shop-link reveal" href="#shop">COMING SOON</a>
+        </div>
+        <div class="shop-art">
+            <img src="img/indeximg/sectio4plate.png" alt="La Felicita shop illustration" />
+        </div>
+        <div class="shop-plates" aria-hidden="true">
+            <div class="shop-plates-track">
+                <img src="img/indeximg/platessec4.png" alt="" />
+                <img src="img/indeximg/platessec4.png" alt="" />
+                <img src="img/indeximg/platessec4.png" alt="" />
+                <img src="img/indeximg/platessec4.png" alt="" />
+            </div>
         </div>
     </section>
 
