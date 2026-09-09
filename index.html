@@ -818,73 +818,101 @@
 
         /* ─── STORY SECTION ─────────────────── */
         #story {
-            background: #f4f2d6;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            align-items: stretch;
+            background: #997262;
+            border-bottom: 0;
+            display: grid;
+            grid-template-columns: minmax(0, 72%) minmax(0, 28%);
+            min-height: 100vh;
             overflow: hidden;
+            padding: 0;
+        }
+        #story > .story-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 70px clamp(28px, 5vw, 64px);
+            text-align: center;
         }
         .story-showcase {
-            position: absolute;
-            inset: 0;
             margin: 0;
-            z-index: 0;
+            min-height: 100%;
+            order: 2;
         }
         .story-carousel {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
+            height: 100%;
         }
         .story-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transform: scale(1.05);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            display: none;
+            height: 100%;
         }
         .story-slide img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-        }
-        .story-slide::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(23, 10, 13, 0.52) 0%, rgba(23, 10, 13, 0.72) 100%);
+            object-position: right center;
         }
         .story-slide.active {
-            opacity: 1;
-            transform: scale(1);
+            display: block;
         }
         .story-card {
-            background: rgba(255, 253, 249, 0.94);
-            border-radius: var(--radius-lg);
-            padding: 32px 24px;
-            border: 1px solid rgba(201, 169, 110, 0.08);
-            max-width: 520px;
-            margin: 0 auto;
-            box-shadow: var(--shadow-warm);
-            position: relative;
-            z-index: 2;
+            background: transparent;
+            border: 0;
+            margin: 0;
+            max-width: 760px;
+            padding: 0;
         }
-        #story > .section-label,
-        #story > .section-title,
-        #story > .section-subtitle {
-            position: relative;
-            z-index: 2;
-        }
-        #story > .section-title {
+        #story > .story-copy > .section-title {
             color: #f4f2d6;
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            line-height: 0.98;
+            margin-bottom: 18px;
+            text-align: left;
         }
-        #story > .section-subtitle {
-            color: rgba(255, 246, 241, 0.9);
+        #story > .story-copy > .section-subtitle {
+            color: #f4f2d6;
+            font-family: 'Courier Prime', monospace;
+            font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+        .story-callout {
+            border: 1px solid #f4f2d6;
+            border-radius: 28px;
+            color: #f4f2d6;
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            padding: 16px 24px;
+            text-transform: uppercase;
         }
         .story-card p {
-            font-size: 0.9rem;
-            color: rgba(45, 41, 37, 0.78);
-            line-height: 1.8;
-            margin-bottom: 12px;
+            color: #f4f2d6;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+        @media (max-width: 767px) {
+            #story {
+                display: flex;
+                flex-direction: column;
+            }
+            #story > .story-copy {
+                padding: 64px 24px 54px;
+            }
+            #story > .story-showcase {
+                height: 240px;
+                min-height: 0;
+                order: 2;
+                width: 100%;
+            }
         }
 
         /* ─── EVENTS + SHOP PREVIEW ─────────── */
@@ -1947,23 +1975,21 @@
 
     <!-- ═══════════════ SECTION 2: STORY ═══════════════ -->
     <section id="story">
-        <span class="section-label reveal text-center">✦ Section 2 ✦</span>
-        <h2 class="section-title text-center reveal">Our <span class="gold">Story</span></h2>
-        <p class="section-subtitle text-center reveal">From a single candle on Las Olas to a family of restaurants — this is La Felicita.</p>
+        <div class="story-copy">
+            <h2 class="section-title reveal">THIS IS<br />LA FELICITÀ</h2>
+            <p class="section-subtitle reveal">It starts at the table. The rest becomes a story.</p>
+            <div class="story-callout reveal">BORN FROM A LOVE OF GOOD FOOD, FULL TABLES,<br />AND STAYING A LITTLE LONGER.</div>
+            <div class="story-card reveal" data-parallax-speed="0.05">
+                <p>La Felicità is a family of restaurants, each with its own character but all sharing the same spirit. From the food on the plate to the music, the room, and the people around it, we create places that feel good to be in — and even better to come back to.</p>
+                <p>It began with Flora on Las Olas, our first expression of that idea. And as the family grows, every new restaurant will bring something different to the table — while always feeling unmistakably La Felicità.</p>
+            </div>
+        </div>
         <div class="story-showcase">
             <div class="story-carousel" aria-label="Story gallery">
                 <div class="story-slide active">
-                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.50%20PM.jpeg" alt="La Felicita dining experience" />
-                </div>
-                <div class="story-slide">
-                    <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="La Felicita dining experience" />
+                    <img src="img/indeximg/section2.png" alt="La Felicita landscape illustration" />
                 </div>
             </div>
-        </div>
-        <div class="story-card reveal" data-parallax-speed="0.05">
-            <p>La Felicità Group began with a simple belief: that the most memorable meals happen when the room is warm, the light is low, and the conversation flows like wine.</p>
-            <p>What started as Flora — a small, private dining room on Las Olas Boulevard — grew into a collection of distinct Italian experiences across Fort Lauderdale. Each venue carries the same DNA: hand-pulled pasta, curated Italian wine, and candlelight that makes every guest feel like the only one in the room.</p>
-            <p>We are independent, family-driven, and deeply connected to the local community. Our chefs, sommeliers, and hospitality teams are the heart of everything we do.</p>
         </div>
     </section>
 
