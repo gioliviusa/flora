@@ -6,12 +6,12 @@
     <title>La Felicità Group | Private Italian Dining · Fort Lauderdale</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=League+Gothic&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     <style>
         :root {
-            --dark-bg: #f5f1ea;
-            --dark-surface: #f0ece5;
-            --dark-card: #fffdf9;
+            --dark-bg: #f4f2d6;
+            --dark-surface: #f4f2d6;
+            --dark-card: #f4f2d6;
             --dark-border: #e6dbc7;
         @media (max-width: 700px) {
             html {
@@ -34,7 +34,7 @@
             --amber: #5E2129;
             --deep-forest: #e8e0d8;
             --charcoal: #2d2925;
-            --warm-cream: #fffdf9;
+            --warm-cream: #f4f2d6;
             --candle-glow: #f4d3a1;
             --shadow-warm: 0 18px 40px rgba(52, 41, 33, 0.08);
             --shadow-candle: 0 0 60px rgba(94, 33, 41, 0.08);
@@ -76,7 +76,7 @@
             background: var(--dark-surface);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--warm-gold);
+            background: #f4f2d6;
             border-radius: 10px;
         }
 
@@ -87,7 +87,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.82);
+            background: rgba(244, 242, 214, 0.82);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(184, 138, 90, 0.18);
@@ -104,6 +104,7 @@
             border-bottom-color: rgba(184, 138, 90, 0.3);
         }
         .header-logo {
+            background: #f4f2d6;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -116,6 +117,7 @@
             width: auto;
             object-fit: contain;
             border-radius: 12px;
+            mix-blend-mode: multiply;
         }
         .header-logo .logo-flower {
             font-size: 1rem;
@@ -167,7 +169,7 @@
             flex-shrink: 0;
         }
         .header-cta:hover {
-            background: var(--warm-gold);
+            background: #f4f2d6;
             color: var(--dark-bg);
             border-color: var(--warm-gold);
         }
@@ -222,7 +224,7 @@
         .nav-overlay { align-items: stretch; background: var(--dark-card); border: 1px solid var(--dark-border); box-shadow: 0 18px 42px rgba(52, 41, 33, 0.18); display: none; gap: 0; justify-content: flex-start; left: 20px; max-height: calc(100vh - 100px); opacity: 0; overflow-y: auto; padding: 24px; pointer-events: none; position: fixed; right: auto; top: 76px; transition: opacity 0.25s ease; width: min(390px, calc(100vw - 32px)); z-index: 1001; }
         .nav-overlay.active { display: block; opacity: 1; pointer-events: auto; }
         .nav-overlay .nav-close { display: none; }
-        .nav-overlay .site-menu-logo { border-radius: 10px; display: block; height: 52px; margin-bottom: 20px; width: auto; }
+        .nav-overlay .site-menu-logo { background: #f4f2d6; border-radius: 10px; display: block; height: 52px; margin-bottom: 20px; mix-blend-mode: multiply; width: auto; }
         .nav-overlay .site-menu-label { color: var(--warm-gold); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
         .nav-overlay .site-menu-primary, .nav-overlay .site-menu-secondary { display: grid; }
         .nav-overlay .site-menu-primary { gap: 4px; }
@@ -232,7 +234,7 @@
         .nav-overlay .site-menu-secondary .nav-link { border: 0; color: #534d47; font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 1px; padding: 3px 0; text-transform: uppercase; }
         .nav-overlay .site-menu-social { border-top: 1px solid var(--dark-border); display: flex; gap: 10px; margin-top: 20px; padding-top: 16px; }
         .nav-overlay .site-menu-social a { align-items: center; border: 1px solid rgba(201, 169, 110, 0.2); border-radius: 50%; color: var(--warm-gold); display: flex; height: 36px; justify-content: center; transition: background 0.3s, border-color 0.3s, color 0.3s; width: 36px; }
-        .nav-overlay .site-menu-social a:hover { background: rgba(201, 169, 110, 0.1); border-color: var(--warm-gold); color: #ffffff; }
+        .nav-overlay .site-menu-social a:hover { background: rgba(201, 169, 110, 0.1); border-color: var(--warm-gold); color: #f4f2d6; }
         .nav-overlay .site-menu-social svg { fill: currentColor; height: 17px; width: 17px; }
         .accessibility-toggle:focus-visible,
         .accessibility-option input:focus-visible + span {
@@ -258,9 +260,9 @@
         .accessibility-option { align-items: center; color: var(--charcoal); display: flex; font-size: 0.75rem; gap: 9px; }
         .accessibility-option input { accent-color: var(--warm-gold); height: 16px; width: 16px; }
         html.a11y-large { font-size: 112.5%; }
-        html.a11y-contrast body { background: #ffffff; color: #111111; }
+        html.a11y-contrast body { background: #f4f2d6; color: #111111; }
         html.a11y-contrast .header,
-        html.a11y-contrast .accessibility-panel { background: #ffffff; border-color: #111111; }
+        html.a11y-contrast .accessibility-panel { background: #f4f2d6; border-color: #111111; }
         html.a11y-contrast a,
         html.a11y-contrast button,
         html.a11y-contrast .section-kicker { color: #111111; }
@@ -306,14 +308,14 @@
             width: 50%;
         }
         .hamburger:hover span {
-            background: var(--warm-gold);
+            background: #f4f2d6;
         }
 
         /* ─── MOBILE NAV OVERLAY ─────────────── */
         .nav-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(244, 242, 214, 0.96);
             z-index: 999;
             display: flex;
             flex-direction: column;
@@ -360,7 +362,7 @@
             transition: background 0.3s;
         }
         .nav-close:hover {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(244, 242, 214, 0.06);
         }
         .header .hamburger { align-items: center; background: transparent; border: 1px solid var(--warm-gold); border-radius: 50%; color: var(--warm-gold); display: flex; flex-shrink: 0; height: 36px; justify-content: center; margin-left: 12px; order: 1; padding: 0; position: relative; width: 36px; }
         .header .hamburger span { display: none; }
@@ -392,7 +394,7 @@
             padding: 80px 20px 50px;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(180deg, #f8f4ee 0%, #f3eee7 100%);
+            background: #f4f2d6;
         }
         .hero-bg-image {
             position: absolute;
@@ -437,7 +439,7 @@
         .hero-carousel-dot:hover,
         .hero-carousel-dot:focus-visible {
             width: 52px;
-            background: #fffaf6;
+            background: #f4f2d6;
             outline: none;
         }
         .hero-glow {
@@ -463,7 +465,7 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #f9efe9;
-            border: 1px solid rgba(255, 255, 255, 0.24);
+            border: 1px solid rgba(244, 242, 214, 0.24);
             padding: 8px 20px;
             border-radius: 50px;
             margin-bottom: 20px;
@@ -471,10 +473,10 @@
             backdrop-filter: blur(8px);
         }
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
             font-weight: 500;
-            color: #fffaf6;
+            color: #f4f2d6;
             line-height: 1;
             letter-spacing: 0.5px;
             margin-bottom: 18px;
@@ -485,7 +487,7 @@
             position: relative;
             margin: 7px 0 9px;
             color: #f4d9d5;
-            font-style: italic;
+            /* font-style: italic; */
             font-size: clamp(3.2rem, 15vw, 5rem);
             font-weight: 600;
             letter-spacing: -2px;
@@ -512,6 +514,17 @@
             text-transform: uppercase;
             color: rgba(255, 250, 246, 0.86);
         }
+        .hero h3 {
+            color: rgba(244, 242, 214, 0.88);
+            font-size: clamp(1.35rem, 4vw, 2.4rem);
+            font-family: 'League Gothic', sans-serif;
+            font-synthesis: none;
+            font-weight: 300;
+            letter-spacing: 0.18em;
+            line-height: 1;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
         .hero-tagline {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
@@ -522,8 +535,8 @@
         }
         .hero-cta {
             display: inline-block;
-            background: #5E2129;
-            color: #fffaf6;
+            background: #f4f2d6;
+            color: #f4f2d6;
             padding: 14px 32px;
             border-radius: 50px;
             font-weight: 600;
@@ -535,7 +548,7 @@
             box-shadow: 0 8px 40px rgba(94, 33, 41, 0.28);
         }
         .hero-cta:hover {
-            background: var(--warm-gold-light);
+            background: #f4f2d6;
             transform: translateY(-2px);
             box-shadow: 0 12px 48px rgba(201, 169, 110, 0.35);
         }
@@ -805,7 +818,7 @@
 
         /* ─── STORY SECTION ─────────────────── */
         #story {
-            background: #261418;
+            background: #f4f2d6;
             border-bottom: 1px solid rgba(201, 169, 110, 0.06);
             overflow: hidden;
         }
@@ -862,7 +875,7 @@
             z-index: 2;
         }
         #story > .section-title {
-            color: #fffaf6;
+            color: #f4f2d6;
         }
         #story > .section-subtitle {
             color: rgba(255, 246, 241, 0.9);
@@ -944,7 +957,7 @@
         }
         .book-btn {
             display: inline-block;
-            background: var(--warm-gold);
+            background: #f4f2d6;
             color: var(--dark-bg);
             padding: 14px 28px;
             border-radius: 50px;
@@ -957,7 +970,7 @@
             box-shadow: 0 8px 32px rgba(201, 169, 110, 0.2);
         }
         .book-btn:hover {
-            background: var(--warm-gold-light);
+            background: #f4f2d6;
             transform: translateY(-2px);
         }
 
@@ -1078,7 +1091,7 @@
             margin: 0 auto;
         }
         .newsletter-form input {
-            background: #fff;
+            background: #f4f2d6;
             border: 1px solid rgba(184, 138, 90, 0.2);
             border-radius: 50px;
             padding: 12px 18px;
@@ -1094,7 +1107,7 @@
             box-shadow: 0 0 20px rgba(201, 169, 110, 0.1);
         }
         .newsletter-form button {
-            background: var(--warm-gold);
+            background: #f4f2d6;
             color: var(--dark-bg);
             border: none;
             border-radius: 50px;
@@ -1107,7 +1120,7 @@
             transition: all var(--transition);
         }
         .newsletter-form button:hover {
-            background: var(--warm-gold-light);
+            background: #f4f2d6;
         }
 
         /* ─── NEWSLETTER POPUP ───────────────── */
@@ -1132,7 +1145,7 @@
             position: relative;
             width: min(100%, 470px);
             padding: 42px 28px 34px;
-            background: #fffdf9;
+            background: #f4f2d6;
             border: 1px solid rgba(94, 33, 41, 0.16);
             border-radius: var(--radius-lg);
             box-shadow: 0 24px 80px rgba(45, 29, 26, 0.24);
@@ -1197,7 +1210,7 @@
             padding: 12px 16px;
             border: 1px solid rgba(94, 33, 41, 0.2);
             border-radius: 50px;
-            background: #fff;
+            background: #f4f2d6;
             color: var(--charcoal);
             font: inherit;
             font-size: 0.78rem;
@@ -1213,7 +1226,7 @@
             border: 0;
             border-radius: 50px;
             background: var(--warm-gold);
-            color: #fffdf9;
+            color: #f4f2d6;
             font: inherit;
             font-size: 0.68rem;
             font-weight: 600;
@@ -1317,7 +1330,7 @@
         .careers-form input,
         .careers-form select,
         .careers-form textarea {
-            background: rgba(255, 255, 255, 0.78);
+            background: rgba(244, 242, 214, 0.78);
             border: 1px solid rgba(201, 169, 110, 0.16);
             border-radius: 8px;
             color: var(--charcoal);
@@ -1416,7 +1429,7 @@
 
         /* ─── FOOTER ────────────────────────── */
         footer {
-            background: #eee5dc;
+            background: #f4f2d6;
             color: rgba(45, 41, 37, 0.72);
             padding: 64px 20px 24px;
             font-size: 0.75rem;
@@ -1439,6 +1452,7 @@
             max-width: 330px;
         }
         footer .footer-logo {
+            background: #f4f2d6;
             display: block;
             margin-bottom: 18px;
         }
@@ -1447,6 +1461,7 @@
             width: 168px;
             height: auto;
             border-radius: 16px;
+            mix-blend-mode: multiply;
         }
         .footer-kicker,
         .footer-heading {
@@ -1520,7 +1535,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(244, 242, 214, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1858,9 +1873,9 @@
         </div>
         <div class="hero-content reveal" data-parallax-speed="0.12">
             <!-- <span class="hero-badge">✦ Fort Lauderdale · Las Olas ✦</span> -->
-            <h1>La <span class="gold">Felicità</span><span class="hero-group">Group</span></h1>
-            <p class="hero-tagline">A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable</p>
-            <a href="#restaurants" class="hero-cta">Book Your Experience</a>
+            <h1>La Felicità</h1><h3>Group</h3>
+            <!-- <p class="hero-tagline">A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable</p>
+            <a href="#restaurants" class="hero-cta">Book Your Experience</a> -->
         </div>
     </section>
 
