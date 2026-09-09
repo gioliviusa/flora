@@ -913,6 +913,11 @@
                 order: 2;
                 width: 100%;
             }
+            #story .story-slide img {
+                max-width: none;
+                object-position: right center;
+                width: 330%;
+            }
         }
 
         /* ─── EVENTS + SHOP PREVIEW ─────────── */
@@ -1046,8 +1051,103 @@
 
         /* ─── VENDORS + SHOP + NEWSLETTER ───── */
         #vendors {
-            background: var(--dark-bg);
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            align-items: stretch;
+            background: #f4f2d6;
+            border-bottom: 0;
+            display: grid;
+            grid-template-columns: minmax(0, 57%) minmax(0, 43%);
+            min-height: 100vh;
+            padding: 0;
+        }
+        #vendors > .vendors-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 64px clamp(24px, 5vw, 60px);
+            text-align: center;
+        }
+        #vendors > .section-title {
+            color: #171311;
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            margin-bottom: 8px;
+            text-align: left;
+        }
+        #vendors > .section-subtitle {
+            color: #171311;
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            font-style: normal;
+            letter-spacing: 3px;
+            margin-bottom: 56px;
+            text-align: left;
+            text-transform: uppercase;
+        }
+        .vendors-reference-media {
+            height: 100%;
+            min-height: 100%;
+            overflow: hidden;
+            order: 1;
+        }
+        .vendors-reference-media img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            width: 100%;
+        }
+        .vendor-intro {
+            color: #171311;
+            font-family: 'Courier Prime', monospace;
+            font-size: clamp(1rem, 1.7vw, 1.3rem);
+            line-height: 1.55;
+            margin: 0 auto 48px;
+            max-width: 480px;
+        }
+        .vendor-intro strong {
+            display: block;
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.4rem, 2.4vw, 2rem);
+            margin-bottom: 18px;
+            text-decoration: underline;
+        }
+        .vendor-supplier-list {
+            background: #262626;
+            margin: 0 calc(-1 * clamp(24px, 5vw, 60px));
+        }
+        .vendor-supplier {
+            border-bottom: 1px solid rgba(244, 242, 214, 0.45);
+            color: #f4f2d6;
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.45rem, 2.5vw, 2.2rem);
+            line-height: 1;
+            padding: 14px 20px;
+            text-align: center;
+        }
+        .vendor-supplier:last-child {
+            border-bottom: 0;
+        }
+        @media (max-width: 767px) {
+            #vendors {
+                display: flex;
+                flex-direction: column;
+                min-height: 0;
+            }
+            #vendors > .vendors-copy {
+                order: 1;
+                padding: 64px 24px 54px;
+                width: 100%;
+            }
+            #vendors > .vendors-reference-media {
+                height: 240px;
+                min-height: 0;
+                order: 2;
+                width: 100%;
+            }
+            #vendors .vendors-reference-media img {
+                max-width: none;
+                object-position: right center;
+                width: 235%;
+            }
         }
         .vendors-grid {
             display: flex;
@@ -1987,7 +2087,7 @@
         <div class="story-showcase">
             <div class="story-carousel" aria-label="Story gallery">
                 <div class="story-slide active">
-                    <img src="img/indeximg/section2.png" alt="La Felicita landscape illustration" />
+                    <img src="img/WhatsApp Image 2026-08-28 at 3.53.50 PM.jpeg" alt="La Felicita landscape illustration" />
                 </div>
             </div>
         </div>
@@ -1997,47 +2097,18 @@
 
     <!-- ═══════════════ SECTION 6: VENDORS + SHOP + NEWSLETTER ═══════════════ -->
     <section id="vendors">
-        <span class="section-label reveal text-center">✦ Section 6 ✦</span>
-        <h2 class="section-title text-center reveal">Our <span class="gold">Vendors</span> & Shop</h2>
-        <p class="section-subtitle text-center reveal">We partner with the finest local and Italian artisans. Bring a piece of La Felicita home.</p>
-        <div class="vendors-grid">
-            <div class="vendor-item reveal" data-parallax-speed="0.05">
-                <span class="vendor-emoji">🫒</span>
-                <div class="vendor-info">
-                    <h4>Olio d'Oliva — Local Grove</h4>
-                    <p>Cold-pressed extra virgin olive oil from our partner farm.</p>
-                </div>
-            </div>
-            <div class="vendor-item reveal" data-parallax-speed="0.04">
-                <span class="vendor-emoji">🕯️</span>
-                <div class="vendor-info">
-                    <h4>Flora Signature Candle</h4>
-                    <p>Hand-poured in Fort Lauderdale — notes of amber, fig, and warm spice.</p>
-                </div>
-            </div>
-            <div class="vendor-item reveal" data-parallax-speed="0.06">
-                <span class="vendor-emoji">🍝</span>
-                <div class="vendor-info">
-                    <h4>Fresh Pasta Kits</h4>
-                    <p>House-made tagliolini, sauces, and truffle butter to recreate at home.</p>
-                </div>
-            </div>
-            <div class="vendor-item reveal" data-parallax-speed="0.04">
-                <span class="vendor-emoji">🏺</span>
-                <div class="vendor-info">
-                    <h4>Negroni Fountain Kit</h4>
-                    <p>Everything you need for the tableside ritual, in a keepsake box.</p>
-                </div>
+        <div class="vendors-copy">
+            <h2 class="section-title reveal">I NOSTRI FORNITORI</h2>
+            <p class="section-subtitle reveal">CLOSE TO HOME</p>
+            <p class="vendor-intro reveal"><strong>Quality first, always.</strong>We choose ingredients for flavor, freshness, and character — from trusted Italian producers to the best we can source closer to home.</p>
+            <div class="vendor-supplier-list reveal">
+                <div class="vendor-supplier">ITALIAN ROOTS</div>
+                <div class="vendor-supplier">SEASONAL PRODUCE</div>
+                <div class="vendor-supplier">TRUSTED SUPPLIERS</div>
             </div>
         </div>
-        <div class="newsletter-box reveal" data-parallax-speed="0.05">
-            <span class="newsletter-emoji">✉️</span>
-            <h4>Join Our Newsletter</h4>
-            <p>Be first to know about new venues, seasonal menus, and private event invitations.</p>
-            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/xjyvobzl" method="POST">
-                <input type="email" name="email" placeholder="Your email address" required />
-                <button type="submit">Subscribe</button>
-            </form>
+        <div class="vendors-reference-media">
+            <img src="img/WhatsApp Image 2026-08-28 at 3.53.51 PM (1).jpeg" alt="La Felicita suppliers landscape" />
         </div>
     </section>
 
