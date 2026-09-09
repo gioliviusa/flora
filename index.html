@@ -1063,7 +1063,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            order: 1;
+            order: 2;
             padding: 64px clamp(24px, 5vw, 60px);
             text-align: center;
         }
@@ -1087,7 +1087,7 @@
             height: 100%;
             min-height: 100%;
             overflow: hidden;
-            order: 2;
+            order: 1;
         }
         .vendors-reference-media img {
             display: block;
@@ -1498,8 +1498,80 @@
 
         /* ─── CAREERS ───────────────────────── */
         #careers {
-            background: var(--dark-surface);
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            align-items: center;
+            background: #f4f2d6;
+            border-bottom: 0;
+            display: grid;
+            grid-template-rows: auto minmax(220px, 42vh);
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 0;
+            text-align: center;
+        }
+        #careers .careers-copy {
+            max-width: 720px;
+            padding: 70px 24px 36px;
+        }
+        #careers .section-title {
+            color: #171311;
+            margin-bottom: 12px;
+        }
+        #careers .section-subtitle {
+            color: #171311;
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            font-style: normal;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        .career-intro {
+            border: 1px solid #171311;
+            border-radius: 28px;
+            color: #171311;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin: 0 auto 28px;
+            max-width: 520px;
+            padding: 12px 22px;
+        }
+        .career-cta {
+            background: #262626;
+            border-radius: 8px;
+            color: #f4f2d6;
+            display: inline-block;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1rem;
+            padding: 9px 30px;
+        }
+        .careers-reference-media {
+            align-self: stretch;
+            overflow: hidden;
+        }
+        .careers-reference-media img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            object-position: center bottom;
+            width: 100%;
+        }
+        @media (max-width: 767px) {
+            #careers {
+                display: flex;
+                flex-direction: column;
+                min-height: 0;
+            }
+            #careers .careers-copy {
+                padding: 64px 24px 48px;
+            }
+            .careers-reference-media {
+                height: 220px;
+                width: 100%;
+            }
+            .careers-reference-media img {
+                object-position: center bottom;
+            }
         }
         .careers-list {
             display: flex;
@@ -2255,55 +2327,15 @@
 
     <!-- ═══════════════ SECTION 7: CAREERS ═══════════════ -->
     <section id="careers">
-        <span class="section-label reveal text-center">✦ Section 7 ✦</span>
-        <h2 class="section-title text-center reveal">Join Our <span class="gold">Team</span></h2>
-        <p class="section-subtitle text-center reveal">We hire for heart, train for skill. If you love hospitality, we'd love to meet you.</p>
-        <div class="careers-list">
-            <div class="career-item reveal" data-parallax-speed="0.05">
-                <span class="career-emoji">👨‍🍳</span>
-                <div>
-                    <h4>Line Cook</h4>
-                    <p>Full-time · All venues · Immediate start</p>
-                </div>
-            </div>
-            <div class="career-item reveal" data-parallax-speed="0.04">
-                <span class="career-emoji">🥂</span>
-                <div>
-                    <h4>Server / Waitstaff</h4>
-                    <p>Part-time & full-time · Evening shifts</p>
-                </div>
-            </div>
-            <div class="career-item reveal" data-parallax-speed="0.06">
-                <span class="career-emoji">🍷</span>
-                <div>
-                    <h4>Sommelier</h4>
-                    <p>Full-time · Flora & Enotecha</p>
-                </div>
-            </div>
-            <div class="career-item reveal" data-parallax-speed="0.04">
-                <span class="career-emoji">📸</span>
-                <div>
-                    <h4>Social Media Coordinator</h4>
-                    <p>Full-time · Group level · Hybrid</p>
-                </div>
-            </div>
+        <div class="careers-copy">
+            <h2 class="section-title reveal">JOIN OUR TEAM</h2>
+            <p class="section-subtitle reveal">GOOD PEOPLE MAKE GOOD PLACES.</p>
+            <p class="career-intro reveal">We’re always happy to meet people with good energy, curiosity, and a real feel for hospitality. If La Felicità sounds like your kind of place, send us your CV and tell us a little about yourself.</p>
+            <a class="career-cta reveal" href="mailto:hello@lafelicita.group?subject=Join the La Felicita team">SEND YOUR CV</a>
         </div>
-        <form class="careers-form" action="https://formspree.io/f/xjyvobjl" method="POST" enctype="multipart/form-data">
-            <div>
-                <h3>Join the Team</h3>
-                <p>Tell us a little about yourself and the role that feels right.</p>
-            </div>
-            <div class="careers-form-grid">
-                <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
-                <label>Email<input type="email" name="email" autocomplete="email" required /></label>
-                <label>Phone<input type="tel" name="phone" autocomplete="tel" /></label>
-                <label>Role<select name="role" required><option value="">Select a role</option><option>Server</option><option>Bartender</option><option>Host / Reception</option><option>Busser</option><option> Food Runner</option><option>Barback</option> <option>Floor Manager</option><option>Pizzaiolo</option><option>Line Cook</option><option>Garde Manger</option><option>Prep Cook</option><option>Dishwasher</option><option>Sous Chef</option><option>General Application</option></select></label>
-            </div>
-            <label>Resume / CV<input type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required /></label>
-            <label>Message<textarea name="message" placeholder="Tell us about your experience and availability."></textarea></label>
-            <input type="hidden" name="_subject" value="New La Felicita careers application" />
-            <button class="form-submit" type="submit">Send application</button>
-        </form>
+        <div class="careers-reference-media">
+            <img src="img/WhatsApp Image 2026-08-28 at 3.53.52 PM.jpeg" alt="La Felicita team landscape illustration" />
+        </div>
     </section>
 
     <div class="ornamental-divider reveal">✦ ✦ ✦</div>
