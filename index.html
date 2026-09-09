@@ -105,11 +105,13 @@
         }
         .header-logo {
             background: #f4f2d6;
+            border-radius: 16px;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            overflow: hidden;
         }
         .header-logo img {
             display: block;
@@ -117,7 +119,6 @@
             width: auto;
             object-fit: contain;
             border-radius: 16px;
-            mix-blend-mode: multiply;
         }
         .header-logo .logo-flower {
             font-size: 1rem;
@@ -224,7 +225,7 @@
         .nav-overlay { align-items: stretch; background: var(--dark-card); border: 1px solid var(--dark-border); box-shadow: 0 18px 42px rgba(52, 41, 33, 0.18); display: none; gap: 0; justify-content: flex-start; left: 20px; max-height: calc(100vh - 100px); opacity: 0; overflow-y: auto; padding: 24px; pointer-events: none; position: fixed; right: auto; top: 76px; transition: opacity 0.25s ease; width: min(390px, calc(100vw - 32px)); z-index: 1001; }
         .nav-overlay.active { display: block; opacity: 1; pointer-events: auto; }
         .nav-overlay .nav-close { display: none; }
-        .nav-overlay .site-menu-logo { background: #f4f2d6; border-radius: 16px; display: block; height: 52px; margin-bottom: 20px; mix-blend-mode: multiply; width: auto; }
+        .nav-overlay .site-menu-logo { background: #f4f2d6; border-radius: 16px; display: block; height: 52px; margin-bottom: 20px; width: auto; }
         .nav-overlay .site-menu-label { color: var(--warm-gold); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
         .nav-overlay .site-menu-primary, .nav-overlay .site-menu-secondary { display: grid; }
         .nav-overlay .site-menu-primary { gap: 4px; }
@@ -389,9 +390,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
-            padding: 80px 20px 50px;
+            padding: clamp(104px, 15vh, 170px) 20px 50px;
             position: relative;
             overflow: hidden;
             background: #f4f2d6;
@@ -476,7 +477,7 @@
             font-family: 'Libre Baskerville', serif;
             font-size: 1rem;
             font-weight: 500;
-            color: #f4f2d6;
+            color: #ffffff;
             line-height: 1;
             letter-spacing: 0.5px;
             margin-bottom: 18px;
@@ -486,7 +487,7 @@
             display: block;
             position: relative;
             margin: 7px 0 9px;
-            color: #f4d9d5;
+            color: #ffffff;
             /* font-style: italic; */
             font-size: clamp(3.2rem, 15vw, 5rem);
             font-weight: 600;
@@ -501,7 +502,7 @@
             width: clamp(26px, 9vw, 72px);
             height: 1px;
             margin: 0 12px 0.28em;
-            background: rgba(244, 217, 213, 0.72);
+            background: rgba(255, 255, 255, 0.72);
             vertical-align: middle;
         }
         .hero h1 .hero-group {
@@ -512,10 +513,10 @@
             letter-spacing: 6px;
             padding-left: 6px;
             text-transform: uppercase;
-            color: rgba(255, 250, 246, 0.86);
+            color: #ffffff;
         }
         .hero h3 {
-            color: rgba(244, 242, 214, 0.88);
+            color: #ffffff;
             font-size: clamp(1.35rem, 4vw, 2.4rem);
             font-family: 'League Gothic', sans-serif;
             font-synthesis: none;
@@ -1946,39 +1947,44 @@
             transform: translateY(0);
         }
 
-        /* ─── FLOATING RESERVE ──────────────── */
-        .floating-reserve {
+        .back-to-top {
             position: fixed;
             bottom: 24px;
-            right: 24px;
+            right: 88px;
             z-index: 998;
-            background: var(--warm-gold);
-            color: var(--dark-bg);
             width: 52px;
             height: 52px;
+            border: 0;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
+            background: #997262;
+            color: #f4f2d6;
             cursor: pointer;
-            transition: all var(--transition);
-            text-decoration: none;
-            animation: gentle-pulse-dark 3s ease-in-out infinite;
+            display: grid;
+            place-items: center;
+            font: 1.35rem 'Inter', sans-serif;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
         }
-        @keyframes gentle-pulse-dark {
-            0%,
-            100% {
-                box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
-            }
-            50% {
-                box-shadow: 0 12px 48px rgba(201, 169, 110, 0.4);
-            }
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
         }
-        .floating-reserve:hover {
-            transform: scale(1.05);
-            background: var(--warm-gold-light);
+        .back-to-top:hover,
+        .back-to-top:focus-visible {
+            background: #7f5a4e;
+            outline: 2px solid #f4f2d6;
+            outline-offset: 3px;
+        }
+        @media (max-width: 767px) {
+            .back-to-top {
+                bottom: 14px;
+                right: 76px;
+                width: 44px;
+                height: 44px;
+            }
         }
 
         /* ─── ORNAMENTAL DIVIDER ────────────── */
@@ -2149,7 +2155,7 @@
     <!-- ═══════════════ HEADER ═══════════════ -->
     <header class="header" id="header">
         <a href="#" class="header-logo" aria-label="La Felicita Group home">
-            <img src="img/logo.jpeg" alt="La Felicita Group logo" />
+            <img src="img/indeximg/felicitalogo.png" alt="La Felicita Group logo" />
         </a>
         <nav class="header-nav-desktop" id="desktopNav">
             <a href="#restaurants">Restaurants</a>
@@ -2190,7 +2196,7 @@
 
     <!-- ═══════════════ NAV OVERLAY ══════════ -->
     <nav class="nav-overlay" id="navOverlay">
-        <img class="site-menu-logo" src="img/logo.jpeg" alt="La Felicita Group" />
+        <img class="site-menu-logo" src="img/indeximg/felicitalogo.png" alt="La Felicita Group" />
         <span class="site-menu-label">Explore La Felicita</span>
         <div class="site-menu-primary">
             <a href="#restaurants" class="nav-link">Restaurants</a>
@@ -2243,7 +2249,7 @@
         </div>
         <div class="hero-content reveal" data-parallax-speed="0.12">
             <!-- <span class="hero-badge">✦ Fort Lauderdale · Las Olas ✦</span> -->
-            <h1>La Felicità</h1><h3>Group</h3>
+            <h1>LA FELICITÀ</h1><h3>GROUP</h3>
             <!-- <p class="hero-tagline">A family of private Italian dining experiences · Candlelit · Intimate · Unforgettable</p>
             <a href="#restaurants" class="hero-cta">Book Your Experience</a> -->
         </div>
@@ -2413,10 +2419,10 @@
         <div class="footer-inner">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <span class="footer-logo"><img src="img/indeximg/logofooter.png" alt="Flora logo" /></span>
-                    <span class="footer-kicker">A little more felicità</span>
-                    <h2>Italian nights, made memorable.</h2>
-                    <p>Private Italian dining experiences shaped by candlelight, generous tables, and the joy of gathering.</p>
+                    <span class="footer-logo"><img src="img/indeximg/felicitalogo.png" alt="La Felicita Group logo" /></span>
+                    <!-- <span class="footer-kicker">A little more felicità</span> -->
+                    <h2>A little romance, a lot of pasta.</h2>
+                    <!-- <p>Private Italian dining experiences shaped by candlelight, generous tables, and the joy of gathering.</p> -->
                     <div class="social-links">
                         <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer">
                             <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" /></svg>
@@ -2456,7 +2462,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2026 La Felicità Group. Intimate dining, elevated.</span>
+                <span>© 2026 La Felicità Group.</span>
+                <a href="https://apexstryke.com" target="_blank" rel="noreferrer">Powered by apexstryke.com</a>
                 <div class="footer-legal">
                     <a href="#faq">Accessibility</a>
                     <a href="privacy.html">Privacy</a>
@@ -2483,7 +2490,7 @@
     </div>
 
     <!-- ═══════════════ FLOATING RESERVE ═════ -->
-    <a href="#book" class="floating-reserve" aria-label="Book a table">🕯️</a>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Go to top">↑</button>
 
     <!-- ═══════════════ SCRIPTS ══════════════ -->
     <script>
@@ -2495,7 +2502,7 @@
             const navOverlay = document.getElementById('navOverlay');
             const navClose = document.getElementById('navClose');
             const navLinks = document.querySelectorAll('.nav-link');
-            const floatingReserve = document.querySelector('.floating-reserve');
+            const backToTop = document.getElementById('backToTop');
             const revealElements = document.querySelectorAll('.reveal');
             const hero = document.getElementById('hero');
             const faqItems = document.querySelectorAll('.faq-item');
@@ -2639,9 +2646,13 @@
             // ─── HEADER SHADOW ─────────────────
             function updateHeaderShadow() {
                 header.classList.toggle('scrolled', window.scrollY > 20);
+                if (backToTop) backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
             }
             window.addEventListener('scroll', updateHeaderShadow, { passive: true });
             updateHeaderShadow();
+            if (backToTop) {
+                backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            }
 
             // ─── MOBILE NAV ────────────────────
             function openNav() {
@@ -2657,7 +2668,13 @@
                 hamburger.setAttribute('aria-label', 'Open site menu');
                 document.body.style.overflow = '';
             }
-            if (hamburger) hamburger.addEventListener('click', openNav);
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+                    if (isOpen) closeNav();
+                    else openNav();
+                });
+            }
             if (navClose) navClose.addEventListener('click', closeNav);
             navLinks.forEach(link => link.addEventListener('click', closeNav));
             navOverlay.addEventListener('click', function(e) {
@@ -2734,18 +2751,6 @@
                 });
                 newsletterModalForm.querySelector('input[type="email"]').setAttribute('autocomplete', 'email');
             }
-
-            // ─── FLOATING RESERVE HIDE ─────────
-            const bookSection = document.getElementById('book');
-            const reserveObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const isVisible = !entry.isIntersecting;
-                    floatingReserve.style.opacity = isVisible ? '1' : '0';
-                    floatingReserve.style.pointerEvents = isVisible ? 'auto' : 'none';
-                    floatingReserve.style.transform = isVisible ? 'scale(1)' : 'scale(0.7)';
-                });
-            }, { threshold: 0.3 });
-            if (bookSection) reserveObserver.observe(bookSection);
 
             // ─── SMOOTH ANCHOR SCROLL ──────────
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
