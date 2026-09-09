@@ -1696,44 +1696,58 @@
 
         /* ─── FAQ ───────────────────────────── */
         #faq {
-            background: var(--dark-bg);
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            align-items: stretch;
+            background: #997262;
+            border-bottom: 0;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+            min-height: 100vh;
+            padding: 0;
         }
-        .faq-list {
-            max-width: 520px;
-            margin: 0 auto;
+        #faq > .faq-copy {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            justify-content: center;
+            padding: 70px clamp(28px, 5vw, 64px);
+        }
+        .faq-list {
+            max-width: 620px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
         }
         .faq-item {
-            background: var(--dark-card);
-            border-radius: var(--radius-md);
-            padding: 18px 16px;
-            border: 1px solid rgba(201, 169, 110, 0.06);
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid rgba(244, 242, 214, 0.6);
+            border-radius: 0;
+            padding: 10px 0;
             cursor: pointer;
-            transition: all var(--transition);
-            box-shadow: var(--shadow-warm);
+            transition: background 0.25s ease;
         }
         .faq-item:hover {
-            border-color: rgba(201, 169, 110, 0.15);
+            background: rgba(244, 242, 214, 0.08);
         }
         .faq-item .faq-question {
-            font-weight: 600;
-            color: var(--charcoal);
-            font-size: 0.85rem;
+            color: #f4f2d6;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.95rem;
+            font-weight: 400;
             display: flex;
             align-items: center;
             gap: 10px;
+            justify-content: space-between;
         }
         .faq-item .faq-question .faq-icon {
-            color: var(--warm-gold);
+            color: #f4f2d6;
             font-size: 1rem;
             flex-shrink: 0;
         }
         .faq-item .faq-answer {
-            font-size: 0.75rem;
-            color: rgba(45, 41, 37, 0.72);
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8rem;
+            color: #f4f2d6;
             margin-top: 8px;
             padding-left: 26px;
             line-height: 1.6;
@@ -1741,6 +1755,29 @@
         }
         .faq-item.active .faq-answer {
             display: block;
+        }
+        .faq-contact {
+            align-self: center;
+            background: #f4f2d6;
+            border-radius: 10px;
+            color: #171311;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.1rem;
+            padding: 12px 18px;
+        }
+        @media (max-width: 767px) {
+            #faq {
+                display: flex;
+                flex-direction: column;
+                min-height: 0;
+            }
+            #faq > .faq-copy {
+                padding: 64px 24px 54px;
+            }
+            .faq-contact {
+                align-self: center;
+                margin: 0 24px 64px;
+            }
         }
 
         /* ─── FOOTER ────────────────────────── */
@@ -2117,12 +2154,13 @@
         <nav class="header-nav-desktop" id="desktopNav">
             <a href="#restaurants">Restaurants</a>
             <a href="#story">Story</a>
-            <a href="flora.html#events">Events</a>
-            <a href="flora.html#book">Book</a>
-            <a href="flora.html#giftcards">Gift Cards</a>
             <a href="#vendors">Shop</a>
-            <a href="#careers">Careers</a>
-            <a href="#faq">FAQ</a>
+            <a href="flora.html#events">Events</a>
+            <!-- <a href="flora.html#book">Book</a> -->
+            <!-- <a href="flora.html#giftcards">Gift Cards</a> -->
+            
+            <!-- <a href="#careers">Careers</a> -->
+            <!-- <a href="#faq">FAQ</a> -->
         </nav>
         <button class="hamburger" id="hamburger" type="button" aria-label="Open site menu" aria-expanded="false" aria-controls="navOverlay">
             <span></span><span></span><span></span>
@@ -2342,31 +2380,32 @@
 
     <!-- ═══════════════ SECTION 8: FAQ ═══════════════ -->
     <section id="faq">
-        <span class="section-label reveal text-center">✦ Section 8 ✦</span>
-        <h2 class="section-title text-center reveal">Frequently Asked <span class="gold">Questions</span></h2>
-        <p class="section-subtitle text-center reveal">Everything you need to know before your visit.</p>
+        <div class="faq-copy">
+        <h2 class="section-title reveal">FREQUENTLY ASKED<br />QUESTIONS</h2>
         <div class="faq-list">
             <div class="faq-item reveal" data-parallax-speed="0.04">
-                <div class="faq-question"><span class="faq-icon">✧</span> Do you accommodate dietary restrictions?</div>
-                <div class="faq-answer">Absolutely. Our chefs can accommodate gluten-free, vegetarian, vegan, and most allergies with advance notice. Please note any restrictions in your reservation.</div>
+                <div class="faq-question">Can I make a reservation for a large group? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">Yes. Contact us and we’ll help shape the right table for your group.</div>
             </div>
             <div class="faq-item reveal" data-parallax-speed="0.05">
-                <div class="faq-question"><span class="faq-icon">✧</span> Is there a dress code?</div>
-                <div class="faq-answer">We suggest smart casual. Many guests enjoy dressing up for the candlelit experience — it's part of the ritual.</div>
+                <div class="faq-question">Do your restaurants accommodate dietary requirements? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">Our chefs are happy to help with dietary needs when you let us know in advance.</div>
             </div>
             <div class="faq-item reveal" data-parallax-speed="0.04">
-                <div class="faq-question"><span class="faq-icon">✧</span> Do you offer private dining or buyouts?</div>
-                <div class="faq-answer">Yes — full venue buyouts and semi-private rooms are available for 8–60 guests. Visit our Private Events section or contact us directly.</div>
+                <div class="faq-question">Can I celebrate a special occasion with you? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">Absolutely. Tell us what you’re celebrating and we’ll help make it memorable.</div>
             </div>
             <div class="faq-item reveal" data-parallax-speed="0.06">
-                <div class="faq-question"><span class="faq-icon">✧</span> Can I arrive by water taxi?</div>
-                <div class="faq-answer">Yes! We partner with the Fort Lauderdale water taxi for dockside drop-offs at select venues. Book the "water taxi arrival package" when reserving.</div>
+                <div class="faq-question">Can I send my CV even if there isn’t an opening? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">Yes. Good people are always welcome at La Felicità.</div>
             </div>
             <div class="faq-item reveal" data-parallax-speed="0.04">
-                <div class="faq-question"><span class="faq-icon">✧</span> Are gift cards redeemable at all venues?</div>
-                <div class="faq-answer">Yes — all La Felicità Group gift cards are valid at any of our restaurants, including Flora, Giardino, Limone, and Enotecha.</div>
+                <div class="faq-question">Who should I contact for collaborations? <span class="faq-icon">+</span></div>
+                <div class="faq-answer">Send us a note and our team will point it in the right direction.</div>
             </div>
         </div>
+        </div>
+        <a class="faq-contact" href="mailto:hello@lafelicita.group">STILL WONDERING? GET IN TOUCH &rarr;</a>
     </section>
 
     <!-- ═══════════════ FOOTER ═══════════════ -->
