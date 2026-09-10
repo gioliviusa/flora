@@ -39,7 +39,8 @@
         .site-header { align-items: center; background: #fff7e3; border-bottom: 1px solid var(--line); display: flex; gap: 10px; justify-content: flex-start; padding: 12px 5vw 12px 2vw; position: absolute; width: 100%; z-index: 2; }
         .site-header > a:first-child { background: #fff7e3; border-radius: 16px; display: block; margin-left: 0; overflow: hidden; }
         .site-header img { border-radius: 16px; display: block; height: 40px; mix-blend-mode: multiply; width: auto; }
-        .back-link { color: var(--wine); font-size: 0.7rem; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
+        .back-link { background: var(--paper); border: 1px solid rgba(94, 33, 41, 0.22); border-radius: 999px; color: var(--wine); display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.2px; padding: 9px 14px; text-decoration: none; text-transform: uppercase; transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease; }
+        .back-link:hover { background: rgba(94, 33, 41, 0.04); border-color: rgba(94, 33, 41, 0.35); transform: translateY(-1px); }
         .language-switcher { align-items: center; display: flex; gap: 7px; margin-left: auto; margin-right: 12px; }
         .language-switcher label { color: var(--wine); font-size: 0.58rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         .language-switcher select { appearance: none; background: transparent; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 11px) 11px, calc(100% - 7px) 11px; background-repeat: no-repeat; background-size: 4px 4px, 4px 4px; border: 1px solid rgba(94, 33, 41, 0.25); border-radius: 50px; color: var(--wine); cursor: pointer; font: 500 0.62rem 'Inter', sans-serif; letter-spacing: 0.5px; padding: 8px 25px 8px 10px; }
@@ -58,7 +59,7 @@
         html.a11y-contrast a, html.a11y-contrast button, html.a11y-contrast .section-kicker { color: #111111; }
         html.a11y-links a { text-decoration: underline; text-decoration-thickness: 0.1em; text-underline-offset: 0.18em; }
         html.a11y-reduced-motion *, html.a11y-reduced-motion *::before, html.a11y-reduced-motion *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-        .site-menu-toggle { align-items: center; background: transparent; border: 1px solid var(--line); border-radius: 50%; color: var(--wine); cursor: pointer; display: flex; flex-shrink: 0; height: 36px; justify-content: center; margin-left: 0; order: 1; padding: 0; width: 36px; }
+        .site-menu-toggle { align-items: center; background: transparent; border: 1px solid var(--line); border-radius: 50%; color: var(--wine); cursor: pointer; display: flex; flex-shrink: 0; font-family: 'Instrument Serif', serif; font-size: 1rem; font-weight: 600; justify-content: center; letter-spacing: 0.12em; margin-left: 0; order: 1; padding: 0; text-transform: uppercase; width: 36px; height: 36px; aspect-ratio: 1; }
         .site-menu-toggle::before { content: '☰'; font-size: 1rem; line-height: 1; }
         .site-menu-toggle[aria-expanded='true']::before { content: '×'; font-size: 1.35rem; }
         .site-menu-toggle:focus-visible, .site-menu-link:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
@@ -70,13 +71,13 @@
         .site-menu-label { color: var(--wine); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
         .site-menu-primary, .site-menu-secondary { display: grid; }
         .site-menu-primary { gap: 4px; }
-        .site-menu-link { border-bottom: 1px solid var(--line); color: var(--ink); display: flex; font-family: 'Playfair Display', serif; font-size: 1.35rem; justify-content: space-between; padding: 9px 0; }
-        .site-menu-link::after { color: var(--wine); content: '→'; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .site-menu-link { border-bottom: 1px solid var(--line); color: var(--ink); display: flex; font-family: 'Instrument Serif', serif; font-size: 1.35rem; font-style: normal; justify-content: space-between; letter-spacing: 0.08em; padding: 9px 0; text-transform: uppercase; }
+        .site-menu-link::after { color: var(--wine); content: '→'; font-family: 'Instrument Serif', serif; font-size: 1rem; }
         .site-menu-secondary { border-top: 1px solid var(--line); gap: 5px; margin-top: 20px; padding-top: 16px; }
-        .site-menu-secondary .site-menu-link { border: 0; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 1px; padding: 3px 0; text-transform: uppercase; }
+        .site-menu-secondary .site-menu-link { border: 0; color: var(--muted); font-family: 'Instrument Serif', serif; font-size: 0.7rem; letter-spacing: 0.12em; padding: 3px 0; text-transform: uppercase; }
         .site-menu-secondary .site-menu-link::after { content: ''; }
-        .site-menu-panel, .site-menu-panel .site-menu-label, .site-menu-panel .site-menu-link, .site-menu-panel .site-menu-link::after { font-family: 'Parisienne', cursive !important; }
-        .site-menu-panel .site-menu-secondary .site-menu-link { font-family: 'Courier Prime', monospace !important; }
+        .site-menu-panel, .site-menu-panel .site-menu-label, .site-menu-panel .site-menu-link, .site-menu-panel .site-menu-link::after { font-family: 'Instrument Serif', serif !important; }
+        .site-menu-panel .site-menu-secondary .site-menu-link { font-family: 'Instrument Serif', serif !important; }
         .site-menu-social { border-top: 1px solid var(--line); display: flex; gap: 10px; margin-top: 20px; padding-top: 16px; }
         .site-menu-social a { align-items: center; background: rgba(255, 247, 227, 0.6); border: 1px solid rgba(184, 138, 90, 0.12); border-radius: 50%; color: rgba(45, 41, 37, 0.75); display: flex; height: 36px; justify-content: center; transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease; width: 36px; }
         .site-menu-social a:hover { background: rgba(201, 169, 110, 0.08); border-color: rgba(201, 169, 110, 0.15); color: var(--wine); }
@@ -112,12 +113,12 @@
         .hero-copy .eyebrow { color: rgba(255, 247, 227, 0.85); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
         h1 { color: var(--wine-dark); font-size: clamp(3.8rem, 8vw, 7rem); font-style: italic; line-height: 0.9; }
-        .hero-copy h1 { color: #171311; font-family: 'Parisienne', cursive !important; -webkit-text-stroke: 2px #fff7e3; paint-order: stroke fill; text-shadow: 0 0 1px #fff7e3; }
+        .hero-copy h1 { color: #171311; font-family: 'Parisienne', cursive !important; font-size: clamp(5rem, 9vw, 8rem); font-style: normal; -webkit-text-stroke: 2px #fff7e3; paint-order: stroke fill; text-shadow: 0 0 1px #fff7e3; }
         .hero p { color: var(--muted); font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.2vw, 1.65rem); font-style: italic; margin: 24px 0 30px; max-width: 520px; }
-        .hero-copy p { color: rgba(255, 247, 227, 0.85); font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.5; margin: 18px 0 24px; max-width: 700px; }
+        .hero-copy p { color: rgba(255, 247, 227, 0.85); font-size: clamp(1rem, 1.6vw, 1.2rem); font-style: normal; line-height: 2.1; margin: 18px 0 24px; max-width: 700px; }
         .button { background: var(--wine); border: 1px solid var(--wine); color: #fff7e3; display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.7px; padding: 14px 24px; text-transform: uppercase; transition: transform 0.25s, background 0.25s; }
         .button:hover { background: #8a4a52; transform: translateY(-2px); }
-        .hero-copy .button { background: #fff7e3; border-color: #fff7e3; color: var(--wine); }
+        .hero-copy .button { background: #fff7e3; border-color: #fff7e3; color: #000000; font-family: 'Glacial Indifference', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.14em; padding: 16px 28px; }
         .hero-copy .button:hover { background: rgba(255, 247, 227, 0.85); }
         .hero-links { align-items: stretch; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 0; margin-top: 38px; width: min(100%, 310px); }
         .hero-copy .hero-links { border-top-color: rgba(255, 247, 227, 0.25); }
@@ -848,9 +849,9 @@
         <div class="language-switcher">
             <!-- <label for="languageSelect">Language</label> -->
             <select id="languageSelect" aria-label="Choose language">
-                <option value="en">English</option>
-                <option value="it">Italiano</option>
-                <option value="fr">Français</option>
+                <option value="en">ENGLISH</option>
+                <option value="it">ITALIANO</option>
+                <option value="fr">FRANÇAIS</option>
             </select>
         </div>
         <button class="accessibility-toggle" id="accessibilityToggle" type="button" aria-expanded="false" aria-controls="accessibilityPanel"><svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M12 2.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm-7 5.75a1.25 1.25 0 0 1 1.25-1.25h2.53A4.94 4.94 0 0 1 12 6.5a4.94 4.94 0 0 1 3.22.5h2.53a1.25 1.25 0 1 1 0 2.5h-2.17l1.54 5.68a1.25 1.25 0 0 1-2.41.65l-1.46-5.38h-2.5l-1.46 5.38a1.25 1.25 0 1 1-2.41-.65l1.54-5.68H6.25A1.25 1.25 0 0 1 5 8.25Zm5.75 4.25h2.5v6.75a1.25 1.25 0 1 1-2.5 0V12.5Zm-3.9 5.25a1.25 1.25 0 0 1 1.18.84l.83 2.5a1.25 1.25 0 1 1-2.37.79l-.83-2.5a1.25 1.25 0 0 1 1.19-1.63Zm10.3 0a1.25 1.25 0 0 1 1.19 1.63l-.83 2.5a1.25 1.25 0 1 1-2.37-.79l.83-2.5a1.25 1.25 0 0 1 1.18-.84Z" /></svg><span>Accessibility</span></button>
