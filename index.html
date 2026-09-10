@@ -2547,14 +2547,24 @@
 
             function translatePage(language) {
                 const dictionary = translations[language] || {};
+                const normalizedDictionary = Object.fromEntries(
+                    Object.entries(dictionary).map(([key, value]) => [normalizeTranslationKey(key), value])
+                );
+                const languageOptions = document.querySelectorAll('#languageSelect option');
+                languageOptions.forEach((option) => {
+                    const nativeName = languageNames[option.value] || option.textContent.trim();
+                    option.textContent = nativeName;
+                });
                 translatableNodes.forEach(item => {
-                    const original = item.original;
-                    const key = original.trim();
-                    const translated = language === 'en' ? key : dictionary[key];
-                    if (!translated) return;
-                    const value = original.replace(key, translated);
-                    if (item.node) item.node.textContent = value;
-                    else item.element.setAttribute(item.attributeName, translated);
+                    const original = item.original.trim();
+                    const normalizedKey = normalizeTranslationKey(original);
+                    const translated = language === 'en'
+                        ? original
+                        : (normalizedDictionary[normalizedKey] || dictionary[original] || original);
+                    if (!translated || translated === original) return;
+                    if (item.node) item.node.textContent = translated;
+                    else if (item.attributeName) item.element.setAttribute(item.attributeName, translated);
+                    else item.element.textContent = translated;
                 });
                 document.documentElement.lang = language;
                 localStorage.setItem('flora-language', language);
