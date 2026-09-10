@@ -132,10 +132,10 @@
         .intro-inner { display: grid; gap: 50px; grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr); margin: 0 auto; max-width: 1120px; padding: 110px 5vw; }
         .section-kicker { color: var(--wine); font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
         .intro-copy { text-align: center; }
-        .intro-copy .section-kicker { background: var(--wine); border-radius: 50px; color: #fff7e3; display: inline-block; padding: 14px 30px; }
+        .intro-copy .section-kicker { background: transparent; border-radius: 0; color: var(--wine); display: block; padding: 0; }
         h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.03; margin: 14px 0 20px; }
-        .intro-copy h2 { color: var(--wine); font-family: 'Instrument Serif', serif !important; }
-        .intro-copy p { color: var(--ink); margin: 0 auto; max-width: 520px; }
+        .intro-copy h2 { color: var(--wine); font-family: 'Instrument Serif', serif !important; font-size: clamp(2.7rem, 5.5vw, 4.7rem); font-weight: 700; margin-left: auto; margin-right: auto; max-width: 390px; }
+        .intro-copy p { color: var(--ink); line-height: 1.8; margin: 0 auto; max-width: 620px; }
         .intro-chef { display: block; height: auto; margin: 32px auto 0; width: 118px; }
         .details { border-left: 3px solid var(--wine); display: grid; gap: 22px; padding-left: 30px; }
         .details, .details * { font-family: 'Courier Prime', monospace !important; }
@@ -145,7 +145,7 @@
         .menu-section {
             background: #fff7e3;
             color: #2d2925;
-            padding: 64px 20px 80px;
+            padding: 64px 20px 12px;
             scroll-snap-align: start;
             scroll-snap-stop: always;
         }
@@ -168,26 +168,28 @@
         .menu-section.menu-active .menu-feature {
             display: none;
         }
-        .menu-feature { align-self: stretch; min-height: 620px; overflow: hidden; position: sticky; top: 28px; }
+        .menu-feature { align-self: stretch; min-height: 620px; overflow: hidden; padding-bottom: 64px; position: sticky; top: 28px; }
         .menu-feature img { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; display: block; height: 100%; object-fit: cover; width: 100%; }
-        .menu-feature video { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; height: 100%; inset: 0; object-fit: cover; opacity: 0; position: absolute; transition: opacity 1.2s ease; width: 100%; }
+        .menu-feature video { border: 1px solid rgba(255, 250, 246, 0.6); border-radius: 18px; height: calc(100% - 64px); inset: 0 0 64px; object-fit: cover; opacity: 0; position: absolute; transition: opacity 1.2s ease; width: 100%; }
         .menu-feature video.active { opacity: 1; }
-        .menu-feature figcaption { bottom: 24px; color: #fff7e3; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
+        .menu-feature figcaption { bottom: 76px; color: #fff7e3; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; left: 24px; position: absolute; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7); }
+        .menu-download-link { bottom: 8px; border: 1px solid rgba(255, 247, 227, 0.7); color: #fff7e3; display: block; font-family: 'Instrument Serif', serif !important; font-size: 1.1rem; left: 24px; padding: 10px 14px; position: absolute; right: 24px; text-align: center; text-decoration: none; }
+        .menu-download-link:hover { background: rgba(255, 247, 227, 0.12); color: #ffffff; }
         .menu-content {
             align-self: center;
             width: 100%;
         }
         .menu-quick { align-items: stretch; display: grid; gap: 48px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin: 0 auto 64px; max-width: 1180px; }
-        .menu-quick-media img { border-radius: 24px; display: block; height: 100%; min-height: 340px; object-fit: cover; width: 100%; }
+        .menu-quick-media img { border-radius: 0; display: block; height: 100%; min-height: 420px; object-fit: cover; width: 100%; }
         .menu-quick-body { display: flex; flex-direction: column; justify-content: center; }
-        .menu-quick-body h2 { color: var(--wine); font-family: 'Instrument Serif', serif !important; }
+        .menu-quick-body h2 { color: var(--wine); font-family: 'Instrument Serif', serif !important; font-weight: 700; }
         .menu-quicklinks { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); margin: 24px 0; }
-        .menu-quicklink { background: var(--wine); border-radius: 50px; color: #fff7e3; display: block; font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; padding: 16px 20px; text-align: center; text-transform: uppercase; transition: background 0.25s, transform 0.25s; }
+        .menu-quicklink { background: var(--wine); border-radius: 50px; color: #fff7e3; display: block; font-family: 'Instrument Serif', serif !important; font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; padding: 16px 20px; text-align: center; text-transform: uppercase; transition: background 0.25s, transform 0.25s; }
         .menu-quicklink:hover { background: #8a4a52; transform: translateY(-2px); }
         .menu-quick-tagline { color: var(--wine); font-family: 'Instrument Serif', serif !important; font-size: clamp(1.6rem, 3vw, 2.4rem); font-style: italic; margin-top: 24px; text-align: left; }
         @media (max-width: 900px) {
             .menu-quick { grid-template-columns: 1fr; }
-            .menu-quick-media img { min-height: 260px; }
+            .menu-quick-media img { min-height: 320px; }
             .menu-quicklinks { grid-template-columns: 1fr 1fr; }
             .menu-quick-tagline { text-align: left; }
         }
@@ -428,6 +430,9 @@
             padding: 12px 14px;
             width: 100%;
         }
+        .field input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: brightness(0) saturate(100%) invert(93%) sepia(12%) saturate(539%) hue-rotate(320deg) brightness(106%) contrast(101%);
+        }
         .field textarea {
             border-radius: 20px;
             min-height: 120px;
@@ -461,12 +466,11 @@
         .flora-book-media { height: 100%; overflow: hidden; position: absolute; right: 0; top: 0; width: 30%; z-index: 0; }
         .flora-book-media img { display: block; height: 100%; max-width: none; object-fit: cover; object-position: right center; position: absolute; right: 0; width: 333.333%; }
         .flora-book .section-kicker,
-        .flora-book .flora-section-head h2,
         .flora-book p { color: #fff7e3; }
-        .flora-book .flora-section-head h2 { font-family: 'Instrument Serif', serif !important; }
+        .flora-book .flora-section-head h2 { color: #fff7e3; font-family: 'Instrument Serif', serif !important; }
         .flora-book p { margin: 0 auto 32px; max-width: 560px; }
         .flora-book-mark { display: block; height: auto; margin: 0 auto 24px; max-width: 110px; width: 100%; }
-        .flora-book .button { background: #fff7e3; border-color: #fff7e3; border-radius: 50px; color: #000000; min-width: 220px; }
+        .flora-book .button { background: #fff7e3; border-color: #fff7e3; border-radius: 50px; color: #000000; font-size: 1.1rem; font-weight: 700; min-width: 250px; padding: 17px 32px; }
         .flora-book .button:hover { background: #fff7e3; color: var(--wine); }
         @media (max-width: 700px) {
             .flora-book { display: flex; flex-direction: column; min-height: 0; }
@@ -478,7 +482,11 @@
         .flora-gifts .flora-section-head { margin-bottom: 28px; max-width: 700px; }
         .flora-gifts .flora-section-head .section-kicker { color: var(--wine); font-family: 'Courier Prime', monospace !important; font-size: 1rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: none; }
         .flora-gifts .flora-section-head h2 { color: #171311; font-family: 'Instrument Serif', serif !important; font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: 0.02em; line-height: 1; text-transform: uppercase; }
+        .flora-gifts .flora-section-head h2::before,
+        .flora-gifts .flora-section-head p::after { border-top: 1px solid rgba(155, 64, 53, 0.55); content: ''; display: block; width: 100%; }
+        .flora-gifts .flora-section-head h2::before { margin-bottom: 22px; }
         .flora-gifts .flora-section-head p { color: #171311; font-family: 'Courier Prime', monospace !important; font-size: 1.05rem; line-height: 1.35; max-width: 600px; }
+        .flora-gifts .flora-section-head p::after { margin-top: 28px; }
         .flora-gift-illustration { height: 240px; margin: 0 auto 28px; max-width: 900px; }
         .flora-gift-illustration img { display: block; height: 100%; margin: 0 auto; object-fit: contain; object-position: center bottom; width: auto; }
         .flora-gifts .gift-grid { gap: 14px; max-width: 1000px; }
@@ -943,7 +951,7 @@
             <div class="menu-quick">
                 <div class="menu-quick-media"><img src="img/img3.jpeg" alt="A table set at Flora" /></div>
                 <div class="menu-quick-body">
-                    <div class="section-kicker">Something to eat</div>
+                    <!-- <div class="section-kicker">Something to eat</div> -->
                     <h2>Come hungry.</h2>
                     <div class="menu-quicklinks">
                         <a class="menu-quicklink" href="#antipasti">Brunch</a>
@@ -951,7 +959,7 @@
                         <a class="menu-quicklink" href="#big-cuts">Dinner</a>
                         <a class="menu-quicklink" href="#giftcards">Wines &amp; cocktails</a>
                     </div>
-                    <div class="menu-quick-tagline">Another, please.</div>
+                    <!-- <div class="menu-quick-tagline">Another, please.</div> -->
                 </div>
             </div>
             <div class="menu-inner">
@@ -1601,6 +1609,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="menu-category" id="digestivi">
+                        <h2 class="menu-category-title">Digestivi</h2>
+                        <p class="menu-category-sub">A little something to finish.</p>
+                    </div>
                 </div>
                 <figure class="menu-feature">
                     <video class="menu-feature-video active" autoplay muted loop playsinline poster="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" aria-label="A quiet view of the Flora menu experience">
@@ -1612,6 +1624,7 @@
                         <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
                     </video>
                     <figcaption>Piatto di stagione, fatti per restare a lungo.</figcaption>
+                    <a class="menu-download-link" href="flora-menu.pdf" download>Download menu PDF</a>
                 </figure>
             </div>
         </section>
@@ -1619,8 +1632,8 @@
             <div class="events-media"><img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.51%20PM.jpeg" alt="Private dining experience at Flora" /></div>
             <div class="events-layout">
                 <div class="flora-section-head">
-                    <div class="section-kicker">Private events</div>
-                    <h2>Make the room your own.</h2>
+                    <!-- <div class="section-kicker">Private events</div> -->
+                    <h2>More ways to Flora.</h2>
                     <p>From anniversary dinners to long-table celebrations, Flora creates intimate evenings with every detail considered.</p>
                 </div>
                 <div class="experience-grid">
@@ -1635,8 +1648,8 @@
 
             <form class="private-event-form" id="private-events-form" action="https://formspree.io/f/xljenlpn" method="POST">
                 <div>
-                    <div class="section-kicker">Private event inquiry</div>
-                    <h3>Tell us about your gathering.</h3>
+                    <div class="section-kicker">YOUR EVENT AT FLORA</div>
+                    <h3>Time to celebrate.</h3>
                 </div>
                 <div class="form-grid">
                     <div class="field">
@@ -1678,17 +1691,17 @@
                         </select>
                     </div>
                     <div class="field" style="grid-column: 1 / -1;">
-                        <label for="message">Additional details</label>
+                        <label for="message">Tell us more about it</label>
                         <textarea id="message" name="message" placeholder="Tell us about your idea, the moment, and any special requests."></textarea>
                     </div>
                 </div>
-                <button class="button form-submit" type="submit">Send inquiry</button>
+                <button class="button form-submit" type="submit">LET'S PLAN IT </button>
             </form>
         </section>
         <section class="flora-section flora-book" id="book">
             <div class="flora-section-head">
-                <div class="section-kicker">Your table is waiting</div>
-                <h2>See you at the table.</h2>
+                <!-- <div class="section-kicker">Your table is waiting</div> -->
+                <h2>CI VEDIAMO A TAVOLA</h2>
                 <p>Lunch that melts into the afternoon. Dinner that becomes another bottle. A last-minute plan that turns into the whole night. Whatever brings you to Flora, there is always a place at the table.</p>
                 <img class="flora-book-mark" src="img/che2vector.png" alt="" />
                 <a class="button" href="mailto:hello@lafelicita.group?subject=Flora reservation">Book a table</a>
@@ -1697,7 +1710,7 @@
         </section>
         <section class="flora-section flora-gifts" id="giftcards">
             <div class="flora-section-head">
-                <div class="section-kicker">Give someone a place at the table.</div>
+                <!-- <div class="section-kicker">Give someone a place at the table.</div> -->
                 <h2>Gift cards &amp; vouchers</h2>
                 <p>A dinner for two, a birthday around the table, or simply a reason to gather again. Give them Flora and let the rest take care of itself.</p>
             </div>
@@ -1804,6 +1817,13 @@
                 Language: 'Langue', 'English': 'Anglais', 'Italiano': 'Italien', 'Français': 'Français', 'Español': 'Espagnol', 'Deutsch': 'Allemand', 'Português': 'Portugais', 'Back to group': 'Retour au groupe', 'Private Italian dining on Las Olas.': 'Cuisine italienne privée sur Las Olas.', 'A private Italian sanctuary where handmade pasta, candlelight, and long conversations take center stage.': 'Un sanctuaire italien privé où les pâtes fraîches, les bougies et les longues conversations sont à l honneur.', 'Open in Google Maps': 'Ouvrir dans Google Maps', 'Reserve your table': 'Réserver votre table', 'Private gatherings': 'Événements privés', 'Gift cards': 'Cartes cadeaux', 'The Flora experience': 'L expérience Flora', 'Come for dinner. Stay for the feeling.': 'Venez dîner. Restez pour l ambiance.', Location: 'Adresse', Hours: 'Horaires', Reservations: 'Réservations', Starters: 'Starters', 'La Pasta': 'La Pasta', Salads: 'Salades', 'Big Cuts': 'Belles pièces', 'Your table is waiting': 'Votre table vous attend', 'Make an evening of it.': 'Faites-en une soirée spéciale.', 'Book Flora': 'Réserver Flora', 'A little more felicità': 'Un peu plus de felicità', 'Italian nights, made memorable.': 'Des nuits italiennes inoubliables.', Explore: 'Découvrir', 'Our story': 'Notre histoire', 'Private events': 'Événements privés', 'Guest services': 'Services aux clients', 'Book a table': 'Réserver une table', 'Join our team': 'Rejoindre notre équipe', Newsletter: 'Newsletter', 'Come find us': 'Nous trouver', Accessibility: 'Accessibilité', Privacy: 'Confidentialité', Terms: 'Conditions', 'Menu': 'Menu', 'Your Flora evening': 'Votre soirée Flora', 'Our shop': 'Notre boutique', 'Our news & moments': 'Nos actualités et moments', 'Our producers': 'Nos producteurs', 'Our missions': 'Nos missions', 'Join the Squadra': 'Rejoignez la Squadra', 'Contact us': 'Contactez-nous', 'Book atable': 'Réserver une table', 'Around the table': 'Autour de la table', 'Your table is waiting.': 'Votre table vous attend.', 'Monday–Friday · 11:30 AM–12 AM': 'Lundi–Vendredi · 11h30–00h', 'Saturday & Sunday · 10 AM–12 AM': 'Samedi & Dimanche · 10h–00h', 'Walk-ins welcome when available.': 'Entrées spontanées possibles selon disponibilité.', 'Private dining for larger parties.': 'Repas privé pour grands groupes.', 'Something to eat': 'Quelque chose à manger', 'Come hungry.': 'Venez avec faim.', 'Brunch': 'Brunch', 'Lunch': 'Déjeuner', 'Dinner': 'Dîner', 'Wines & Cocktails': 'Vins & cocktails', 'Un altro, per favore.': 'Un autre, s il vous plaît.', 'To begin, small plates made for sharing.': 'Pour commencer, petites assiettes à partager.', 'Fresh, bright greens and seasonal produce.': 'Légumes frais et produits de saison.', 'Big Cuts': 'Belles pièces', 'Hearty center-of-plate favorites, grilled and finished simply.': 'Des favoris généreux et grillés avec simplicité.', 'Fresh Catches': 'Poissons frais', 'From the coast, cooked with honesty and restraint.': 'De la côte, cuisiné avec honnêteté et simplicité.', 'Sides': 'Accompagnements', 'Simple, generous accompaniments to share.': 'Accompagnements simples et généreux à partager.', 'Pizzas': 'Les pizzas', 'Wood-fired pies with a light, airy crust and seasonal toppings.': 'Pizzas au feu de bois, croûte légère et garnitures de saison.', 'Desserts': 'Desserts', 'A sweet finish, finished with warmth and beauty.': 'Une fin douce, servie avec chaleur et élégance.', 'Private gatherings': 'Événements privés', 'Make the room yours.': 'Faites de la pièce votre espace.', 'From milestone dinners to long-table celebrations, Flora creates intimate evenings with the details handled beautifully.': 'Des dîners marquants aux célébrations à longues tables, Flora crée des soirées intimes avec des détails parfaits.'
             }
         };
+
+        translations.it.Digestivi = 'Digestivi';
+        translations.it['A little something to finish.'] = 'Un piccolo finale.';
+        translations.it['Download menu PDF'] = 'Scarica il menu PDF';
+        translations.fr.Digestivi = 'Digestifs';
+        translations.fr['A little something to finish.'] = 'Une petite douceur pour finir.';
+        translations.fr['Download menu PDF'] = 'Télécharger le menu PDF';
 
         const translatableNodes = [];
         document.body.querySelectorAll('*').forEach((element) => {
