@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Felicità Group | Private Italian Dining · Fort Lauderdale</title>
-    <script>
-        (function () {
-            const ACCESS_KEY = 'floraAccessGranted';
-            const isGranted = localStorage.getItem(ACCESS_KEY) === 'true';
-            window.__floraLock = { isGranted };
-        })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=League+Gothic&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
@@ -74,122 +67,6 @@
             -webkit-tap-highlight-color: transparent;
             max-width: 100vw;
             scroll-snap-type: y proximity;
-        }
-
-        .site-lock {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f7f1e8 0%, #efe3d1 100%);
-            padding: 24px;
-            transition: opacity 0.25s ease, visibility 0.25s ease;
-        }
-
-        .site-lock.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .site-lock-card {
-            width: min(500px, 100%);
-            background: rgba(255,255,255,0.42);
-            border: 1px solid rgba(94, 33, 41, 0.2);
-            box-shadow: 0 24px 80px rgba(46, 29, 32, 0.12);
-            padding: 32px 28px 28px;
-            text-align: center;
-        }
-
-        .site-lock-brand {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #5e2129;
-            text-transform: uppercase;
-            letter-spacing: 0.18rem;
-            font-size: 0.72rem;
-            font-weight: 700;
-        }
-
-        .site-lock-mark {
-            width: 42px;
-            height: 42px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            border: 1px solid rgba(94, 33, 41, 0.25);
-            background: rgba(94, 33, 41, 0.04);
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .site-lock h1 {
-            margin: 22px 0 12px;
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
-            line-height: 0.9;
-            letter-spacing: -0.05em;
-            color: #2d1618;
-        }
-
-        .site-lock p {
-            margin: 0 auto 26px;
-            max-width: 34ch;
-            color: rgba(29, 26, 23, 0.75);
-            line-height: 1.7;
-        }
-
-        .site-lock-form {
-            display: grid;
-            gap: 12px;
-            text-align: left;
-        }
-
-        .site-lock-form label {
-            color: #5e2129;
-            font-size: 0.75rem;
-            letter-spacing: 0.12rem;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .site-lock-form input {
-            width: 100%;
-            padding: 15px 16px;
-            border: 1px solid rgba(94, 33, 41, 0.25);
-            background: rgba(255,255,255,0.35);
-            color: #1d1a17;
-            font-size: 1.05rem;
-            outline: none;
-        }
-
-        .site-lock-form input:focus {
-            border-color: rgba(94, 33, 41, 0.7);
-            box-shadow: 0 0 0 4px rgba(94, 33, 41, 0.08);
-        }
-
-        .site-lock-form button {
-            border: none;
-            margin-top: 8px;
-            padding: 15px 18px;
-            background: #5e2129;
-            color: #fff;
-            font-size: 0.78rem;
-            letter-spacing: 0.16rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .site-lock-error {
-            min-height: 20px;
-            color: #9d2d2d;
-            font-size: 0.78rem;
-            font-weight: 600;
         }
 
         ::-webkit-scrollbar {
@@ -2274,22 +2151,6 @@
     </style>
 </head>
 <body>
-    <div class="site-lock" id="siteLock" aria-live="polite">
-        <div class="site-lock-card">
-            <div class="site-lock-brand" aria-label="Flora brand">
-                <span class="site-lock-mark">F</span>
-                <span>Flora</span>
-            </div>
-            <h1>Coming Soon</h1>
-            <p>This page is private. Enter the access code to continue to the full website.</p>
-            <div class="site-lock-form">
-                <label for="lockPassword">Access code</label>
-                <input id="lockPassword" type="password" placeholder="Enter code" aria-label="Enter access code" />
-                <button type="button" id="unlockButton">Enter</button>
-                <div id="lockError" class="site-lock-error" aria-live="polite"></div>
-            </div>
-        </div>
-    </div>
 
     <!-- ═══════════════ HEADER ═══════════════ -->
     <header class="header" id="header">
@@ -2558,7 +2419,7 @@
         <div class="footer-inner">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <!-- <span class="footer-logo"><img src="img/indeximg/felicitalogo.png" alt="La Felicita Group logo" /></span> -->
+                    <span class="footer-logo"><img src="img/indeximg/felicitalogo.png" alt="La Felicita Group logo" /></span>
                     <!-- <span class="footer-kicker">A little more felicità</span> -->
                     <h2>A little romance, a lot of pasta.</h2>
                     <!-- <p>Private Italian dining experiences shaped by candlelight, generous tables, and the joy of gathering.</p> -->
@@ -2642,34 +2503,7 @@
             const navClose = document.getElementById('navClose');
             const navLinks = document.querySelectorAll('.nav-link');
             const backToTop = document.getElementById('backToTop');
-            const lockScreen = document.getElementById('siteLock');
-        const lockPassword = document.getElementById('lockPassword');
-        const lockError = document.getElementById('lockError');
-        const unlockButton = document.getElementById('unlockButton');
-
-        function unlockSite() {
-            const value = (lockPassword.value || '').trim();
-            if (value === '2541') {
-                localStorage.setItem('floraAccessGranted', 'true');
-                if (lockScreen) lockScreen.classList.add('hidden');
-                return;
-            }
-            if (lockError) lockError.textContent = 'Incorrect code. Please try again.';
-            if (lockPassword) lockPassword.focus();
-        }
-
-        if (window.__floraLock && window.__floraLock.isGranted) {
-            if (lockScreen) lockScreen.classList.add('hidden');
-        }
-
-        if (unlockButton) unlockButton.addEventListener('click', unlockSite);
-        if (lockPassword) {
-            lockPassword.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') unlockSite();
-            });
-        }
-
-        const revealElements = document.querySelectorAll('.reveal');
+            const revealElements = document.querySelectorAll('.reveal');
             const hero = document.getElementById('hero');
             const faqItems = document.querySelectorAll('.faq-item');
             const newsletterForm = document.getElementById('newsletterForm');
