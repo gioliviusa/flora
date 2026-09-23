@@ -182,7 +182,7 @@
         .menu-quick { align-items: stretch; display: grid; gap: 48px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin: 0 auto 64px; max-width: 1180px; }
         .menu-quick-media img { border-radius: 0; display: block; height: 100%; min-height: 420px; object-fit: cover; width: 100%; }
         .menu-quick-body { display: flex; flex-direction: column; justify-content: center; }
-        .menu-quick-body h2 { color: var(--wine); font-family: 'Instrument Serif', serif !important; font-weight: 700; }
+        .menu-quick-body h2 { color: var(--wine); font-family: 'Instrument Serif', serif !important; font-weight: 700; text-transform: uppercase; }
         .menu-quicklinks { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); margin: 24px 0; }
         .menu-quicklink { background: var(--wine); border-radius: 50px; color: #fff7e3; display: block; font-family: 'Instrument Serif', serif !important; font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; padding: 16px 20px; text-align: center; text-transform: uppercase; transition: background 0.25s, transform 0.25s; }
         .menu-quicklink:hover { background: #8a4a52; transform: translateY(-2px); }
@@ -668,6 +668,7 @@
                 min-height: 360px;
                 margin-top: 28px;
                 order: 1;
+                position: static;
                 width: 100%;
             }
             .menu-category.open .menu-grid {
@@ -965,7 +966,7 @@
             <div class="menu-inner">
                 <div class="menu-content">
                     <div class="menu-category" id="antipasti">
-                        <h2 class="menu-category-title">Starters</h2>
+                        <h2 class="menu-category-title">Antipasti</h2>
                         <p class="menu-category-sub">To begin, small plates made for sharing.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
