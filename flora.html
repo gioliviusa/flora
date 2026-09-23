@@ -39,11 +39,11 @@
         .site-header { align-items: center; background: #fff7e3; border-bottom: 1px solid var(--line); display: flex; gap: 10px; justify-content: flex-start; padding: 12px 5vw 12px 2vw; position: absolute; width: 100%; z-index: 2; }
         .site-header > a:first-child { background: #fff7e3; border-radius: 16px; display: block; margin-left: 0; overflow: hidden; }
         .site-header img { border-radius: 16px; display: block; height: 40px; mix-blend-mode: multiply; width: auto; }
-        .back-link { background: var(--paper); border: 1px solid rgba(94, 33, 41, 0.22); border-radius: 999px; color: var(--wine); display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.2px; padding: 9px 14px; text-decoration: none; text-transform: uppercase; transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease; }
+        .back-link { background: var(--paper); border: 1px solid rgba(94, 33, 41, 0.22); border-radius: 999px; color: var(--wine); display: inline-flex; align-items: center; font-family: 'Instrument Serif', serif !important; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.2px; padding: 9px 14px; text-decoration: none; text-transform: uppercase; transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease; }
         .back-link:hover { background: rgba(94, 33, 41, 0.04); border-color: rgba(94, 33, 41, 0.35); transform: translateY(-1px); }
         .language-switcher { align-items: center; display: flex; gap: 7px; margin-left: auto; margin-right: 12px; }
         .language-switcher label { color: var(--wine); font-size: 0.58rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-        .language-switcher select { appearance: none; background: transparent; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 11px) 11px, calc(100% - 7px) 11px; background-repeat: no-repeat; background-size: 4px 4px, 4px 4px; border: 1px solid rgba(94, 33, 41, 0.25); border-radius: 50px; color: var(--wine); cursor: pointer; font: 500 0.62rem 'Inter', sans-serif; letter-spacing: 0.5px; padding: 8px 25px 8px 10px; }
+        .language-switcher select { appearance: none; background: transparent; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 11px) 11px, calc(100% - 7px) 11px; background-repeat: no-repeat; background-size: 4px 4px, 4px 4px; border: 1px solid rgba(94, 33, 41, 0.25); border-radius: 50px; color: var(--wine); cursor: pointer; font: 500 0.62rem 'Instrument Serif', serif !important; letter-spacing: 0.5px; padding: 8px 25px 8px 10px; text-transform: uppercase; }
         .language-switcher select:focus-visible { outline: 2px solid rgba(94, 33, 41, 0.22); outline-offset: 2px; }
         .accessibility-toggle { background: var(--paper); border: 1px solid rgba(94, 33, 41, 0.25); border-radius: 50px; bottom: 20px; color: var(--wine); cursor: pointer; font: 600 0.62rem 'Inter', sans-serif; left: 20px; letter-spacing: 1px; padding: 9px 12px; position: fixed; text-transform: uppercase; z-index: 1003; }
         .accessibility-toggle svg { display: none; }
@@ -71,7 +71,7 @@
         .site-menu-label { color: var(--wine); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
         .site-menu-primary, .site-menu-secondary { display: grid; }
         .site-menu-primary { gap: 4px; }
-        .site-menu-link { border-bottom: 1px solid var(--line); color: var(--ink); display: flex; font-family: 'Instrument Serif', serif; font-size: 1.35rem; font-style: normal; justify-content: space-between; letter-spacing: 0.08em; padding: 9px 0; text-transform: uppercase; }
+        .site-menu-link { border-bottom: 1px solid var(--line); color: var(--ink); display: flex; font-family: 'Instrument Serif', serif; font-size: 1.55rem; font-style: normal; justify-content: space-between; letter-spacing: 0.08em; padding: 9px 0; text-transform: uppercase; }
         .site-menu-link::after { color: var(--wine); content: '→'; font-family: 'Instrument Serif', serif; font-size: 1rem; }
         .site-menu-secondary { border-top: 1px solid var(--line); gap: 5px; margin-top: 20px; padding-top: 16px; }
         .site-menu-secondary .site-menu-link { border: 0; color: var(--muted); font-family: 'Instrument Serif', serif; font-size: 0.7rem; letter-spacing: 0.12em; padding: 3px 0; text-transform: uppercase; }
@@ -103,7 +103,7 @@
         .hero-map { border: 1px solid var(--line); border-radius: 10px; display: block; height: 82px; width: 118px; }
         .hero-copy .hero-map { border-color: rgba(255, 247, 227, 0.35); }
         .hero-location-link { border-bottom: 1px solid var(--line); color: var(--wine); display: inline-flex; font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; margin-top: 12px; padding-bottom: 6px; text-transform: uppercase; transition: color 0.25s, border-color 0.25s; }
-        .hero-location-link::after { content: '↗'; font-size: 0.9rem; line-height: 0.7; margin-left: 10px; }
+        .hero-location-link::after { content: none; }
         .hero-location-link:hover { border-color: var(--wine); color: var(--wine-dark); }
         .hero-copy .hero-location-link { border-bottom-color: rgba(255, 247, 227, 0.4); color: #fff7e3; }
         .hero-copy .hero-location-link:hover { border-color: #fff7e3; color: #fff7e3; }
@@ -885,9 +885,9 @@
         <div class="site-menu-secondary">
             <a class="site-menu-link" href="index.html#vendors">Our shop</a>
             <!-- <a class="site-menu-link" href="index.html#story">Our news &amp; moments</a> -->
-            <a class="site-menu-link" href="index.html#vendors">Our producers</a>
+            <a class="site-menu-link" href="index.html#vendors">I nostri fornitori</a>
             <!-- <a class="site-menu-link" href="index.html#story">Our missions</a> -->
-            <a class="site-menu-link" href="index.html#careers">Join the Squadra</a>
+            <a class="site-menu-link" href="index.html#careers">Join our team</a>
             <a class="site-menu-link" href="mailto:hello@lafelicita.group">Contact us</a>
         </div>
         <div class="site-menu-social" aria-label="Social media">
