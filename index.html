@@ -13,7 +13,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=League+Gothic&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=League+Gothic&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     <style>
         :root {
             --dark-bg: #f4f2d6;
@@ -929,6 +929,12 @@
             color: var(--charcoal);
             margin-bottom: 4px;
         }
+        .restaurant-card:nth-child(2) .restaurant-body h3 {
+            font-family: 'Tan Vivre Libre', serif !important;
+        }
+        .restaurant-card:nth-child(2) .restaurant-body p {
+            font-family: 'Courier Prime', monospace;
+        }
         .restaurant-body .restaurant-location {
             font-size: 0.7rem;
             color: var(--warm-gold);
@@ -992,6 +998,7 @@
         }
         #story > .story-copy > .section-title {
             color: #f4f2d6;
+            font-family: 'Tan Vivre Libre', serif !important;
             font-size: clamp(2.2rem, 5vw, 4.2rem);
             line-height: 0.98;
             margin-bottom: 18px;
@@ -1011,7 +1018,7 @@
             border: 1px solid #f4f2d6;
             border-radius: 28px;
             color: #f4f2d6;
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Tan Vivre Libre', serif;
             font-size: clamp(1.05rem, 2vw, 1.45rem);
             letter-spacing: 1px;
             line-height: 1.15;
@@ -1196,13 +1203,14 @@
         }
         #vendors > .section-title {
             color: #171311;
+            font-family: 'Tan Vivre Libre', serif !important;
             font-size: clamp(2.2rem, 5vw, 4.2rem);
             margin-bottom: 8px;
             text-align: left;
         }
         #vendors > .section-subtitle {
             color: #171311;
-            font-family: 'Courier Prime', monospace;
+            font-family: 'IBM Plex Mono', monospace;
             font-size: 1rem;
             font-style: normal;
             letter-spacing: 3px;
@@ -1233,7 +1241,7 @@
         }
         .vendor-intro strong {
             display: block;
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Tan Vivre Libre', serif;
             font-size: clamp(1.4rem, 2.4vw, 2rem);
             margin-bottom: 18px;
             text-decoration: underline;
@@ -1245,7 +1253,7 @@
         .vendor-supplier {
             border-bottom: 1px solid rgba(244, 242, 214, 0.45);
             color: #f4f2d6;
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Tan Vivre Libre', serif;
             font-size: clamp(1.45rem, 2.5vw, 2.2rem);
             line-height: 1;
             padding: 14px 20px;
@@ -2273,11 +2281,17 @@
             overflow: hidden;
             width: 108px;
         }
+        #restaurants > .section-title {
+            font-family: 'Tan Vivre Libre', serif !important;
+        }
+        #restaurants p {
+            font-family: 'IBM Plex Mono', monospace;
+        }
         .nav-overlay .site-menu-logo img {
             display: block;
             height: 100%;
-            object-fit: cover;
-            transform: scale(3);
+            object-fit: contain;
+            transform: scale(1.5);
             width: 100%;
         }
         @media (max-width: 700px) {
