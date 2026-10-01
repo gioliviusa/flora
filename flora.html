@@ -83,7 +83,8 @@
         .site-menu-social a:hover { background: rgba(201, 169, 110, 0.08); border-color: rgba(201, 169, 110, 0.15); color: var(--wine); }
         .site-menu-social svg { fill: currentColor; height: 17px; width: 17px; }
         .hero { background: var(--wine); color: #fff7e3; display: flex; flex-direction: column; min-height: 100vh; overflow: hidden; padding: 0; position: relative; scroll-snap-align: start; scroll-snap-stop: always; text-align: left; }
-        .hero-carousel { min-height: 62vh; overflow: hidden; position: relative; width: 100%; }
+        .hero-carousel { min-height: 100vh; overflow: hidden; position: relative; width: 100%; }
+        .hero-video { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; }
         .hero-slide { background-position: center; background-size: cover; inset: 0; opacity: 0; position: absolute; transition: opacity 1.2s ease; }
         .hero-slide.active { opacity: 1; }
         .hero-overlay { align-items: flex-start; bottom: 0; color: #fff7e3; display: flex; flex-direction: column; justify-content: center; left: 0; padding: clamp(26px, 5vw, 64px); position: absolute; right: 0; text-align: left; top: 0; z-index: 1; }
@@ -744,7 +745,7 @@
             .site-menu-logo { height: 44px; margin-bottom: 16px; }
             .site-menu-link { font-size: 1.2rem; }
             .hero { min-height: 0; }
-            .hero-carousel { min-height: calc(52vh - 16px); }
+            .hero-carousel { min-height: calc(80vh - 16px); }
             .hero-overlay { padding: 28px 24px; }
             .hero-overlay .hero-logo { max-width: 108px; }
             .hero-copy { padding: 72px 24px 80px; }
@@ -908,9 +909,10 @@
     </nav>
     <main>
         <section class="hero">
-            <div class="hero-carousel" aria-label="Flora dining gallery">
-                <div class="hero-slide active" style="background-image: url('img/WhatsApp%20Image%202026-08-28%20at%203.53.50%20PM.jpeg');"></div>
-                <div class="hero-slide" style="background-image: url('img/img4.jpeg');"></div>
+            <div class="hero-carousel" aria-label="Flora dining video">
+                <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="img/realflora/IMG_8064.jpg" aria-hidden="true" tabindex="-1">
+                    <source src="img/videosflora/libraryflora.mp4" type="video/mp4" />
+                </video>
                 <div class="hero-overlay">
                     <!-- <img class="hero-logo" src="img/logonob-white.png" alt="La Felicita Group logo" />
                     <div class="hero-image-caption"> -->
@@ -953,7 +955,7 @@
         </section>
         <section class="menu-section" id="menu">
             <div class="menu-quick">
-                <div class="menu-quick-media"><img src="img/img3.jpeg" alt="A table set at Flora" /></div>
+                <div class="menu-quick-media"><img src="img/realflora/IMG_8065.jpg" alt="A table set at Flora" /></div>
                 <div class="menu-quick-body">
                     <!-- <div class="section-kicker">Something to eat</div> -->
                     <h2>Come hungry.</h2>
@@ -973,7 +975,7 @@
                         <p class="menu-category-sub">To begin, small plates made for sharing.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1541529086526-db283c563270?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8064.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Burrata & Tomato</span>
@@ -983,7 +985,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8065.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Beef Carpaccio</span>
@@ -993,7 +995,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8066.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Prosciutto & Melon</span>
@@ -1003,7 +1005,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8067.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Crispy Calamari</span>
@@ -1013,7 +1015,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8068.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Baked Arancini</span>
@@ -1023,7 +1025,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">House Mix</span>
@@ -1033,7 +1035,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8070.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Grilled Octopus</span>
@@ -1043,7 +1045,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8071.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Mixed Fry</span>
@@ -1053,7 +1055,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8072.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Burrata & Fig</span>
@@ -1063,7 +1065,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8073.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Tuscan Crostini</span>
@@ -1080,7 +1082,7 @@
                         <p class="menu-category-sub">Strands, shapes, and house-made sauces from the heart of the kitchen.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8064.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Truffle Tagliatelle</span>
@@ -1090,7 +1092,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8065.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Vodka Rigatoni</span>
@@ -1100,7 +1102,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1645112411341-6f0a0d1fb0fd?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8066.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Ricotta Ravioli</span>
@@ -1110,7 +1112,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8067.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Ragù Pappardelle</span>
@@ -1120,7 +1122,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8068.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Amalfi Gnocchi</span>
@@ -1130,7 +1132,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1648806156178-c0f256f8d45a?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Spaghetti Carbonara</span>
@@ -1140,7 +1142,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1556761223-4c4282c73f77?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8070.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Linguine with Clams</span>
@@ -1150,7 +1152,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1612874742237-6526221588e3?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8071.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Spring Fusilli</span>
@@ -1160,7 +1162,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1663665609947-17f0a9d4adff?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8072.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">House Lasagna</span>
@@ -1170,7 +1172,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8073.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Cacio e Pepe</span>
@@ -1187,7 +1189,7 @@
                         <p class="menu-category-sub">Verdure fresche, luminose e prodotti di stagione.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8064.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Arugula Salad</span>
@@ -1197,7 +1199,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8065.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Classic Caesar</span>
@@ -1207,7 +1209,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1546793665-c74683f339c1?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8064.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Beet & Burrata</span>
@@ -1217,7 +1219,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8066.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Citrus Garden</span>
@@ -1227,7 +1229,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8067.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Italian Chopped</span>
@@ -1237,7 +1239,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1521133573892-e44906baee46?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8068.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Radicchio & Pear</span>
@@ -1254,7 +1256,7 @@
                         <p class="menu-category-sub">Generous center-of-plate choices, grilled and finished simply.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Beef Filet</span>
@@ -1264,7 +1266,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Fiorentina Steak</span>
@@ -1274,7 +1276,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1558030006-450675393462?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8070.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Braised Short Rib</span>
@@ -1284,7 +1286,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8071.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Sausage & Peppers</span>
@@ -1294,7 +1296,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8072.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Osso Buco</span>
@@ -1304,7 +1306,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Herb Roasted Chicken</span>
@@ -1321,7 +1323,7 @@
                         <p class="menu-category-sub">From the sea, cooked with honesty and restraint.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Roasted Branzino</span>
@@ -1331,7 +1333,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8073.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Lemon Salmon</span>
@@ -1341,7 +1343,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Grilled Shrimp</span>
@@ -1351,7 +1353,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8064.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Baked Sardines</span>
@@ -1361,7 +1363,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Seared Snapper</span>
@@ -1378,7 +1380,7 @@
                         <p class="menu-category-sub">Simple, generous accompaniments to share.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8065.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Roasted Potatoes</span>
@@ -1388,7 +1390,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8065.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Broccolini</span>
@@ -1398,7 +1400,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8066.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Truffle Fries</span>
@@ -1408,7 +1410,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8067.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Cacio e Pepe Fries</span>
@@ -1418,7 +1420,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1410173246974-c9d7f0c6f7ee?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8068.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Grilled Asparagus</span>
@@ -1428,7 +1430,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8067.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Rosemary Focaccia</span>
@@ -1445,7 +1447,7 @@
                         <p class="menu-category-sub">Wood-fired pies with a light crust and seasonal toppings.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Margherita</span>
@@ -1455,7 +1457,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1548365328-9f547fb9587c?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8070.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Mushroom & Truffle</span>
@@ -1465,7 +1467,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1534308983496-4fabb1a9f7a9?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8071.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Spicy Pepperoni</span>
@@ -1475,7 +1477,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Quattro Formaggi</span>
@@ -1485,7 +1487,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8072.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Prosciutto & Arugula</span>
@@ -1495,7 +1497,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1548365328-9f547fb9587c?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8070.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Potato Bianca</span>
@@ -1505,7 +1507,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1552539618-7eec9b4d1796?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8073.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Napoletana</span>
@@ -1515,7 +1517,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Diavola</span>
@@ -1525,7 +1527,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1534308983496-4fabb1a9f7a9?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8071.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Pesto & Burrata</span>
@@ -1542,7 +1544,7 @@
                         <p class="menu-category-sub">One sweet finish, served with warmth and beauty.</p>
                         <div class="menu-grid">
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8064.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Classic Tiramisù</span>
@@ -1552,7 +1554,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8065.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Vanilla Pudding</span>
@@ -1562,7 +1564,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8066.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Espresso Float</span>
@@ -1572,7 +1574,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8067.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Cannoli</span>
@@ -1582,7 +1584,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8068.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Chocolate Torte</span>
@@ -1592,7 +1594,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8069.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Lemon Tart</span>
@@ -1602,7 +1604,7 @@
                                 </div>
                             </div>
                             <div class="menu-item-card reveal">
-                                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&h=600&fit=crop');"></div>
+                                <div class="menu-item-img" style="background-image: url('img/realflora/IMG_8067.jpg');"></div>
                                 <div class="menu-item-body">
                                     <div class="menu-item-header">
                                         <span class="menu-item-name">Pasticciotto</span>
@@ -1619,13 +1621,13 @@
                     </div>
                 </div>
                 <figure class="menu-feature">
-                    <video class="menu-feature-video active" autoplay muted loop playsinline poster="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" aria-label="A quiet view of the Flora menu experience">
+                    <video class="menu-feature-video active" autoplay muted loop playsinline poster="img/realflora/IMG_8066.jpg" aria-label="A quiet view of the Flora menu experience">
                         <source src="img/flora-menu-1.mp4" type="video/mp4" />
-                        <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                        <img src="img/realflora/IMG_8066.jpg" alt="Flora restaurant interior" />
                     </video>
-                    <video class="menu-feature-video" muted loop playsinline poster="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" aria-label="Another view of the Flora menu experience">
+                    <video class="menu-feature-video" muted loop playsinline poster="img/realflora/IMG_8067.jpg" aria-label="Another view of the Flora menu experience">
                         <source src="img/flora-menu-2.mp4" type="video/mp4" />
-                        <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="A beautifully plated dish at Flora" />
+                        <img src="img/realflora/IMG_8067.jpg" alt="Flora restaurant interior" />
                     </video>
                     <figcaption>Piatto di stagione, fatti per restare a lungo.</figcaption>
                     <a class="menu-download-link" href="flora-menu.pdf" download>Download menu PDF</a>
@@ -1633,7 +1635,7 @@
             </div>
         </section>
         <section class="flora-section" id="events">
-            <div class="events-media"><img src="img/sec8.png" alt="Private dining experience at Flora" /></div>
+            <div class="events-media"><img src="img/realflora/IMG_8068.jpg" alt="Private dining experience at Flora" /></div>
             <div class="events-layout">
                 <div class="flora-section-head">
                     <!-- <div class="section-kicker">Private events</div> -->
@@ -1710,7 +1712,7 @@
                 <img class="flora-book-mark" src="img/che2vector.png" alt="" />
                 <a class="button" href="mailto:hello@lafelicita.group?subject=Flora reservation">Book a table</a>
             </div>
-            <div class="flora-book-media"><img src="img/WhatsApp Image 2026-08-28 at 3.53.51 PM (1).jpeg" alt="Flora dining room illustration" /></div>
+            <div class="flora-book-media"><img src="img/realflora/IMG_8069.jpg" alt="Flora dining room" /></div>
         </section>
         <section class="flora-section flora-gifts" id="giftcards">
             <div class="flora-section-head">
@@ -1726,9 +1728,9 @@
             <!-- </div> -->
         </section>
         <section class="gallery" aria-label="Flora dining gallery">
-            <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.50%20PM.jpeg" alt="Candlelit Flora dining room" />
-            <img src="img/img3.jpeg" alt="Flora Italian dining table" />
-            <img src="img/WhatsApp%20Image%202026-08-28%20at%203.53.52%20PM.jpeg" alt="Flora dining detail" />
+            <img src="img/realflora/IMG_8070.jpg" alt="Flora dining room" />
+            <img src="img/realflora/IMG_8071.jpg" alt="Flora Italian dining table" />
+            <img src="img/realflora/IMG_8072.jpg" alt="Flora dining detail" />
         </section>
         <!-- <section class="reserve">
             <div class="section-kicker">Il tuo tavolo ti aspetta</div>
