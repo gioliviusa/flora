@@ -227,8 +227,8 @@
             border-bottom-color: rgba(184, 138, 90, 0.3);
         }
         .header-logo {
-            background: #F4F2D6;
-            border-radius: 16px;
+            background: transparent;
+            border-radius: 0;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -243,7 +243,7 @@
             height: 100%;
             width: 100%;
             object-fit: contain;
-            border-radius: 16px;
+            border-radius: 0;
             transform: scale(1.5);
         }
         .header-logo .logo-flower {
@@ -351,7 +351,7 @@
         .nav-overlay { align-items: stretch; background: #F4F2D6; border: 1px solid var(--dark-border); box-shadow: 0 18px 42px rgba(52, 41, 33, 0.18); display: none; gap: 0; justify-content: flex-start; left: 20px; max-height: calc(100vh - 100px); opacity: 0; overflow-y: auto; padding: 24px; pointer-events: none; position: fixed; right: auto; top: 76px; transition: opacity 0.25s ease; width: min(390px, calc(100vw - 32px)); z-index: 1001; }
         .nav-overlay.active { display: block; opacity: 1; pointer-events: auto; }
         .nav-overlay .nav-close { display: none; }
-        .nav-overlay .site-menu-logo { background: #F4F2D6; border-radius: 16px; display: block; height: 52px; margin-bottom: 20px; width: auto; }
+        .nav-overlay .site-menu-logo { background: #F4F2D6; border-radius: 0; display: block; height: 52px; margin-bottom: 20px; width: auto; }
         .nav-overlay .site-menu-label { color: var(--warm-gold); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
         .nav-overlay .site-menu-primary, .nav-overlay .site-menu-secondary { display: grid; }
         .nav-overlay .site-menu-primary { gap: 4px; }
@@ -501,7 +501,7 @@
         .nav-overlay { align-items: stretch; background: #F4F2D6; border: 1px solid var(--dark-border); box-shadow: 0 18px 42px rgba(52, 41, 33, 0.18); display: none; gap: 0; justify-content: flex-start; left: 20px; max-height: calc(100vh - 100px); opacity: 0; overflow-y: auto; padding: 24px; pointer-events: none; position: fixed; right: auto; top: 76px; transition: opacity 0.25s ease; width: min(390px, calc(100vw - 32px)); z-index: 1001; }
         .nav-overlay.active { display: block; opacity: 1; pointer-events: auto; }
         .nav-overlay .nav-close { display: none; }
-        .nav-overlay .site-menu-logo { border-radius: 16px; display: block; height: 52px; margin-bottom: 20px; width: auto; }
+        .nav-overlay .site-menu-logo { border-radius: 0; display: block; height: 52px; margin-bottom: 20px; width: auto; }
         .nav-overlay .site-menu-label { color: var(--warm-gold); display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; }
         .nav-overlay .site-menu-primary, .nav-overlay .site-menu-secondary { display: grid; }
         .nav-overlay .site-menu-primary { gap: 4px; }
@@ -2342,7 +2342,7 @@
     <!-- ═══════════════ HEADER ═══════════════ -->
     <header class="header" id="header">
         <a href="#" class="header-logo" aria-label="La Felicita Group home">
-            <img src="img/lafelicitalogo.jpeg" alt="La Felicita Group logo" />
+            <img src="img/lafelicitalogo-nav.png" alt="La Felicita Group logo" />
         </a>
         <nav class="header-nav-desktop" id="desktopNav">
             <a href="#restaurants">Restaurants</a>
@@ -2601,10 +2601,10 @@
                     <h2>A little romance, a lot of pasta.</h2>
                     <!-- <p>Private Italian dining experiences shaped by candlelight, generous tables, and the joy of gathering.</p> -->
                     <div class="social-links">
-                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer">
+                        <a href="https://www.instagram.com/lafelicita.us/?hl=en/" aria-label="Instagram" target="_blank" rel="noreferrer">
                             <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" /></svg>
                         </a>
-                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noreferrer">
+                        <a href="https://www.facebook.comlafelicita.us/" aria-label="Facebook" target="_blank" rel="noreferrer">
                             <svg aria-hidden="true" viewBox="0 0 24 24" role="img"><path d="M13.5 21v-8h2.75l.41-3H13.5V8.08c0-.87.24-1.46 1.5-1.46h1.79V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.48V10H7v3h2.81v8h3.69Z" /></svg>
                         </a>
                         <a href="https://www.tiktok.com/" aria-label="TikTok" target="_blank" rel="noreferrer">
@@ -2642,7 +2642,7 @@
                 <span>© 2026 La Felicità Group.</span>
                 <a href="https://apexstryke.com" target="_blank" rel="noreferrer">Powered by apexstryke.com</a>
                 <div class="footer-legal">
-                    <a href="#faq">Accessibility</a>
+                    <!-- <a href="#faq">Accessibility</a> -->
                     <a href="privacy.html">Privacy</a>
                     <a href="terms.html">Terms</a>
                     <span class="footer-candle" aria-hidden="true">🕯️</span>
