@@ -163,6 +163,8 @@
             padding: clamp(24px, 4vw, 56px) max(24px, calc((100vw - 1100px) / 2 + 24px));
             width: 100vw;
         }
+        .menu-section:not(.menu-open) .menu-inner { display: none; }
+        .menu-section:not([data-meal='brunch']) .meal-brunch, .menu-section:not([data-meal='dinner']) .meal-dinner, .menu-section[data-meal='brunch'] .menu-category:not(.meal-brunch), .menu-section[data-meal='dinner'] .menu-category:not(.meal-dinner) { display: none; }
         .menu-section.menu-active .menu-inner {
             grid-template-columns: minmax(0, 1fr);
         }
@@ -962,9 +964,9 @@
                     <!-- <div class="section-kicker">Something to eat</div> -->
                     <h2>Come hungry.</h2>
                     <div class="menu-quicklinks">
-                        <a class="menu-quicklink" href="#antipasti">Brunch</a>
+                        <a class="menu-quicklink" href="#brunch-main">Brunch</a>
                         <a class="menu-quicklink" href="#insalate">Lunch</a>
-                        <a class="menu-quicklink" href="#big-cuts">Dinner</a>
+                        <a class="menu-quicklink" href="#dinner-antipasti">Dinner</a>
                         <a class="menu-quicklink" href="#giftcards">Wines &amp; cocktails</a>
                     </div>
                     <!-- <div class="menu-quick-tagline">Another, please.</div> -->
@@ -972,6 +974,1104 @@
             </div>
             <div class="menu-inner">
                 <div class="menu-content">
+                    <div class="menu-category meal-brunch" id="brunch-main">
+                        <h2 class="menu-category-title">Brunch</h2>
+                        <p class="menu-category-sub">Weekend plates to start the day slowly.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Avocado Toast with Stracciatella and Pistachio</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, tree nuts, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Eggs in Purgatory</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Buongiorno Amore</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Croissant Benedict with San Daniele Prosciutto</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Burrata &amp; San Daniele Prosciutto + focaccia</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Steak &amp; Eggs</span>
+                                        <span class="menu-item-price">$29</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: eggs.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Truffle Scramble</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Cantarelle with Nutella</span>
+                                        <span class="menu-item-price">$13</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, tree nuts, wheat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-brunch" id="brunch-sides">
+                        <h2 class="menu-category-title">Sides &amp; Add-ons</h2>
+                        <p class="menu-category-sub">Build your table.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Assortimento di Pani</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Flora Fruit Basket</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Roasted Potatoes</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Just One More Fry</span>
+                                        <span class="menu-item-price">$8</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Truffle Mashed Potatoes</span>
+                                        <span class="menu-item-price">$10</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Sautéed Green Beans</span>
+                                        <span class="menu-item-price">$6</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Seasonal Vegetables</span>
+                                        <span class="menu-item-price">$10</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Sautéed Spinach</span>
+                                        <span class="menu-item-price">$8</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Truffle Fries</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add focaccia</span>
+                                        <span class="menu-item-price">$6</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add burrata</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add eggs* your way</span>
+                                        <span class="menu-item-price">$6</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: eggs.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Spaghetti al Pomodoro</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Spaghetti al Pomodoro (Kids)</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add stracciatella</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Mozzarella di Buffala</span>
+                                        <span class="menu-item-price">$6</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Prosciutto San Daniele</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Grilled Chicken</span>
+                                        <span class="menu-item-price">$14</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Milanese Chicken</span>
+                                        <span class="menu-item-price">$16</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-brunch" id="brunch-veloce">
+                        <h2 class="menu-category-title">Veloce</h2>
+                        <p class="menu-category-sub">Quick bites, panini and piadina.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Flora Piadina</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Caponata Siciliana Panini - We also love vegans</span>
+                                        <span class="menu-item-price">$15</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Chicken Parm Panini with mozzarella cheese</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Nonna's Secret Meatballs Panini</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-antipasti">
+                        <h2 class="menu-category-title">Antipasti</h2>
+                        <p class="menu-category-sub">To begin, small plates made for sharing.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Bruschetta Classica</span>
+                                        <span class="menu-item-price">$14</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Stracciatella e Focaccia</span>
+                                        <span class="menu-item-price">$17</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Stracciatella e Focaccia 30 gr</span>
+                                        <span class="menu-item-price">$26</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Burrata XL</span>
+                                        <span class="menu-item-price">$24</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Burrata</span>
+                                        <span class="menu-item-price">$20 / $24</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Salumi e Formaggi</span>
+                                        <span class="menu-item-price">$21 / $40</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, tree nuts, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Vitello Tonnato</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: eggs, fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Nonna's Secret Meatballs</span>
+                                        <span class="menu-item-price">$19</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">The Original Arancino Siciliano</span>
+                                        <span class="menu-item-price">$17</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Carpaccio to Fall in Love</span>
+                                        <span class="menu-item-price">$25</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Peppata de Vongole e Cozze</span>
+                                        <span class="menu-item-price">$19</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Fritto Misto della Costa</span>
+                                        <span class="menu-item-price">$22 / $29</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, crustaceans, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Oliva Ascolana</span>
+                                        <span class="menu-item-price">$10</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Schiacciata</span>
+                                        <span class="menu-item-price">$6</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-insalate">
+                        <h2 class="menu-category-title">Salads</h2>
+                        <p class="menu-category-sub">Fresh, crisp and made to share.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Caesar Salad</span>
+                                        <span class="menu-item-price">$15</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, fish, wheat, soy.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Little Flora Salad</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">The One from Capri</span>
+                                        <span class="menu-item-price">$15</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Tuna Niçoise Salad</span>
+                                        <span class="menu-item-price">$29</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: eggs, fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Cool as a Cucumber Salad</span>
+                                        <span class="menu-item-price">$13</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Insalata di Mare</span>
+                                        <span class="menu-item-price">$26</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: crustaceans.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-pasta">
+                        <h2 class="menu-category-title">The Pasta</h2>
+                        <p class="menu-category-sub">Handmade and generous.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Sundays at Nonna's Ragu</span>
+                                        <span class="menu-item-price">$21</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Alla Vodka</span>
+                                        <span class="menu-item-price">$23</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Cacio e Pepe</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Carbonara</span>
+                                        <span class="menu-item-price">$24</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Amatriciana</span>
+                                        <span class="menu-item-price">$22 / $26</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Pesto Genovese</span>
+                                        <span class="menu-item-price">$21 / $23</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, tree nuts, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Alla Sorrentina</span>
+                                        <span class="menu-item-price">$22 / $25</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Truffle Lasagna</span>
+                                        <span class="menu-item-price">$28</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Frutti di Mare</span>
+                                        <span class="menu-item-price">$29 / $32</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: crustaceans, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Alfredo</span>
+                                        <span class="menu-item-price">$21 / $23</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Alle Vongole</span>
+                                        <span class="menu-item-price">$25</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-big-cuts">
+                        <h2 class="menu-category-title">Big Cuts</h2>
+                        <p class="menu-category-sub">From the grill.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">The Gigante Milanese</span>
+                                        <span class="menu-item-price">$59</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">The king of steaks</span>
+                                        <span class="menu-item-price">$160</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Ribeye</span>
+                                        <span class="menu-item-price">$48</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Chicken Paillard</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Lamb Chops Scottadito</span>
+                                        <span class="menu-item-price">$46</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Tagliata Rucola &amp; Grana</span>
+                                        <span class="menu-item-price">$44 / $46</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-fresh-catches">
+                        <h2 class="menu-category-title">Fresh Catch</h2>
+                        <p class="menu-category-sub">From the sea to your table.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Branzino</span>
+                                        <span class="menu-item-price">$40</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Atlantic Salmon</span>
+                                        <span class="menu-item-price">$34</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Yellowfin Tuna</span>
+                                        <span class="menu-item-price">$42</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish, soy, sesame.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Shrimply The Best</span>
+                                        <span class="menu-item-price">$43</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: crustaceans.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Polpo Grigliato</span>
+                                        <span class="menu-item-price">$24</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-america">
+                        <h2 class="menu-category-title">Because We Love America</h2>
+                        <p class="menu-category-sub">Italian-American favorites.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Cheeseburger</span>
+                                        <span class="menu-item-price">$28</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Chicken Parm</span>
+                                        <span class="menu-item-price">$32</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Spaghetti with Nonna's Secret Meatballs</span>
+                                        <span class="menu-item-price">$25</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-sides">
+                        <h2 class="menu-category-title">Sides &amp; Add-ons</h2>
+                        <p class="menu-category-sub">Build your table.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Just One More Fry</span>
+                                        <span class="menu-item-price">$8</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Roasted Potatoes</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Sautéed Spinach</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Spaghetti al Pomodoro</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Spaghetti al Pomodoro (Kids)</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Truffle Mashed Potatoes</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Sautéed Green Beans</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Truffle Fries</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Seasonal Vegetables</span>
+                                        <span class="menu-item-price">$12</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Mozzarella di Buffala</span>
+                                        <span class="menu-item-price">$6</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Prosciutto San Daniele</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Burrata</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Stracciatella</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Focaccia</span>
+                                        <span class="menu-item-price">$6</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Smoked Pancetta</span>
+                                        <span class="menu-item-price">$5</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Guanciale</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Steak</span>
+                                        <span class="menu-item-price">$24</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Grilled Chicken</span>
+                                        <span class="menu-item-price">$14</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Milanese Chicken</span>
+                                        <span class="menu-item-price">$16</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Grilled Shrimp</span>
+                                        <span class="menu-item-price">$15</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: crustaceans.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Add Grilled Salmon</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: fish.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-pizze">
+                        <h2 class="menu-category-title">Pizzas</h2>
+                        <p class="menu-category-sub">Roman style, crispy.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Quattro Formaggi</span>
+                                        <span class="menu-item-price">$21</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Truffle Dream</span>
+                                        <span class="menu-item-price">$25</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">San Daniele</span>
+                                        <span class="menu-item-price">$26</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Flora Mia</span>
+                                        <span class="menu-item-price">$25</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, tree nuts, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Margherita</span>
+                                        <span class="menu-item-price">$18</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Pepperoni Fever</span>
+                                        <span class="menu-item-price">$20</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Regina</span>
+                                        <span class="menu-item-price">$23</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Burrata Queen</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Parmigiana</span>
+                                        <span class="menu-item-price">$23</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-category meal-dinner" id="dinner-dolci">
+                        <h2 class="menu-category-title">Desserts</h2>
+                        <p class="menu-category-sub">Sweet endings, to share or just for you.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Gelato La Felicità Vanilla</span>
+                                        <span class="menu-item-price">$20</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, tree nuts.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Gelato La Felicità Pistacchio</span>
+                                        <span class="menu-item-price">$20</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, tree nuts.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Bianconero Mousse with Whipped Cream</span>
+                                        <span class="menu-item-price">$22</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Profiterolone</span>
+                                        <span class="menu-item-price">$21</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Affogato Felicità</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Panna e Fragole</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk.</p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Tiramisu al Cucchiaio</span>
+                                        <span class="menu-item-price">$9</span>
+                                    </div>
+                                    <p class="menu-item-desc"></p>
+                                </div>
+                            </div>
+                            <div class="menu-item-card reveal">
+                                <div class="menu-item-body">
+                                    <div class="menu-item-header">
+                                        <span class="menu-item-name">Flora Lemon Pie</span>
+                                        <span class="menu-item-price">$13</span>
+                                    </div>
+                                    <p class="menu-item-desc">Contains: milk, eggs, wheat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="menu-category" id="antipasti">
                         <h2 class="menu-category-title">Antipasti</h2>
                         <p class="menu-category-sub">To begin, small plates made for sharing.</p>
@@ -2001,6 +3101,9 @@
                 }
                 menuSection.classList.toggle('menu-active', !isOpen);
             };
+            category.openCategory = () => {
+                if (!category.classList.contains('open')) toggleCategory();
+            };
 
             title.addEventListener('click', toggleCategory);
             title.addEventListener('keydown', (event) => {
@@ -2008,6 +3111,18 @@
                     event.preventDefault();
                     toggleCategory();
                 }
+            });
+        });
+
+        document.querySelectorAll('.menu-quicklink').forEach((link) => {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (!target || !target.classList.contains('menu-category')) return;
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                menuSection.classList.add('menu-open');
+                menuSection.dataset.meal = ['brunch', 'dinner'].find((meal) => target.classList.contains('meal-' + meal)) || '';
+                target.openCategory();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
